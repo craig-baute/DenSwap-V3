@@ -78,8 +78,16 @@ export const AnalyticsMap: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-block px-5 py-2.5 bg-purple-100 border border-purple-200 rounded-full text-sm font-semibold text-purple-800 mb-6">
-              Coming Q2 2025
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-sm font-bold mb-8 shadow-lg border-2 border-white/20 backdrop-blur-sm">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-white/70 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                <div className="w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+              </div>
+              <span>Coming Q2 2025</span>
+              <div className="bg-white/20 px-2 py-1 rounded text-xs font-semibold">
+                PREVIEW
+              </div>
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -95,30 +103,36 @@ export const AnalyticsMap: React.FC = () => {
             </p>
             
             {!isSubscribed ? (
-              <form onSubmit={handleNotifyMe} className="flex flex-col sm:flex-row gap-4 justify-center mb-8 max-w-md mx-auto">
+              <form onSubmit={handleNotifyMe} className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-6 py-4 border-2 border-gray-300 rounded-xl text-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="flex-1 px-6 py-4 border-2 border-white/30 rounded-xl text-lg bg-white/15 backdrop-blur-sm text-white placeholder-white/80 focus:ring-2 focus:ring-white/60 focus:border-white/60 shadow-lg"
                   required
                 />
                 <button 
                   type="submit"
-                  className="group bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center"
+                  className="group bg-white text-purple-600 px-8 py-4 rounded-xl text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center relative overflow-hidden shadow-lg"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10 flex items-center gap-2">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-blue-400/20 animate-pulse"></div>
+                  <span className="relative z-10 flex items-center gap-2">
                   <Bell className="mr-2 h-5 w-5" />
                   Notify Me
+                  </span>
+                  </span>
                 </button>
               </form>
             ) : (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6 max-w-md mx-auto mb-8">
+              <div className="bg-white/15 backdrop-blur-sm border-2 border-white/30 rounded-xl p-6 max-w-md mx-auto shadow-lg">
                 <div className="flex items-center justify-center gap-2 text-green-800 font-semibold mb-2">
                   <CheckCircle className="h-5 w-5" />
                   You're on the list!
                 </div>
-                <p className="text-green-700 text-sm">We'll notify you as soon as Analytics Map launches.</p>
+                <p className="text-purple-100 text-sm">We'll contact you with exclusive early access details when Analytics Map launches.</p>
               </div>
             )}
             

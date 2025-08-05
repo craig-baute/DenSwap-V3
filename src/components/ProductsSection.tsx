@@ -87,8 +87,8 @@ export const ProductsSection: React.FC = () => {
                 )}
                 
                 {product.comingSoon && (
-                  <div className="absolute -top-3 right-4">
-                    <span className="bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <div className="absolute -top-3 right-4 z-10">
+                    <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white animate-pulse">
                       COMING SOON
                     </span>
                   </div>
@@ -134,14 +134,26 @@ export const ProductsSection: React.FC = () => {
                       window.location.href = '/analytics-map';
                     }
                   }}
-                  className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
+                  className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 ${
                     product.comingSoon 
-                      ? 'bg-gray-100 text-gray-500 cursor-not-allowed' 
+                      ? 'bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 cursor-not-allowed border-2 border-purple-200 relative overflow-hidden' 
                       : `bg-gradient-to-r ${colorClasses[product.color as keyof typeof colorClasses].split(' ')[0]} ${colorClasses[product.color as keyof typeof colorClasses].split(' ')[1]} text-white hover:shadow-lg hover:scale-105`
                   }`}
                   disabled={product.comingSoon}
                 >
-                  {product.comingSoon ? 'Notify Me' : 'Get Started'}
+                  {product.comingSoon && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 animate-pulse"></div>
+                  )}
+                  <span className="relative z-10 flex items-center gap-2">
+                    {product.comingSoon ? (
+                      <>
+                        <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+                        Notify Me
+                      </>
+                    ) : (
+                      'Get Started'
+                    )}
+                  </span>
                   {!product.comingSoon && <ArrowRight className="h-4 w-4" />}
                 </button>
               </div>

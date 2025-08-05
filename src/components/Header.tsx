@@ -34,9 +34,14 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
                   <a href="/feasibility-study" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
                     Feasibility Study
                   </a>
-                  <a href="/analytics-map" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
-                    Map Analytics
-                  </a>
+                  <div className="relative">
+                    <a href="/analytics-map" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors flex items-center justify-between">
+                      <span>Map Analytics</span>
+                      <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-sm">
+                        Coming Soon
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -84,7 +89,12 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
                     Feasibility Study
                   </a>
                   <a href="/analytics-map" className="block py-2 text-gray-600 hover:text-emerald-600 transition-colors">
-                    Map Analytics
+                    <div className="flex items-center justify-between">
+                      <span>Map Analytics</span>
+                      <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                        Coming Soon
+                      </span>
+                    </div>
                   </a>
                 </div>
               </div>
