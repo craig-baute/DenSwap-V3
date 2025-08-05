@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
-import { TrendingUp, Building, Users, DollarSign, CheckCircle, ArrowRight, BarChart3, Target, Clock, MapPin, Calculator, PieChart, Settings, Palette, Wifi } from 'lucide-react';
+import { TrendingUp, Building, Users, DollarSign, CheckCircle, ArrowRight, BarChart3, Target, Clock, MapPin, Calculator, PieChart, Settings, Palette, Wifi, FileText } from 'lucide-react';
 
 export const FeasibilityStudy: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -109,6 +109,13 @@ export const FeasibilityStudy: React.FC = () => {
                 Order a Feasibility Report
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
+              <a 
+                href="/sample-report"
+                className="group bg-white border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-xl text-lg font-bold hover:bg-emerald-50 hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+              >
+                <FileText className="mr-2 h-5 w-5" />
+                Download Sample Feasibility Study
+              </a>
             </div>
           </div>
         </div>
@@ -311,13 +318,22 @@ export const FeasibilityStudy: React.FC = () => {
           </div>
 
           <div className="text-center mt-12">
-            <button 
-              onClick={handleOrderReport}
-              className="group bg-gradient-to-r from-emerald-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center"
-            >
-              Order Your Feasibility Study
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={handleOrderReport}
+                className="group bg-gradient-to-r from-emerald-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
+              >
+                Order Your Feasibility Study
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a 
+                href="/sample-report"
+                className="group bg-white border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-xl text-lg font-bold hover:bg-emerald-50 hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center"
+              >
+                <FileText className="mr-2 h-5 w-5" />
+                Download Sample Study
+              </a>
+            </div>
           </div>
         </div>
       </section>
