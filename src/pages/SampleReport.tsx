@@ -166,8 +166,8 @@ export const SampleReport: React.FC = () => {
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Get Your Free Sample
-              <span className="text-blue-600"> Feasibility Report</span>
+              Download a Sample Coworking
+              <span className="text-blue-600"> Feasibility Study</span>
             </h1>
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
