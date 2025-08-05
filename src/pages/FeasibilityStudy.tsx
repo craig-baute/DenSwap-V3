@@ -320,10 +320,11 @@ export const FeasibilityStudy: React.FC = () => {
           <div className="text-center mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
+                href="/order-feasibility-report"
                 onClick={handleOrderReport}
                 className="group bg-gradient-to-r from-emerald-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
               >
-                Order Your Feasibility Boom 
+                Order Your Feasibility Study 
               
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
