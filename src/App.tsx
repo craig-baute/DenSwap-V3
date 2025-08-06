@@ -26,6 +26,8 @@ import { AnalyticsMap } from './pages/AnalyticsMap';
 import { Contact } from './pages/Contact';
 import { About } from './pages/About';
 import CaseStudies from './pages/CaseStudies';
+import { REITsInvestmentFunds } from './pages/REITsInvestmentFunds';
+import { CoworkingOperators } from './pages/CoworkingOperators';
 
 // Homepage Component
 const HomePage: React.FC = () => {
@@ -66,6 +68,8 @@ const App: React.FC = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/reits-investment-funds" element={<REITsInvestmentFunds />} />
+        <Route path="/coworking-operators" element={<CoworkingOperators />} />
       </Routes>
     </Router>
   );

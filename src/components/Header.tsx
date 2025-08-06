@@ -45,6 +45,22 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
                 </div>
               </div>
             </div>
+            <div className="relative group">
+              <button className="flex items-center text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+                Use Cases
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="py-2">
+                  <a href="/reits-investment-funds" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                    REITs & Investment Funds
+                  </a>
+                  <a href="/coworking-operators" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                    Coworking Operators
+                  </a>
+                </div>
+              </div>
+            </div>
             <a href="/blog" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
               Blog
             </a>
@@ -110,6 +126,17 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
               <a href="/contact" className="block px-3 py-2 text-gray-700 hover:text-emerald-600 transition-colors">
                 Contact
               </a>
+              <div className="px-3 py-2">
+                <div className="font-medium text-gray-900 mb-2">Use Cases</div>
+                <div className="pl-4 space-y-2">
+                  <a href="/reits-investment-funds" className="block py-2 text-gray-600 hover:text-emerald-600 transition-colors">
+                    REITs & Investment Funds
+                  </a>
+                  <a href="/coworking-operators" className="block py-2 text-gray-600 hover:text-emerald-600 transition-colors">
+                    Coworking Operators
+                  </a>
+                </div>
+              </div>
               <a href="/sample-report" className="block mx-3 mt-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-3 rounded-lg font-semibold text-center">
                 Download a Sample Report
               </a>
