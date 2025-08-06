@@ -92,7 +92,7 @@ export const CoworkingOperators: React.FC = () => {
               <div className="text-lg text-gray-700 leading-relaxed">
                 <p className="mb-6">
                   <strong>WeWork failed because they prioritized growth over fundamentals.</strong> They opened 
-                  locations based on hype, not data. They confused "busy coffee shops" with "viable coworking markets."
+                  locations based on hype, not data. They confused "busy coffee shops\" with "viable coworking markets."
                 </p>
                 <p className="mb-6">
                   Smart operators are taking the opposite approach. They're using market intelligence to 
@@ -287,7 +287,7 @@ export const CoworkingOperators: React.FC = () => {
               <div className="text-lg text-gray-700 leading-relaxed">
                 <p className="mb-6">
                   <strong>The average coworking build-out costs $1-2 million.</strong> Get the location wrong, 
-                  and you're not just losing money—you're potentially killing your brand and investor confidence.
+                  and you're not just losing money—you\'re potentially killing your brand and investor confidence.
                 </p>
                 <p className="mb-6">
                   Failed locations drain resources from successful ones. They create negative cash flow that 
