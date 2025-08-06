@@ -2,7 +2,7 @@ import React from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
-import { TrendingUp, Building, Users, DollarSign, Target, BarChart3, CheckCircle, ArrowRight, Calendar, FileText, Shield, MapPin, Zap, Award, AlertTriangle } from 'lucide-react';
+import { TrendingUp, Building, Users, DollarSign, Target, BarChart3, CheckCircle, ArrowRight, Calendar, FileText, Shield, MapPin, Zap, Award, AlertTriangle, Clock } from 'lucide-react';
 
 export const REITsInvestmentFunds: React.FC = () => {
   return (
