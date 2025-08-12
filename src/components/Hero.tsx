@@ -13,7 +13,7 @@ export const Hero: React.FC = () => {
         <div className="text-center relative">
           <div className="inline-flex items-center px-5 py-2.5 bg-white/90 backdrop-blur-sm border border-gray-300 rounded-full text-sm font-semibold text-gray-800 mb-8 shadow-sm">
             <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse"></span>
-            Trusted by 100+ property owners across multiple states
+            Trusted by 100+ property owners across the US
           </div>
           
           <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
