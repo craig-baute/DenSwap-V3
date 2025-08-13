@@ -54,8 +54,8 @@ export const Hero: React.FC = () => {
                 <MapPin className="h-6 w-6 text-white" />
               </div>
               <div className="text-left">
-                <div className="text-2xl font-black text-gray-900">All</div>
-                <div className="text-gray-700 text-sm font-medium">Zip Codes</div>
+                <div className="text-2xl font-black text-gray-900">35,000+</div>
+                <div className="text-gray-700 text-sm font-medium"> Zip Codes Analyzed</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
