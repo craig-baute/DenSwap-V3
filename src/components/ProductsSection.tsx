@@ -54,16 +54,20 @@ export const ProductsSection: React.FC = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-emerald-50/30 bg-[size:32px_32px] opacity-40"></div>
       
-      {/* Geometric Background Elements */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-gray-100/30 blur-3xl transform -translate-x-1/2" style={{
-        borderRadius: '60% 40% 70% 30% / 40% 60% 30% 70%'
+      {/* Subtle Corner Geometric Elements */}
+      <div className="absolute -top-10 -left-10 w-40 h-40 bg-gray-100/15 blur-xl" style={{
+        borderRadius: '60% 40% 70% 30% / 40% 60% 30% 70%',
+        zIndex: 0
       }}></div>
-      <div className="absolute bottom-1/3 right-0 w-80 h-80 bg-gray-200/25 blur-2xl transform translate-x-1/2 rotate-45" style={{
-        clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
+      <div className="absolute -top-8 -right-8 w-32 h-32 bg-gray-200/12 blur-lg transform rotate-45" style={{
+        clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)',
+        zIndex: 0
       }}></div>
-      <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-gray-100/40 transform rotate-12" style={{
-        borderRadius: '50% 20% 80% 30% / 30% 80% 20% 50%'
+      <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-gray-100/18 transform rotate-12" style={{
+        borderRadius: '50% 20% 80% 30% / 30% 80% 20% 50%',
+        zIndex: 0
       }}></div>
+      <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-gray-200/10 rounded-full blur-xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">

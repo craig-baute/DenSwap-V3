@@ -6,8 +6,10 @@ export const TestimonialSection: React.FC = () => {
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-gray-100/40 bg-[size:30px_30px] opacity-25"></div>
-      <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-emerald-100/40 to-green-100/40 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-tr from-blue-100/40 to-teal-100/40 rounded-full blur-3xl"></div>
+      
+      {/* Subtle Corner Geometric Elements */}
+      <div className="absolute -top-12 -right-12 w-48 h-48 bg-gray-100/15 rounded-full blur-xl" style={{ zIndex: 0 }}></div>
+      <div className="absolute -bottom-12 -left-12 w-52 h-52 bg-gray-200/12 rounded-full blur-xl" style={{ zIndex: 0 }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

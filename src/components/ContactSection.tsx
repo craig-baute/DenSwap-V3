@@ -27,16 +27,20 @@ export const ContactSection: React.FC = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-emerald-100/15 bg-[size:36px_36px] opacity-25"></div>
       
-      {/* Geometric Background Elements */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-gray-100/30 blur-3xl transform -translate-y-1/2 -translate-x-1/2" style={{
-        borderRadius: '50% 30% 70% 40% / 40% 70% 30% 50%'
+      {/* Subtle Corner Geometric Elements */}
+      <div className="absolute -top-10 -left-10 w-40 h-40 bg-gray-100/12 blur-xl" style={{
+        borderRadius: '50% 30% 70% 40% / 40% 70% 30% 50%',
+        zIndex: 0
       }}></div>
-      <div className="absolute top-1/2 right-0 w-72 h-72 bg-gray-200/25 blur-2xl transform -translate-y-1/2 translate-x-1/2 rotate-30" style={{
-        clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
+      <div className="absolute -top-8 -right-8 w-36 h-36 bg-gray-200/10 blur-lg transform rotate-30" style={{
+        clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
+        zIndex: 0
       }}></div>
-      <div className="absolute top-1/4 left-1/2 w-56 h-56 bg-gray-100/35 transform -translate-x-1/2 -rotate-45" style={{
-        borderRadius: '60% 40% 30% 70% / 30% 60% 70% 40%'
+      <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-gray-100/15 transform -rotate-45 blur-xl" style={{
+        borderRadius: '60% 40% 30% 70% / 30% 60% 70% 40%',
+        zIndex: 0
       }}></div>
+      <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-gray-200/12 rounded-full blur-xl" style={{ zIndex: 0 }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
