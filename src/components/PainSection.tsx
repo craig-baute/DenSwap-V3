@@ -90,5 +90,3 @@ export const PainSection: React.FC = () => {
     </>
   );
 };
-  );
-};
