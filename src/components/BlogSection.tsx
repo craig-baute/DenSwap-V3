@@ -30,9 +30,9 @@ export const BlogSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-24 bg-emerald-600 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-gray-200/20 bg-[size:28px_28px] opacity-30"></div>
+      <div className="absolute inset-0 bg-grid-white/10 bg-[size:28px_28px] opacity-30"></div>
       
       {/* Subtle Corner Geometric Elements */}
       <div className="absolute -top-10 -left-10 w-40 h-40 bg-gray-100/15 blur-xl" style={{
@@ -46,18 +46,18 @@ export const BlogSection: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
             Latest Industry
-            <span className="text-emerald-600"> Insights</span>
+            <span className="text-emerald-200"> Insights</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
             Stay ahead of the curve with expert analysis and real-world insights from the coworking industry.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
-            <article key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 group">
+            <article key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg border border-white/20 overflow-hidden hover:shadow-xl transition-all duration-300 group">
               <div className="relative overflow-hidden">
                 <img 
                   src={post.image} 
@@ -65,7 +65,7 @@ export const BlogSection: React.FC = () => {
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-gradient-to-r from-green-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <span className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-3 py-1 rounded-full text-xs font-semibold">
                     {post.category}
                   </span>
                 </div>
@@ -73,6 +73,7 @@ export const BlogSection: React.FC = () => {
               
               <div className="p-6">
                 <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                <div className="flex items-center gap-4 text-sm text-emerald-200 mb-3">
                   <div className="flex items-center gap-1">
                     <Calendar className="h-4 w-4" />
                     {post.date}
@@ -83,15 +84,15 @@ export const BlogSection: React.FC = () => {
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-emerald-200 transition-colors">
                   {post.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-emerald-100 mb-4 leading-relaxed">
                   {post.excerpt}
                 </p>
                 
-                <a href="#" className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors group">
+                <a href="#" className="inline-flex items-center text-emerald-200 font-semibold hover:text-emerald-100 transition-colors group">
                   Read More
                   <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
