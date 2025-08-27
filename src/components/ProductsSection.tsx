@@ -99,13 +99,7 @@ export const ProductsSection: React.FC = () => {
                   </div>
                 )}
                 
-                {product.comingSoon && (
-                  <div className="absolute -top-3 right-4 z-10">
-                    <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg border-2 border-white animate-pulse">
-                      COMING SOON
-                    </span>
-                  </div>
-                )}
+  
 
                 <div className={`bg-gradient-to-br ${colorClasses[product.color as keyof typeof colorClasses].split(' ')[0]} ${colorClasses[product.color as keyof typeof colorClasses].split(' ')[1]} p-4 rounded-2xl w-16 h-16 flex items-center justify-center mb-6`}>
                   <Icon className="h-8 w-8 text-white" />
