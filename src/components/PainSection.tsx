@@ -87,7 +87,8 @@ export const PainSection: React.FC = () => {
           </div>
         </div>
       </section>
-};
     </>
+  );
+};
   );
 };
