@@ -90,7 +90,6 @@ export const ProductsSection: React.FC = () => {
             };
 
             return (
-              <div key={index} className={`bg-white rounded-2xl shadow-lg border-2 ${product.featured ? 'border-green-200 relative' : 'border-gray-100'} p-8 hover:shadow-xl transition-all duration-300 ${product.comingSoon ? 'opacity-75' : ''}`}>
               <div key={index} className={`bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg border ${product.featured ? 'border-white/40 relative' : 'border-white/20'} p-8 hover:shadow-xl transition-all duration-300 ${product.comingSoon ? 'opacity-75' : ''}`}>
                 {product.featured && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">

@@ -43,7 +43,6 @@ export const SolutionSection: React.FC = () => {
                 <MapPin className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
                 <h3 className="text-2xl font-bold text-white mb-3">
                   Human-Centric Location Analysis
                 </h3>
