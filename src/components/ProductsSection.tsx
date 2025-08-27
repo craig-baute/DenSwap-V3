@@ -50,37 +50,32 @@ export const ProductsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-emerald-600 relative overflow-hidden">
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-white/10 bg-[size:32px_32px] opacity-30"></div>
+      <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:32px_32px] opacity-30"></div>
       
-      {/* Subtle Corner Geometric Elements */}
-      <div className="absolute -top-10 -left-10 w-40 h-40 bg-gray-100/15 blur-xl" style={{
+      {/* Blob Geometric Elements */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-100/35 blur-3xl" style={{
         borderRadius: '60% 40% 70% 30% / 40% 60% 30% 70%',
         zIndex: 0
       }}></div>
-      <div className="absolute -top-8 -right-8 w-32 h-32 bg-gray-200/12 blur-lg transform rotate-45" style={{
-        clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)',
+      <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-emerald-200/30 blur-2xl" style={{
+        borderRadius: '60% 40% 70% 30% / 40% 60% 30% 70%',
         zIndex: 0
       }}></div>
-      <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-gray-100/18 transform rotate-12" style={{
-        borderRadius: '50% 20% 80% 30% / 30% 80% 20% 50%',
-        zIndex: 0
-      }}></div>
-      <div className="absolute -bottom-10 -left-10 w-44 h-44 bg-gray-200/10 rounded-full blur-xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+        <div className="text-center mb-16 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-8">
             Comprehensive solutions designed to
-            <span className="text-emerald-200"> maximize your space's potential</span>
+            <span className="text-emerald-600"> maximize your space's potential</span>
           </h2>
-          <p className="text-xl text-emerald-100 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             and meet modern workplace demands.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 relative z-10">
           {products.map((product, index) => {
             const Icon = product.icon;
             const colorClasses = {
@@ -90,10 +85,10 @@ export const ProductsSection: React.FC = () => {
             };
 
             return (
-              <div key={index} className={`bg-white/10 backdrop-blur-sm rounded-2xl shadow-lg border ${product.featured ? 'border-white/40 relative' : 'border-white/20'} p-8 hover:shadow-xl transition-all duration-300 ${product.comingSoon ? 'opacity-75' : ''}`}>
+              <div key={index} className={`bg-white rounded-2xl shadow-lg border ${product.featured ? 'border-emerald-300 relative' : 'border-gray-200'} p-8 hover:shadow-xl transition-all duration-300 ${product.comingSoon ? 'opacity-75' : ''}`}>
                 {product.featured && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-emerald-200 text-emerald-800 px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
                       MOST POPULAR
                     </span>
                   </div>
@@ -105,28 +100,28 @@ export const ProductsSection: React.FC = () => {
                   <Icon className="h-8 w-8 text-white" />
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-4">{product.title}</h3>
-                <p className="text-emerald-100 mb-6 leading-relaxed">{product.description}</p>
+                <h3 className="text-2xl font-bold text-emerald-700 mb-4">{product.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
 
                 <ul className="space-y-3 mb-8">
                   {product.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center gap-3">
-                      <CheckCircle className="h-4 w-4 text-emerald-200 flex-shrink-0" />
-                      <span className="text-emerald-100 text-sm">{feature}</span>
+                      <CheckCircle className="h-4 w-4 text-emerald-600 flex-shrink-0" />
+                      <span className="text-gray-600 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-emerald-200">Price:</span>
-                    <span className="font-semibold text-white">{product.price}</span>
+                    <span className="text-gray-600">Price:</span>
+                    <span className="font-semibold text-emerald-700">{product.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-emerald-200">Timeline:</span>
+                    <span className="text-gray-600">Timeline:</span>
                     <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4 text-emerald-200" />
-                      <span className="font-semibold text-white">{product.timeline}</span>
+                      <Clock className="h-4 w-4 text-gray-500" />
+                      <span className="font-semibold text-emerald-700">{product.timeline}</span>
                     </div>
                   </div>
                 </div>

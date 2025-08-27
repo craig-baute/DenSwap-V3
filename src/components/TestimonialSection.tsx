@@ -3,23 +3,29 @@ import { Quote, ArrowRight, CheckCircle } from 'lucide-react';
 
 export const TestimonialSection: React.FC = () => {
   return (
-    <section className="py-24 bg-emerald-600 relative overflow-hidden">
+    <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-white/10 bg-[size:30px_30px] opacity-30"></div>
+      <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:30px_30px] opacity-30"></div>
       
-      {/* Subtle Corner Geometric Elements */}
-      <div className="absolute -top-12 -right-12 w-48 h-48 bg-gray-100/15 rounded-full blur-xl" style={{ zIndex: 0 }}></div>
-      <div className="absolute -bottom-12 -left-12 w-52 h-52 bg-gray-200/12 rounded-full blur-xl" style={{ zIndex: 0 }}></div>
+      {/* Blob Geometric Elements */}
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-emerald-100/40 blur-2xl" style={{
+        borderRadius: '50% 70% 30% 50% / 60% 40% 70% 30%',
+        zIndex: 0
+      }}></div>
+      <div className="absolute -bottom-16 -right-16 w-60 h-60 bg-emerald-200/35 blur-xl" style={{
+        borderRadius: '70% 30% 60% 40% / 40% 70% 30% 60%',
+        zIndex: 0
+      }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="relative">
-            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+            <div className="bg-white rounded-3xl p-8 border border-emerald-200 shadow-lg">
               <div className="bg-gradient-to-br from-green-500 to-blue-600 p-3 rounded-2xl w-16 h-16 flex items-center justify-center mb-6">
                 <Quote className="h-8 w-8 text-white" />
               </div>
               
-              <blockquote className="text-2xl font-semibold text-white mb-6 leading-relaxed">
+              <blockquote className="text-2xl font-semibold text-gray-900 mb-6 leading-relaxed">
                 "After only four months in operation, we exceeded our expectations and reached our annual goal."
               </blockquote>
               
@@ -28,33 +34,33 @@ export const TestimonialSection: React.FC = () => {
                   <span className="text-white font-bold text-lg">S</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-white">Somo Group</div>
-                  <div className="text-emerald-200 text-sm">Commercial Building Development</div>
+                  <div className="font-semibold text-gray-900">Somo Group</div>
+                  <div className="text-gray-600 text-sm">Commercial Building Development</div>
                 </div>
               </div>
 
-              <div className="bg-white/15 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-white/30">
-                <h4 className="font-semibold text-white mb-3">Project Details:</h4>
-                <p className="text-emerald-200 text-sm mb-4">
+              <div className="bg-gray-50 rounded-xl p-6 shadow-sm border border-emerald-100">
+                <h4 className="font-semibold text-emerald-700 mb-3">Project Details:</h4>
+                <p className="text-gray-600 text-sm mb-4">
                   Working on a new commercial building associated with a housing development
                 </p>
                 
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-emerald-200" />
-                    <span className="text-sm text-emerald-200">Feasibility</span>
+                    <CheckCircle className="h-4 w-4 text-emerald-600" />
+                    <span className="text-sm text-emerald-600">Feasibility</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-emerald-200" />
-                    <span className="text-sm text-emerald-200">Business Model</span>
+                    <CheckCircle className="h-4 w-4 text-emerald-600" />
+                    <span className="text-sm text-emerald-600">Business Model</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-emerald-200" />
-                    <span className="text-sm text-emerald-200">Floor Plan</span>
+                    <CheckCircle className="h-4 w-4 text-emerald-600" />
+                    <span className="text-sm text-emerald-600">Floor Plan</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="h-4 w-4 text-emerald-200" />
-                    <span className="text-sm text-emerald-200">Launch</span>
+                    <CheckCircle className="h-4 w-4 text-emerald-600" />
+                    <span className="text-sm text-emerald-600">Launch</span>
                   </div>
                 </div>
               </div>
@@ -63,42 +69,42 @@ export const TestimonialSection: React.FC = () => {
 
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-6">
                 Success Stories from
-                <span className="text-emerald-200"> Real Operators</span>
+                <span className="text-emerald-600"> Real Operators</span>
               </h2>
               
-              <p className="text-xl text-emerald-100 leading-relaxed mb-8">
+              <p className="text-xl text-gray-700 leading-relaxed mb-8">
                 The office world has changed, and the decision about where to work is made by individuals 
                 or small groups and not bosses demanding hundreds of people where to go. This dramatic 
                 shift requires new data and a new approach to deciding what's next for a building.
               </p>
             </div>
 
-            <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-              <h3 className="text-xl font-semibold text-white mb-4">Results Achieved:</h3>
+            <div className="bg-white rounded-2xl p-6 border border-emerald-200 shadow-lg">
+              <h3 className="text-xl font-semibold text-emerald-700 mb-4">Results Achieved:</h3>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-emerald-200 mb-1">4</div>
-                  <div className="text-sm text-emerald-200">Months to Goal</div>
+                  <div className="text-3xl font-bold text-emerald-600 mb-1">4</div>
+                  <div className="text-sm text-emerald-600">Months to Goal</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-300 mb-1">100%</div>
-                  <div className="text-sm text-emerald-200">Annual Target</div>
+                  <div className="text-3xl font-bold text-emerald-600 mb-1">100%</div>
+                  <div className="text-sm text-emerald-600">Annual Target</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-emerald-200 mb-1">85%</div>
-                  <div className="text-sm text-emerald-200">Occupancy Rate</div>
+                  <div className="text-3xl font-bold text-emerald-600 mb-1">85%</div>
+                  <div className="text-sm text-emerald-600">Occupancy Rate</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-300 mb-1">18</div>
-                  <div className="text-sm text-emerald-200">Month Breakeven</div>
+                  <div className="text-3xl font-bold text-emerald-600 mb-1">18</div>
+                  <div className="text-sm text-emerald-600">Month Breakeven</div>
                 </div>
               </div>
             </div>
 
             <div className="text-center">
-              <a href="#" className="group bg-gradient-to-r from-green-600 to-blue-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
+              <a href="#" className="group bg-emerald-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
                 See Somo's Case Study
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
