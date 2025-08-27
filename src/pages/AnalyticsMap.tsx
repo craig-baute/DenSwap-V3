@@ -92,7 +92,7 @@ export const AnalyticsMap: React.FC = () => {
             
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               The Ultimate
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"> Coworking Intelligence</span>
+              <span className="text-emerald-600"> Coworking Intelligence</span>
               <br />
               <span className="text-4xl md:text-5xl">Superpower for Investors</span>
             </h1>

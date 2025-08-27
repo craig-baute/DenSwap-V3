@@ -126,7 +126,7 @@ export const StrategySection: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
                 Your Coworking Strategy Partner
               </h2>
-              <div className="text-5xl md:text-6xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-8">
+              <div className="text-5xl md:text-6xl font-black text-emerald-400 mb-8">
                 Future-Proof Your Portfolio
               </div>
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">

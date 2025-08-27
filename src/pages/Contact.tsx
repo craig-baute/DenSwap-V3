@@ -99,7 +99,7 @@ export const Contact: React.FC = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Let's Transform Your
-              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent"> Property Together</span>
+              <span className="text-emerald-600"> Property Together</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto">
               Ready to unlock your property's coworking potential? Our experts are here to guide you 

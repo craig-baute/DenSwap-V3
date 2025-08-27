@@ -53,14 +53,23 @@ export const ProductsSection: React.FC = () => {
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-emerald-50/30 bg-[size:32px_32px] opacity-40"></div>
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-gradient-to-br from-emerald-100/25 to-green-100/25 rounded-full blur-3xl transform -translate-x-1/2"></div>
-      <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-gradient-to-bl from-teal-100/25 to-blue-100/25 rounded-full blur-3xl transform translate-x-1/2"></div>
+      
+      {/* Geometric Background Elements */}
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-gray-100/30 blur-3xl transform -translate-x-1/2" style={{
+        borderRadius: '60% 40% 70% 30% / 40% 60% 30% 70%'
+      }}></div>
+      <div className="absolute bottom-1/3 right-0 w-80 h-80 bg-gray-200/25 blur-2xl transform translate-x-1/2 rotate-45" style={{
+        clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)'
+      }}></div>
+      <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-gray-100/40 transform rotate-12" style={{
+        borderRadius: '50% 20% 80% 30% / 30% 80% 20% 50%'
+      }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             Comprehensive solutions designed to
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> maximize your space's potential</span>
+            <span className="text-emerald-600"> maximize your space's potential</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             and meet modern workplace demands.

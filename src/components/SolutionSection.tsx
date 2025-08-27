@@ -6,9 +6,16 @@ export const SolutionSection: React.FC = () => {
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-emerald-100/20 bg-[size:36px_36px] opacity-30"></div>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-emerald-50/60 to-teal-50/60 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-teal-50/60 to-emerald-50/60 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-emerald-100/30 to-teal-100/30 rounded-full blur-2xl"></div>
+      
+      {/* Geometric Background Elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gray-100/40 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-gray-200/30 transform rotate-45" style={{
+        clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
+      }}></div>
+      <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-gray-100/50 transform -rotate-12" style={{
+        borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%'
+      }}></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gray-200/20 rounded-full blur-2xl"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -16,8 +23,7 @@ export const SolutionSection: React.FC = () => {
             DenSwap Analytics and Reports
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">
-            A New Way to See Coworking's
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Potential and ROI</span>
+            Forecast where coworking will succeed through data
           </h2>
           
           <div className="mt-12">

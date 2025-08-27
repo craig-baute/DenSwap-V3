@@ -23,7 +23,7 @@ export const CoworkingOperators: React.FC = () => {
             
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Grow based on data and experience,
-              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> not just gut.</span>
+              <span className="text-emerald-600"> not just gut.</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">

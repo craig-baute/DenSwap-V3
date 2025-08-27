@@ -11,7 +11,7 @@ export const CTASection: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Ready to Dominate?
-          <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent"> The Market Won't Wait.</span>
+          <span className="text-emerald-400"> The Market Won't Wait.</span>
         </h2>
         
         <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">

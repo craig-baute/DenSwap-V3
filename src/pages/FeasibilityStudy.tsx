@@ -91,7 +91,7 @@ export const FeasibilityStudy: React.FC = () => {
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Will your building print money
-              <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent"> or burn cash</span>
+              <span className="text-emerald-600"> or burn cash</span>
               <br />
               <span className="text-4xl md:text-5xl">with coworking?</span>
             </h1>

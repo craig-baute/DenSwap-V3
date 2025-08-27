@@ -17,9 +17,8 @@ export const Hero: React.FC = () => {
           </div>
           
           <h1 className="text-6xl md:text-8xl font-black text-white mb-8 leading-tight tracking-tight">
-            Know Exactly How Much Coworking Your Market Can Support.
+            Forecast where coworking will succeed through data
             <br />
-            <span className="text-5xl md:text-7xl font-black">Fast.</span>
           </h1>
           <p className="text-xl md:text-2xl text-white mb-12 max-w-5xl mx-auto leading-relaxed font-bold">
             Get precise square footage calculations, know which type of coworking will succeed, and 

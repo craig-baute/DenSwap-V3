@@ -26,14 +26,23 @@ export const ContactSection: React.FC = () => {
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-emerald-100/15 bg-[size:36px_36px] opacity-25"></div>
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-gradient-to-br from-emerald-100/30 to-teal-100/30 rounded-full blur-3xl transform -translate-y-1/2 -translate-x-1/2"></div>
-      <div className="absolute top-1/2 right-0 w-80 h-80 bg-gradient-to-bl from-teal-100/30 to-emerald-100/30 rounded-full blur-3xl transform -translate-y-1/2 translate-x-1/2"></div>
+      
+      {/* Geometric Background Elements */}
+      <div className="absolute top-1/2 left-0 w-80 h-80 bg-gray-100/30 blur-3xl transform -translate-y-1/2 -translate-x-1/2" style={{
+        borderRadius: '50% 30% 70% 40% / 40% 70% 30% 50%'
+      }}></div>
+      <div className="absolute top-1/2 right-0 w-72 h-72 bg-gray-200/25 blur-2xl transform -translate-y-1/2 translate-x-1/2 rotate-30" style={{
+        clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
+      }}></div>
+      <div className="absolute top-1/4 left-1/2 w-56 h-56 bg-gray-100/35 transform -translate-x-1/2 -rotate-45" style={{
+        borderRadius: '60% 40% 30% 70% / 30% 60% 70% 40%'
+      }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             Ready to Transform
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> Your Property?</span>
+            <span className="text-emerald-600"> Your Property?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Get in touch with our team to discuss your coworking potential and receive a custom analysis.

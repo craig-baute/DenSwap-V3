@@ -481,7 +481,7 @@ export const Blog: React.FC = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Industry Insights &
-              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Expert Analysis</span>
+              <span className="text-emerald-600"> Expert Analysis</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto">
               Stay ahead of the curve with data-driven insights, market analysis, and expert perspectives 

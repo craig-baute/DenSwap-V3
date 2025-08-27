@@ -23,7 +23,7 @@ export const REITsInvestmentFunds: React.FC = () => {
             
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Discover where coworking can
-              <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent"> increase the value</span>
+              <span className="text-emerald-600"> increase the value</span>
               <br />
               <span className="text-4xl md:text-5xl">of buildings in your portfolio.</span>
             </h1>

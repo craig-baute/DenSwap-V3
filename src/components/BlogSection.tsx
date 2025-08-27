@@ -33,14 +33,23 @@ export const BlogSection: React.FC = () => {
     <section className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-gray-200/20 bg-[size:28px_28px] opacity-30"></div>
-      <div className="absolute top-0 left-1/4 w-64 h-64 bg-gradient-to-br from-emerald-200/20 to-teal-200/20 rounded-full blur-2xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-gradient-to-tr from-teal-200/20 to-emerald-200/20 rounded-full blur-2xl"></div>
+      
+      {/* Geometric Background Elements */}
+      <div className="absolute top-0 left-1/4 w-64 h-64 bg-gray-100/40 blur-2xl" style={{
+        borderRadius: '70% 30% 60% 40% / 40% 60% 30% 70%'
+      }}></div>
+      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-gray-200/25 blur-xl transform rotate-45" style={{
+        clipPath: 'polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)'
+      }}></div>
+      <div className="absolute top-1/3 right-1/2 w-40 h-40 bg-gray-100/35 transform -rotate-30" style={{
+        borderRadius: '40% 60% 70% 30% / 50% 30% 70% 50%'
+      }}></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             Latest Industry
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> Insights</span>
+            <span className="text-emerald-600"> Insights</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Stay ahead of the curve with expert analysis and real-world insights from the coworking industry.

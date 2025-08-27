@@ -63,7 +63,7 @@ export const TestimonialSection: React.FC = () => {
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Success Stories from
-                <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent"> Real Operators</span>
+                <span className="text-emerald-600"> Real Operators</span>
               </h2>
               
               <p className="text-xl text-gray-600 leading-relaxed mb-8">

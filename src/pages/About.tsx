@@ -67,7 +67,7 @@ export const About: React.FC = () => {
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
               About
-              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> DenSwap</span>
+              <span className="text-emerald-600"> DenSwap</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
               We're not just consultants—we're operators who've built, scaled, and sold coworking businesses. 
