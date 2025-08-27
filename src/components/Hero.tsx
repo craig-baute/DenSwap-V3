@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-teal-600/30 to-emerald-600/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 z-20"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
-        <div className="text-center relative z-30"
+        <div className="text-center relative z-30">
           <div className="inline-flex items-center px-5 py-2.5 bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-sm font-bold text-white mb-8 shadow-sm">
             <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
             Trusted by 100+ property owners across the US
