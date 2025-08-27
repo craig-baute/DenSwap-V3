@@ -72,7 +72,6 @@ export const BlogSection: React.FC = () => {
               </div>
               
               <div className="p-6">
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
                 <div className="flex items-center gap-4 text-sm text-emerald-200 mb-3">
                   <div className="flex items-center gap-1">
                     <Calendar className="h-4 w-4" />
