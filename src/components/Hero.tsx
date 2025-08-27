@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-emerald-700/75 z-10"></div>
       
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-white/10 bg-[size:24px_24px] opacity-30 z-20"></div>
+      <div className="absolute inset-0 bg-grid-white/10 bg-[size:24px_24px] opacity-30 z-40"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-600/30 to-teal-600/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 z-20"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-teal-600/30 to-emerald-600/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 z-20"></div>
       
