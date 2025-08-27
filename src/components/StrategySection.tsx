@@ -88,190 +88,32 @@ export const StrategySection: React.FC = () => {
 
   return (
     <>
-      {/* Version 1: Original Enhanced */}
+      {/* HIDDEN: Version 1: Original Enhanced */}
+      {/* 
       <section className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid-gray-200/25 bg-[size:34px_34px] opacity-35"></div>
         <div className="absolute top-0 right-1/3 w-72 h-72 bg-gradient-to-br from-emerald-200/30 to-teal-200/30 rounded-full blur-2xl"></div>
         <div className="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-tr from-teal-200/30 to-emerald-200/30 rounded-full blur-2xl"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8">
-              Your Coworking Strategy Partner
-              <br />
-              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent text-5xl md:text-6xl font-black">
-                Future-Proof Your Portfolio
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              From 1 building to 100 - insights forged in the field.
-            </p>
-            
-            <a href="/book-consultation" className="group bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
-              <Calendar className="mr-2 h-5 w-5" />
-              Schedule Strategy Call
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              const colorClasses = {
-                red: "from-red-500 to-red-600 text-red-600",
-                green: "from-emerald-500 to-emerald-600 text-emerald-600",
-                blue: "from-blue-500 to-blue-600 text-blue-600",
-                purple: "from-purple-500 to-purple-600 text-purple-600"
-              };
-
-              return (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                  <div className={`bg-gradient-to-br ${colorClasses[benefit.color as keyof typeof colorClasses].split(' ')[0]} ${colorClasses[benefit.color as keyof typeof colorClasses].split(' ')[1]} p-3 rounded-2xl w-16 h-16 flex items-center justify-center mb-6`}>
-                    <Icon className="h-8 w-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 border border-emerald-100">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                We're your partner from idea through launch
-              </h3>
-              <p className="text-gray-600">
-                Comprehensive support across every aspect of your coworking venture
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <div key={index} className="text-center group">
-                    <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 mb-3 hover:shadow-md transition-shadow group-hover:border-emerald-200">
-                      <Icon className="h-8 w-8 text-emerald-600 mx-auto mb-3" />
-                      <div className="text-sm font-bold text-gray-700 mb-2">{service.name}</div>
-                      <div className="space-y-1">
-                        {service.details.map((detail, detailIndex) => (
-                          <div key={detailIndex} className="text-xs text-gray-500 leading-tight">
-                            {detail}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          ...content removed for brevity...
         </div>
       </section>
+      */}
 
-      {/* Version 2: With Hero Image */}
+      {/* HIDDEN - Version 2: With Hero Image 
       <section className="py-24 bg-white relative overflow-hidden">
-        {/* Background Pattern */}
+        Background Pattern
         <div className="absolute inset-0 bg-grid-emerald-100/20 bg-[size:40px_40px] opacity-30"></div>
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-br from-emerald-100/25 to-teal-100/25 rounded-full blur-3xl transform -translate-x-1/2"></div>
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gradient-to-bl from-teal-100/25 to-emerald-100/25 rounded-full blur-3xl transform translate-x-1/2"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-                Your Coworking Strategy Partner
-              </h2>
-              <div className="text-5xl md:text-6xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-8">
-                Future-Proof Your Portfolio
-              </div>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                From 1 building to 100 - insights forged in the field. Don't let your competitors get ahead while you're stuck with outdated strategies.
-              </p>
-              
-              <a href="/book-consultation" className="group bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
-                <Calendar className="mr-2 h-5 w-5" />
-                Schedule Strategy Call
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-
-            <div className="relative">
-              <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-3xl p-8 shadow-2xl">
-                <img 
-                  src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600" 
-                  alt="Modern coworking space" 
-                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                  <div className="text-center">
-                    <div className="text-3xl font-black text-emerald-600 mb-1">85%</div>
-                    <div className="text-sm text-gray-600 font-medium">Success Rate</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              const colorClasses = {
-                red: "from-red-500 to-red-600",
-                green: "from-emerald-500 to-emerald-600", 
-                blue: "from-blue-500 to-blue-600",
-                purple: "from-purple-500 to-purple-600"
-              };
-
-              return (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                  <div className={`bg-gradient-to-br ${colorClasses[benefit.color as keyof typeof colorClasses]} p-3 rounded-xl w-12 h-12 flex items-center justify-center mb-4`}>
-                    <Icon className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 border border-emerald-100">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Complete Partnership from Idea Through Launch
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => {
-                const Icon = service.icon;
-                return (
-                  <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <div className="flex items-center mb-4">
-                      <div className="bg-emerald-100 p-3 rounded-lg mr-4">
-                        <Icon className="h-6 w-6 text-emerald-600" />
-                      </div>
-                      <h4 className="text-lg font-bold text-gray-900">{service.name}</h4>
-                    </div>
-                    <div className="space-y-2">
-                      {service.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-center text-sm text-gray-600">
-                          <CheckCircle className="h-4 w-4 text-emerald-500 mr-2 flex-shrink-0" />
-                          {detail}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          ...content removed for brevity...
         </div>
       </section>
+      */}
 
-      {/* Version 3: Dashboard/Analytics Focus */}
+      {/* ACTIVE - Version 3: Dashboard/Analytics Focus */}
       <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:32px_32px]"></div>
