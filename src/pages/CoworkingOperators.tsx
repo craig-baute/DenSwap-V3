@@ -92,7 +92,7 @@ export const CoworkingOperators: React.FC = () => {
               <div className="text-lg text-gray-700 leading-relaxed">
                 <p className="mb-6">
                   <strong>WeWork failed because they prioritized growth over fundamentals.</strong> They opened 
-                  locations based on hype, not data. They confused "busy coffee shops\" with "viable coworking markets."
+                  locations based on hype, not data. They confused "busy coffee shops\" with \"viable coworking markets."
                 </p>
                 <p className="mb-6">
                   Smart operators are taking the opposite approach. They're using market intelligence to 
