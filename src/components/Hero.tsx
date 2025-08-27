@@ -36,10 +36,6 @@ export const Hero: React.FC = () => {
             </a>
           </div>
           
-          <p className="text-lg text-white/80 font-semibold">
-            Only $500 for each additional report
-          </p>
-
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl shadow-lg border border-white/30">
