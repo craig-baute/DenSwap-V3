@@ -16,65 +16,64 @@ export const DemandReport: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
-      {/* Hero Section with Report Preview */}
-      <section className="relative bg-gradient-to-br from-teal-600 via-teal-700 to-emerald-800 text-white overflow-hidden">
-        {/* Geometric Pattern Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-8 h-8 border-2 border-teal-300/30 transform rotate-45"></div>
-          <div className="absolute top-32 left-24 w-6 h-6 border-2 border-teal-400/40 transform rotate-12"></div>
-          <div className="absolute top-16 right-32 w-10 h-10 border-2 border-emerald-300/25 transform -rotate-45"></div>
-          <div className="absolute bottom-40 right-16 w-12 h-12 border-2 border-teal-300/35 transform rotate-30"></div>
-          <div className="absolute bottom-60 left-20 w-7 h-7 border-2 border-emerald-400/30 transform -rotate-12"></div>
-          
-          {/* Hexagon Pattern Elements */}
-          <div className="absolute top-1/4 right-1/4">
-            <div className="grid grid-cols-3 gap-2 opacity-20">
-              {[...Array(9)].map((_, i) => (
-                <div key={i} className="w-6 h-6 border border-white/40" style={{
-                  clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
-                }}></div>
-              ))}
-            </div>
-          </div>
-        </div>
-
+      {/* Hero Section with Clean Design */}
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Report Preview Image - Left Side */}
               <div className="relative">
                 <div className="transform -rotate-6 hover:rotate-0 transition-transform duration-500">
-                  <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200">
-                    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 mb-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="bg-emerald-600 p-2 rounded-lg">
-                          <BarChart3 className="h-6 w-6 text-white" />
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
+                    {/* Report Cover */}
+                    <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-8 text-white">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">D</span>
                         </div>
-                        <div>
-                          <div className="font-bold text-gray-900">Coworking Demand Analysis</div>
-                          <div className="text-sm text-gray-600">ZIP Code: 78701</div>
+                        <span className="font-bold text-lg">DenSwap</span>
+                      </div>
+                      <h3 className="text-2xl font-bold mb-2">Coworking Feasibility Study</h3>
+                      <p className="text-emerald-100 text-sm">Market Analysis Report</p>
+                      
+                      {/* Hexagon Pattern */}
+                      <div className="absolute bottom-4 right-4 opacity-30">
+                        <div className="grid grid-cols-3 gap-1">
+                          {[...Array(6)].map((_, i) => (
+                            <div key={i} className="w-4 h-4 border border-white/40" style={{
+                              clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
+                            }}></div>
+                          ))}
                         </div>
                       </div>
                     </div>
                     
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center p-4 bg-emerald-50 rounded-lg">
-                        <span className="font-semibold text-gray-900">Sustainable Demand:</span>
-                        <span className="text-xl font-bold text-emerald-600">31,833 SF</span>
-                      </div>
-                      
-                      <div className="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
-                        <span className="font-semibold text-gray-900">Recommended Model:</span>
-                        <span className="text-lg font-bold text-blue-600">High-end Flex</span>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span className="text-gray-700">Market Score:</span>
-                          <span className="font-semibold text-emerald-600">9.2/10</span>
+                    {/* Report Content Preview */}
+                    <div className="p-6 bg-white">
+                      <div className="space-y-4">
+                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                        <div className="h-3 bg-gray-100 rounded w-full"></div>
+                        <div className="h-3 bg-gray-100 rounded w-2/3"></div>
+                        
+                        <div className="bg-emerald-50 rounded-lg p-4 mt-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="font-semibold text-gray-900 text-sm">Market Demand Score:</span>
+                            <span className="text-lg font-bold text-emerald-600">9.2/10</span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div className="bg-gradient-to-r from-emerald-500 to-teal-500 h-2 rounded-full" style={{ width: '92%' }}></div>
+                          </div>
                         </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-gradient-to-r from-emerald-500 to-teal-500 h-2 rounded-full" style={{ width: '92%' }}></div>
+                        
+                        <div className="space-y-2 mt-4">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-700">Supportable SF:</span>
+                            <span className="font-semibold text-emerald-600">31,833</span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-700">Competition Gap:</span>
+                            <span className="font-semibold text-blue-600">17,000 SF</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -82,10 +81,10 @@ export const DemandReport: React.FC = () => {
                 </div>
                 
                 {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 bg-emerald-400 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                <div className="absolute -top-4 -right-4 bg-emerald-400 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                   24hr Delivery
                 </div>
-                <div className="absolute -bottom-4 -left-4 bg-white text-emerald-600 px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                <div className="absolute -bottom-4 -left-4 bg-white text-slate-600 px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                   $500 Report
                 </div>
               </div>
@@ -93,55 +92,55 @@ export const DemandReport: React.FC = () => {
               {/* Content - Right Side */}
               <div className="space-y-8">
                 <div>
-                  <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                     Know Exactly How Much Coworking
                     <span className="text-emerald-300"> Your Market Can Support.</span>
                     <br />
-                    <span className="text-4xl md:text-5xl">Fast.</span>
+                    <span className="text-3xl md:text-4xl lg:text-5xl">Fast.</span>
                   </h1>
                   
-                  <p className="text-xl md:text-2xl text-teal-100 mb-8 leading-relaxed">
+                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
                     Get precise square footage calculations, know which type of coworking will succeed, 
                     and property recommendations for any ZIP code in 24 hours. Stop guessing. Start with data.
                   </p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center gap-4 flex-1">
+                  <div className="flex items-center gap-3 flex-1">
                     <input
                       type="text"
                       placeholder="Enter ZIP Code"
                       value={zipCode}
                       onChange={(e) => setZipCode(e.target.value)}
-                      className="flex-1 px-6 py-4 border-2 border-white/30 rounded-xl text-lg bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50"
+                      className="flex-1 px-4 py-3 border-2 border-white/30 rounded-lg text-lg bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50"
                     />
                     <button 
                       onClick={handleOrderReport}
-                      className="group bg-white text-teal-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center"
+                      className="group bg-white text-slate-700 px-6 py-3 rounded-lg text-base font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center whitespace-nowrap"
                     >
-                      See Demand in Your ZIP Code
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      Get Demand Report
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
                 
-                <p className="text-sm text-teal-200">
+                <p className="text-sm text-slate-200">
                   Only $500 for each additional report
                 </p>
 
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 pt-8">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-white mb-1">115+</div>
-                    <div className="text-teal-200 text-sm">Projects Completed</div>
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">115+</div>
+                    <div className="text-slate-200 text-sm">Projects Completed</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-white mb-1">35,000+</div>
-                    <div className="text-teal-200 text-sm">Markets Covered</div>
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">35,000+</div>
+                    <div className="text-slate-200 text-sm">Markets Covered</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-white mb-1">$500M+</div>
-                    <div className="text-teal-200 text-sm">Assets Analyzed</div>
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">$500M+</div>
+                    <div className="text-slate-200 text-sm">Assets Analyzed</div>
                   </div>
                 </div>
               </div>
@@ -160,7 +159,7 @@ export const DemandReport: React.FC = () => {
       {/* Testimonial Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-gray-50 to-teal-50 rounded-2xl p-8 border border-gray-200">
+          <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border border-gray-200">
             <div className="flex items-center gap-6">
               <img 
                 src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150" 
@@ -187,9 +186,9 @@ export const DemandReport: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
                 Stop Debating if Coworking will Work.
-                <span className="text-teal-600"> Get Data-Driven Insight to Know for Sure.</span>
+                <span className="text-slate-600"> Get Data-Driven Insight to Know for Sure.</span>
               </h2>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -199,8 +198,8 @@ export const DemandReport: React.FC = () => {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="bg-teal-100 p-3 rounded-xl flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-teal-600" />
+                  <div className="bg-slate-100 p-3 rounded-xl flex-shrink-0">
+                    <MapPin className="h-6 w-6 text-slate-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2 text-lg">
@@ -252,7 +251,7 @@ export const DemandReport: React.FC = () => {
               />
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
                 <div className="text-center">
-                  <div className="text-3xl font-black text-teal-600 mb-1">24hrs</div>
+                  <div className="text-3xl font-black text-slate-600 mb-1">24hrs</div>
                   <div className="text-sm text-gray-600 font-medium">Delivery Time</div>
                 </div>
               </div>
@@ -265,7 +264,7 @@ export const DemandReport: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               $500 buys you what successful operators worked hard to know.
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -274,9 +273,9 @@ export const DemandReport: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-8 border border-teal-200 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-teal-100 p-4 rounded-xl w-16 h-16 flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-teal-600" />
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-slate-100 p-4 rounded-xl w-16 h-16 flex items-center justify-center mb-6">
+                <Target className="h-8 w-8 text-slate-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Precise Square Footage Calculations
@@ -325,10 +324,13 @@ export const DemandReport: React.FC = () => {
           </div>
 
           <div className="text-center">
-            <button className="group bg-gradient-to-r from-teal-600 to-emerald-600 text-white px-10 py-5 rounded-xl text-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center">
-              <DollarSign className="mr-2 h-6 w-6" />
+            <button 
+              onClick={handleOrderReport}
+              className="group bg-gradient-to-r from-slate-600 to-emerald-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center"
+            >
+              <DollarSign className="mr-2 h-5 w-5" />
               Order Analysis for $500
-              <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>
@@ -338,7 +340,7 @@ export const DemandReport: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Understand Coworking's Potential Anywhere in the US
             </h2>
           </div>
@@ -346,7 +348,7 @@ export const DemandReport: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
-                <div className="bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl p-6 mb-6">
+                <div className="bg-gradient-to-br from-emerald-100 to-slate-100 rounded-xl p-6 mb-6">
                   <div className="flex items-center gap-3 mb-4">
                     <MapPin className="h-6 w-6 text-emerald-600" />
                     <div>
@@ -417,7 +419,7 @@ export const DemandReport: React.FC = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Suitable Buildings</h3>
                 <div className="flex flex-wrap gap-3">
                   {['Office Tower', 'Neighborhood Office', 'Creative Loft', 'Mixed Use'].map((type) => (
-                    <span key={type} className="bg-teal-100 text-teal-800 px-4 py-2 rounded-full font-medium">
+                    <span key={type} className="bg-slate-100 text-slate-800 px-4 py-2 rounded-full font-medium">
                       {type}
                     </span>
                   ))}
@@ -432,7 +434,7 @@ export const DemandReport: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Risk/Reward Is Now In Your Favor.
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -441,13 +443,13 @@ export const DemandReport: React.FC = () => {
           </div>
 
           <div className="bg-white rounded-3xl p-10 border border-gray-200 shadow-lg mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Perfect for people that:</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Perfect for people that:</h3>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="bg-teal-100 p-3 rounded-xl flex-shrink-0">
-                    <TrendingUp className="h-6 w-6 text-teal-600" />
+                  <div className="bg-slate-100 p-3 rounded-xl flex-shrink-0">
+                    <TrendingUp className="h-6 w-6 text-slate-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2 text-lg">Value-Add Investors</h4>
@@ -509,52 +511,42 @@ export const DemandReport: React.FC = () => {
       </section>
 
       {/* Final CTA Section with Curved Design */}
-      <section className="relative bg-gradient-to-br from-teal-600 via-teal-700 to-emerald-800 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
         {/* Curved Top */}
         <div className="absolute top-0 left-0 w-full">
           <svg className="w-full h-24" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0L60 15C120 30 240 60 360 75C480 90 600 90 720 82.5C840 75 960 60 1080 52.5C1200 45 1320 45 1380 45L1440 45V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z" fill="white"/>
+            <path d="M0 0L60 15C120 30 240 60 360 75C480 90 600 90 720 82.5C840 75 960 60 1080 52.5C1200 45 1320 45 1380 45L1440 45V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z" fill="#f8fafc"/>
           </svg>
-        </div>
-
-        {/* Geometric Pattern Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/3 left-1/4">
-            <div className="grid grid-cols-4 gap-3 opacity-10">
-              {[...Array(16)].map((_, i) => (
-                <div key={i} className="w-8 h-8 border border-white/30" style={{
-                  clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
-                }}></div>
-              ))}
-            </div>
-          </div>
         </div>
         
         <div className="relative z-10 pt-32 pb-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
               Ready to move while others hesitate?
             </h2>
             
-            <p className="text-xl text-teal-100 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-100 mb-12 max-w-3xl mx-auto leading-relaxed">
               The market rewards speed and precision. Armed with DenSwap's intelligence, 
               you'll deploy capital while competitors are still guessing.
             </p>
 
             <div className="flex items-center justify-center gap-2 mb-12">
-              <Clock className="h-6 w-6 text-teal-200" />
-              <span className="text-lg font-semibold text-teal-100">Completed within 24 hours</span>
+              <Clock className="h-6 w-6 text-slate-200" />
+              <span className="text-lg font-semibold text-slate-100">Completed within 24 hours</span>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="group bg-white text-teal-700 px-10 py-5 rounded-2xl text-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
-                <DollarSign className="mr-2 h-6 w-6" />
+              <button 
+                onClick={handleOrderReport}
+                className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
+              >
+                <DollarSign className="mr-2 h-5 w-5" />
                 Get Your $500 Demand Report
-                <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
               
-              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-white/20 transition-all duration-300 inline-flex items-center justify-center">
-                <MapPin className="mr-2 h-6 w-6" />
+              <button className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all duration-300 inline-flex items-center justify-center">
+                <MapPin className="mr-2 h-5 w-5" />
                 View Sample Report
               </button>
             </div>
@@ -568,7 +560,7 @@ export const DemandReport: React.FC = () => {
               <blockquote className="text-2xl md:text-3xl font-bold text-white mb-6 leading-relaxed">
                 "This report is the first thing we look at when evaluating any coworking opportunity."
               </blockquote>
-              <div className="text-teal-200 text-lg">
+              <div className="text-slate-200 text-lg">
                 — Industry Professional
               </div>
             </div>
