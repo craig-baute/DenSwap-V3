@@ -40,7 +40,6 @@ interface BlogPost {
 
 export const BlogAdmin: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [currentView, setCurrentView] = useState<'dashboard' | 'posts' | 'authors' | 'caseStudies'>('dashboard');
   const [currentView, setCurrentView] = useState<'dashboard' | 'posts' | 'authors' | 'caseStudies' | 'media'>('dashboard');
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);
@@ -1106,6 +1105,17 @@ export const BlogAdmin: React.FC = () => {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Manage Authors</h3>
             <p className="text-gray-600 text-sm">Add and edit author profiles</p>
+          </button>
+
+          <button
+            onClick={() => setCurrentView('media')}
+            className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-shadow text-left group"
+          >
+            <div className="bg-indigo-100 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4 group-hover:bg-indigo-200 transition-colors">
+              <FileText className="h-6 w-6 text-indigo-600" />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Media Library</h3>
+            <p className="text-gray-600 text-sm">Upload and manage images</p>
           </button>
 
           <button
