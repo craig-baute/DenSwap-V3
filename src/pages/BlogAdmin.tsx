@@ -41,6 +41,7 @@ interface BlogPost {
 export const BlogAdmin: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentView, setCurrentView] = useState<'dashboard' | 'posts' | 'authors' | 'caseStudies'>('dashboard');
+  const [currentView, setCurrentView] = useState<'dashboard' | 'posts' | 'authors' | 'caseStudies' | 'media'>('dashboard');
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -351,13 +352,31 @@ export const BlogAdmin: React.FC = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Featured Image URL
                 </label>
-                <input
-                  type="url"
-                  value={currentPost.image}
-                  onChange={(e) => setCurrentPost({ ...currentPost, image: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                  placeholder="https://example.com/image.jpg"
-                />
+                <div className="space-y-3">
+                  <input
+                    type="url"
+                    value={currentPost.image}
+                    onChange={(e) => setCurrentPost({ ...currentPost, image: e.target.value })}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    placeholder="https://example.com/image.jpg"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setCurrentView('media')}
+                    className="text-sm text-emerald-600 hover:text-emerald-700 font-medium"
+                  >
+                    Or select from Media Library →
+                  </button>
+                  {currentPost.image && (
+                    <div className="mt-3">
+                      <img
+                        src={currentPost.image}
+                        alt="Featured image preview"
+                        className="w-full h-48 object-cover rounded-lg border border-gray-200"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div>
@@ -820,6 +839,40 @@ export const BlogAdmin: React.FC = () => {
   // Case Studies View
   if (currentView === 'caseStudies') {
     return <CaseStudyCMS onBack={() => setCurrentView('dashboard')} />;
+  }
+
+  // Media Library View
+  if (currentView === 'media') {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <div className="bg-white shadow-sm border-b">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div>
+              <button
+                onClick={() => setCurrentView('dashboard')}
+                className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-2"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back to Dashboard
+              </button>
+              <h1 className="text-2xl font-bold text-gray-900">Media Library</h1>
+              <p className="text-gray-600">Upload and manage media files</p>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 text-gray-600 hover:text-red-600 px-4 py-2 rounded-lg hover:bg-red-50"
+            >
+              <LogOut className="h-4 w-4" />
+              Logout
+            </button>
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <MediaLibrary />
+        </div>
+      </div>
+    );
   }
 
   // Authors View
