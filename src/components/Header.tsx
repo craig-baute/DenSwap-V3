@@ -142,7 +142,6 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
                     Franchisee Case Studies
                   </a>
                 </div>
-                </div>
               </div>
               <a href="/sample-report" className="block mx-3 mt-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-3 rounded-lg font-semibold text-center">
                 Download a Sample Report
@@ -153,3 +152,4 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
       </div>
     </header>
   );
+};
