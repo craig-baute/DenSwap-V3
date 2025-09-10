@@ -229,11 +229,11 @@ export const FranchiseeCaseStudies: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Your Guide to the Right
-              <span className="text-emerald-600"> Coworking Partnership</span>
+              <span className="text-emerald-600"> Coworking Strategy</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We help you select between franchises or doing a management agreement partnership. 
-              Different structures, with the main goal that you're not doing it alone.
+              Whether you choose a franchise, management agreement, or hybrid partnership, we ensure 
+              the perfect match between your market opportunity and operational structure.
             </p>
           </div>
 
@@ -241,24 +241,29 @@ export const FranchiseeCaseStudies: React.FC = () => {
             <div className="space-y-8">
               <div className="text-lg text-gray-700 leading-relaxed">
                 <p className="mb-6">
-                  <strong>You have the right expert by your side.</strong> We've vetted coworking brands that 
-                  specialize in different segments of the market with different startup costs, term lengths, 
-                  and profit potential.
+                  <strong>We've analyzed over 20 coworking brands and operators</strong> across every model 
+                  imaginable—from premium franchises to neighborhood management partnerships. Each serves 
+                  different market segments, investment levels, and owner involvement preferences.
                 </p>
                 <p className="mb-6">
-                  Our selection process isn't about which franchise pays us the highest commission (we don't 
-                  take commissions from franchises). It's about which model has the highest probability of 
-                  success in your specific market conditions.
+                  <strong>Franchises vs. Management Agreements vs. Independent Operation:</strong> The choice depends 
+                  on your market dynamics, available capital, desired involvement level, and risk tolerance. 
+                  We match you based on data, not sales quotas.
+                </p>
+                <p className="mb-6">
+                  Some markets need premium executive suites. Others thrive with community-focused neighborhood 
+                  models. A few can support creative workspace concepts. Most importantly, some markets can't 
+                  support coworking at all—and we'll tell you that too.
                 </p>
                 <p className="text-emerald-700 font-bold">
-                  The difference between success and failure often comes down to market-model fit, 
-                  not brand popularity.
+                  Our vetting process evaluates financial stability, operational track records, market 
+                  performance, and support quality—so you partner with winners, not just recognizable names.
                 </p>
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-2xl p-8 border border-emerald-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Our Selection Criteria</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Partnership Matching Framework</h3>
               
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
@@ -266,8 +271,8 @@ export const FranchiseeCaseStudies: React.FC = () => {
                     <span className="text-emerald-600 font-bold text-sm">1</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Market Demand Analysis</div>
-                    <div className="text-sm text-gray-600">Which coworking models have unmet demand in your area</div>
+                    <div className="font-semibold text-gray-900">Market Segment Analysis</div>
+                    <div className="text-sm text-gray-600">Premium vs. community vs. creative vs. hybrid demand patterns</div>
                   </div>
                 </div>
 
@@ -276,8 +281,8 @@ export const FranchiseeCaseStudies: React.FC = () => {
                     <span className="text-blue-600 font-bold text-sm">2</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Competition Gap Analysis</div>
-                    <div className="text-sm text-gray-600">Where competitors are weak and opportunities exist</div>
+                    <div className="font-semibold text-gray-900">Investment Level Matching</div>
+                    <div className="text-sm text-gray-600">$150K-$800K options based on your capital and market size</div>
                   </div>
                 </div>
 
@@ -286,8 +291,8 @@ export const FranchiseeCaseStudies: React.FC = () => {
                     <span className="text-purple-600 font-bold text-sm">3</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Franchise Model Matching</div>
-                    <div className="text-sm text-gray-600">Align franchise strengths with your market opportunities</div>
+                    <div className="font-semibold text-gray-900">Involvement Level Assessment</div>
+                    <div className="text-sm text-gray-600">Hands-on operator vs. passive investor partnership options</div>
                   </div>
                 </div>
 
@@ -296,8 +301,8 @@ export const FranchiseeCaseStudies: React.FC = () => {
                     <span className="text-orange-600 font-bold text-sm">4</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Financial Reality Check</div>
-                    <div className="text-sm text-gray-600">Realistic ROI projections based on actual market conditions</div>
+                    <div className="font-semibold text-gray-900">Operational Support Needs</div>
+                    <div className="text-sm text-gray-600">Training intensity, ongoing support, and brand compliance requirements</div>
                   </div>
                 </div>
 
@@ -306,9 +311,16 @@ export const FranchiseeCaseStudies: React.FC = () => {
                     <span className="text-red-600 font-bold text-sm">5</span>
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-900">Risk Assessment</div>
-                    <div className="text-sm text-gray-600">Identify potential failure points before you commit</div>
+                    <div className="font-semibold text-gray-900">Partnership Structure Analysis</div>
+                    <div className="text-sm text-gray-600">Franchise vs. management agreement vs. licensing optimal fit</div>
                   </div>
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-white rounded-lg border border-emerald-200">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-emerald-600 mb-1">20+</div>
+                  <div className="text-sm text-gray-600">Vetted Brands & Operators</div>
                 </div>
               </div>
             </div>
