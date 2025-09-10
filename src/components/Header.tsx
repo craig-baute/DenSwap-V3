@@ -58,6 +58,7 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
                   <a href="/coworking-operators" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
                     Coworking Operators
                   </a>
+                  <a href="/franchisee-case-studies" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
                 </div>
               </div>
             </div>
@@ -135,6 +136,7 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
                   <a href="/coworking-operators" className="block py-2 text-gray-600 hover:text-emerald-600 transition-colors">
                     Coworking Operators
                   </a>
+                  <a href="/franchisee-case-studies" className="block py-2 text-gray-600 hover:text-emerald-600 transition-colors">
                 </div>
               </div>
               <a href="/sample-report" className="block mx-3 mt-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-3 rounded-lg font-semibold text-center">

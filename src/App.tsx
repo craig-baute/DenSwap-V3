@@ -28,6 +28,7 @@ import { About } from './pages/About';
 import CaseStudies from './pages/CaseStudies';
 import { REITsInvestmentFunds } from './pages/REITsInvestmentFunds';
 import { CoworkingOperators } from './pages/CoworkingOperators';
+import { FranchiseeCaseStudies } from './pages/FranchiseeCaseStudies';
 
 // Homepage Component
 const HomePage: React.FC = () => {
@@ -70,6 +71,7 @@ const App: React.FC = () => {
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/reits-investment-funds" element={<REITsInvestmentFunds />} />
         <Route path="/coworking-operators" element={<CoworkingOperators />} />
+        <Route path="/franchisee-case-studies" element={<FranchiseeCaseStudies />} />
       </Routes>
     </Router>
   );
