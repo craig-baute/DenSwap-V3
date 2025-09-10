@@ -59,6 +59,8 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
                     Coworking Operators
                   </a>
                   <a href="/franchisee-case-studies" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                    Franchisee Case Studies
+                  </a>
                 </div>
               </div>
             </div>
