@@ -94,6 +94,8 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
+          )
+          }
           <div className="md:hidden py-4 border-t border-gray-200">
             <div className="space-y-2">
               <div className="px-3 py-2">
