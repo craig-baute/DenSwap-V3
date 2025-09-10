@@ -96,8 +96,6 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          )
-          }
           <div className="md:hidden py-4 border-t border-gray-200">
             <div className="space-y-2">
               <div className="px-3 py-2">
@@ -141,6 +139,9 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
                     Coworking Operators
                   </a>
                   <a href="/franchisee-case-studies" className="block py-2 text-gray-600 hover:text-emerald-600 transition-colors">
+                    Franchisee Case Studies
+                  </a>
+                </div>
                 </div>
               </div>
               <a href="/sample-report" className="block mx-3 mt-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-4 py-3 rounded-lg font-semibold text-center">
@@ -152,6 +153,3 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
       </div>
     </header>
   );
-};
-  )
-}
