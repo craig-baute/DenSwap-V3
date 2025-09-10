@@ -134,64 +134,6 @@ export const FranchiseeCaseStudies: React.FC = () => {
               <span className="text-red-600">It's Opening the Wrong One.</span>
             </h2>
           </div>
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="text-lg text-gray-700 leading-relaxed">
-                <p className="mb-6">
-                  <strong>The challenge isn't just finding a franchise—it's finding the one with the highest chance of success.</strong> 
-                  We match market positioning with local demographics and competition.
-                </p>
-                <p className="mb-6">
-                  For example, we make sure you aren't launching a concept with low demand when a different model 
-                  has the highest chance of success. Many franchisees fail not because they chose a bad brand, 
-                  but because they chose the wrong brand for their specific market.
-                </p>
-                <p className="text-red-700 font-bold">
-                  The average franchise failure costs $300K-500K and 2+ years of your life. 
-                  One wrong decision can devastate your financial future.
-                </p>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="bg-white rounded-2xl p-8 shadow-xl border border-red-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Common Franchise Failures</h3>
-                
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4 p-4 bg-red-50 rounded-xl border border-red-200">
-                    <AlertTriangle className="h-8 w-8 text-red-600 flex-shrink-0" />
-                    <div>
-                      <div className="font-bold text-red-900">Wrong Market Fit</div>
-                      <div className="text-sm text-red-700">Premium brands in budget markets</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4 p-4 bg-orange-50 rounded-xl border border-orange-200">
-                    <Building className="h-8 w-8 text-orange-600 flex-shrink-0" />
-                    <div>
-                      <div className="font-bold text-orange-900">Poor Location Choice</div>
-                      <div className="text-sm text-orange-700">High rent, low foot traffic areas</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-4 p-4 bg-yellow-50 rounded-xl border border-yellow-200">
-                    <Users className="h-8 w-8 text-yellow-600 flex-shrink-0" />
-                    <div>
-                      <div className="font-bold text-yellow-900">Market Oversaturation</div>
-                      <div className="text-sm text-yellow-700">Too many competitors, not enough demand</div>
-                    </div>
-                  </div>
-
-                  <div className="bg-gray-100 rounded-xl p-6 text-center">
-                    <div className="text-3xl font-black text-red-600 mb-2">60%</div>
-                    <div className="text-sm text-gray-700 font-medium">Franchise Failure Rate</div>
-                    <div className="text-xs text-gray-600">Within first 2 years</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
