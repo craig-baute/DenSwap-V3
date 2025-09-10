@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FileUpload } from './FileUpload';
 import { listFiles, getPublicUrl, deleteFile } from '../lib/supabase';
-import { Image, Trash2, Copy, CheckCircle, Folder, Search, Grid, List } from 'lucide-react';
+import { Image, Trash2, Copy, CheckCircle, Folder, Search, Grid, List, Loader2 } from 'lucide-react';
 
 interface MediaFile {
   name: string;
