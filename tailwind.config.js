@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Brand Colors
+        // Brand Colors - Primary Palette
         'brand': {
           'primary': '#2D9B7A',
           'dark': '#1A4B3A', 
@@ -36,7 +36,7 @@ export default {
         'info': {
           500: '#17A2B8'
         },
-        // Neutral Colors
+        // Neutral Colors - Text & Background
         'neutral': {
           50: '#F8F9FA',
           500: '#6C757D',
@@ -45,6 +45,14 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'h1': ['2rem', { lineHeight: '1.2', fontWeight: '600' }],
+        'h2': ['1.5rem', { lineHeight: '1.3', fontWeight: '600' }],
+        'h3': ['1.25rem', { lineHeight: '1.4', fontWeight: '500' }],
+        'body': ['1rem', { lineHeight: '1.5', fontWeight: '400' }],
+        'small': ['0.875rem', { lineHeight: '1.4', fontWeight: '400' }],
+        'caption': ['0.75rem', { lineHeight: '1.3', fontWeight: '500' }]
       }
     },
   },

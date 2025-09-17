@@ -180,7 +180,6 @@ export const StrategySection: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="mt-8 p-6 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl border border-emerald-400/30">
                 <div className="mt-8 p-6 bg-gradient-to-br from-brand-primary/20 to-brand-light/20 rounded-xl border border-brand-light/30">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="bg-brand-primary p-1.5 rounded-lg shadow-sm">
@@ -205,7 +204,7 @@ export const StrategySection: React.FC = () => {
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-h3 font-bold text-white mb-2">{benefit.title}</h3>
-                  <p className="text-white/80 text-small leading-relaxed">{benefit.description}</p>
+                  <p className="text-neutral-500 text-small leading-relaxed">{benefit.description}</p>
                 </div>
               );
             })}
