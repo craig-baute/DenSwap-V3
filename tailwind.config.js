@@ -47,8 +47,8 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        'h1': ['2rem', { lineHeight: '1.2', fontWeight: '600' }],
-        'h2': ['1.5rem', { lineHeight: '1.3', fontWeight: '600' }],
+        'h1': ['2rem', { lineHeight: '1.2', fontWeight: '800' }],
+        'h2': ['1.5rem', { lineHeight: '1.3', fontWeight: '800' }],
         'h3': ['1.25rem', { lineHeight: '1.4', fontWeight: '500' }],
         'body': ['1rem', { lineHeight: '1.5', fontWeight: '400' }],
         'small': ['0.875rem', { lineHeight: '1.4', fontWeight: '400' }],
