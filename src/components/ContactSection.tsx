@@ -25,17 +25,21 @@ export const ContactSection: React.FC = () => {
   return (
     <section className="py-24 bg-gray-50 relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:36px_36px] opacity-30"></div>
+      <div className="absolute inset-0 bg-grid-brand-primary/6 bg-[size:36px_36px] opacity-35"></div>
       
-      {/* Blob Geometric Elements */}
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-emerald-100/40 blur-3xl" style={{
-        borderRadius: '50% 30% 70% 40% / 40% 70% 30% 50%',
-        zIndex: 0
-      }}></div>
-      <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-emerald-200/30 blur-2xl" style={{
-        borderRadius: '40% 60% 30% 70% / 70% 30% 60% 40%',
-        zIndex: 0
-      }}></div>
+      {/* Brand Background Elements */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-brand-primary/12 to-brand-light/8 rounded-full blur-3xl transform translate-x-1/4 -translate-y-1/4"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-sage-200/15 to-brand-dark/10 rounded-full blur-2xl transform -translate-x-1/4 translate-y-1/4"></div>
+      
+      {/* Geometric Corner Elements */}
+      <div className="absolute top-16 left-16 opacity-10">
+        <div className="grid grid-cols-3 gap-1 transform rotate-12">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="w-5 h-5 bg-brand-primary/30 rounded-sm"></div>
+          ))}
+        </div>
+      </div>
+      <div className="absolute bottom-20 right-24 w-20 h-20 border-2 border-brand-light/40 transform -rotate-45 rounded-lg opacity-12"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative z-10">

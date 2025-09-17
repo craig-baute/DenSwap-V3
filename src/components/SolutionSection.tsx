@@ -5,21 +5,19 @@ export const SolutionSection: React.FC = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:36px_36px] opacity-30"></div>
+      <div className="absolute inset-0 bg-grid-brand-primary/5 bg-[size:32px_32px] opacity-40"></div>
       
-      {/* Blob Geometric Elements */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-emerald-100/40 blur-2xl" style={{
-        borderRadius: '70% 30% 50% 50% / 40% 60% 30% 70%',
-        zIndex: 0
-      }}></div>
-      <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-emerald-200/35 blur-xl" style={{
-        borderRadius: '50% 70% 30% 50% / 60% 40% 70% 30%',
-        zIndex: 0
-      }}></div>
-      <div className="absolute -top-6 -right-6 w-32 h-32 bg-emerald-300/25 transform rotate-45" style={{
-        clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
-        zIndex: 0
-      }}></div>
+      {/* Brand Background Elements */}
+      <div className="absolute -top-16 -right-16 w-80 h-80 bg-gradient-to-bl from-brand-light/12 to-sage-200/8 rounded-full blur-2xl"></div>
+      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-brand-dark/5 rounded-full blur-3xl"></div>
+      
+      {/* Geometric Brand Elements */}
+      <div className="absolute bottom-10 right-20 opacity-8">
+        <div className="w-32 h-32 border-4 border-brand-light/30 transform rotate-12" style={{
+          clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
+        }}></div>
+      </div>
+      <div className="absolute top-20 left-16 w-24 h-24 bg-brand-primary/8 transform -rotate-12 rounded-lg"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative z-10">

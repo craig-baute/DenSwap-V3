@@ -32,17 +32,19 @@ export const BlogSection: React.FC = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:28px_28px] opacity-30"></div>
+      <div className="absolute inset-0 bg-grid-brand-primary/5 bg-[size:28px_28px] opacity-35"></div>
       
-      {/* Blob Geometric Elements */}
-      <div className="absolute -top-16 -left-16 w-64 h-64 bg-emerald-100/30 blur-xl" style={{
-        borderRadius: '50% 70% 40% 60% / 30% 50% 70% 40%',
-        zIndex: 0
-      }}></div>
-      <div className="absolute -bottom-12 -right-12 w-56 h-56 bg-emerald-200/25 blur-2xl" style={{
-        borderRadius: '40% 60% 50% 50% / 60% 30% 70% 40%',
-        zIndex: 0
-      }}></div>
+      {/* Brand Background Elements */}
+      <div className="absolute -top-12 -left-12 w-64 h-64 bg-gradient-to-br from-brand-dark/8 to-brand-primary/12 rounded-full blur-xl"></div>
+      <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-gradient-to-tl from-sage-200/15 to-brand-light/10 rounded-full blur-2xl"></div>
+      
+      {/* Corner Brand Accents */}
+      <div className="absolute top-20 right-20 opacity-8">
+        <div className="w-24 h-24 border-2 border-brand-primary/30" style={{
+          clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
+        }}></div>
+      </div>
+      <div className="absolute bottom-16 left-16 w-16 h-16 bg-brand-light/15 transform rotate-45 rounded-sm"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative z-10">

@@ -5,17 +5,23 @@ export const TestimonialSection: React.FC = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:30px_30px] opacity-30"></div>
+      <div className="absolute inset-0 bg-grid-brand-primary/6 bg-[size:30px_30px] opacity-30"></div>
       
-      {/* Blob Geometric Elements */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-emerald-100/40 blur-2xl" style={{
-        borderRadius: '50% 70% 30% 50% / 60% 40% 70% 30%',
-        zIndex: 0
-      }}></div>
-      <div className="absolute -bottom-16 -right-16 w-60 h-60 bg-emerald-200/35 blur-xl" style={{
-        borderRadius: '70% 30% 60% 40% / 40% 70% 30% 60%',
-        zIndex: 0
-      }}></div>
+      {/* Brand Background Elements */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-brand-primary/15 to-sage-200/10 rounded-full blur-2xl transform translate-x-1/3 -translate-y-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-brand-light/12 to-brand-primary/8 rounded-full blur-xl transform -translate-x-1/3 translate-y-1/3"></div>
+      
+      {/* Geometric Brand Accents */}
+      <div className="absolute top-1/4 left-12 opacity-8">
+        <div className="w-20 h-20 border-3 border-brand-light/40 rounded-lg transform -rotate-12"></div>
+      </div>
+      <div className="absolute bottom-1/4 right-12 opacity-10">
+        <div className="grid grid-cols-2 gap-2">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="w-6 h-6 bg-brand-primary/20 transform rotate-45"></div>
+          ))}
+        </div>
+      </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
