@@ -23,15 +23,15 @@ export const SolutionSection: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative z-10">
-          <div className="inline-block px-5 py-2.5 bg-emerald-100 border border-emerald-200 rounded-full text-sm font-semibold text-emerald-700 mb-6">
+          <div className="inline-block px-5 py-2.5 bg-sage-200 border border-brand-primary rounded-full text-sm font-semibold text-brand-dark mb-6">
             DenSwap Analytics and Reports
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-emerald-700 mb-8 tracking-tight">
+          <h2 className="text-h1 md:text-5xl font-black text-brand-primary mb-8 tracking-tight">
             Forecast where coworking will succeed through data
           </h2>
           
           <div className="mt-12">
-            <a href="/sample-report" className="group bg-emerald-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:bg-emerald-700 transition-all duration-300 inline-flex items-center">
+            <a href="/sample-report" className="group bg-gradient-to-r from-brand-primary to-brand-light text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl transition-all duration-300 inline-flex items-center">
               Get a Free Coworking Demand Report for Your Building
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
@@ -41,14 +41,14 @@ export const SolutionSection: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="space-y-8">
             <div className="flex items-start gap-4">
-              <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-4 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-brand-primary to-brand-light p-4 rounded-xl shadow-lg">
                 <MapPin className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-emerald-700 mb-3">
+                <h3 className="text-h2 font-bold text-brand-primary mb-3">
                   Human-Centric Location Analysis
                 </h3>
-                <p className="text-gray-700 leading-relaxed font-medium">
+                <p className="text-body text-neutral-900 leading-relaxed font-medium">
                   We analyze where people actually want to work, not just demographic averages. 
                   Our data reveals the true pulse of coworking demand in your specific area.
                 </p>
@@ -56,14 +56,14 @@ export const SolutionSection: React.FC = () => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="bg-gradient-to-br from-teal-500 to-teal-600 p-4 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-brand-light to-secondary-400 p-4 rounded-xl shadow-lg">
                 <TrendingUp className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-emerald-700 mb-3">
+                <h3 className="text-h2 font-bold text-brand-primary mb-3">
                   Operator-Proven Insights
                 </h3>
-                <p className="text-gray-700 leading-relaxed font-medium">
+                <p className="text-body text-neutral-900 leading-relaxed font-medium">
                   14 years of hands-on coworking operations across multiple states. 
                   We know what works because we've built it, run it, and scaled it.
                 </p>
@@ -71,14 +71,14 @@ export const SolutionSection: React.FC = () => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="bg-gradient-to-br from-emerald-600 to-teal-600 p-4 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-br from-brand-primary to-brand-light p-4 rounded-xl shadow-lg">
                 <DollarSign className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-emerald-700 mb-3">
+                <h3 className="text-h2 font-bold text-brand-primary mb-3">
                   Real P&L Projections
                 </h3>
-                <p className="text-gray-700 leading-relaxed font-medium">
+                <p className="text-body text-neutral-900 leading-relaxed font-medium">
                   Financial models based on actual operational data, not theoretical assumptions. 
                   See exactly what your space can generate in revenue.
                 </p>
@@ -87,58 +87,58 @@ export const SolutionSection: React.FC = () => {
           </div>
 
           <div className="relative">
-            <div className="bg-white rounded-2xl shadow-xl p-8 border border-emerald-200">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-sage-200">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-emerald-700">Coworking Demand Analysis</h3>
-                <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-2 rounded-lg shadow-md">
+                <h3 className="text-h3 font-bold text-brand-primary">Coworking Demand Analysis</h3>
+                <div className="bg-gradient-to-br from-brand-primary to-brand-light p-2 rounded-lg shadow-md">
                   <BarChart3 className="h-5 w-5 text-white" />
                 </div>
               </div>
               
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">Market Demand Score</span>
+                  <span className="text-neutral-900 font-medium">Market Demand Score</span>
                   <div className="flex items-center gap-2">
-                    <div className="w-32 bg-gray-300 rounded-full h-3 shadow-inner">
-                      <div className="bg-gradient-to-r from-emerald-400 to-emerald-500 h-3 rounded-full shadow-sm" style={{ width: '92%' }}></div>
+                    <div className="w-32 bg-neutral-500 rounded-full h-3 shadow-inner">
+                      <div className="bg-gradient-to-r from-brand-primary to-brand-light h-3 rounded-full shadow-sm" style={{ width: '92%' }}></div>
                     </div>
-                    <span className="text-sm font-bold text-emerald-600">9.2/10</span>
+                    <span className="text-small font-bold text-brand-primary">9.2/10</span>
                   </div>
                 </div>
                 
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">Supportable SF</span>
+                  <span className="text-neutral-900 font-medium">Supportable SF</span>
                   <div className="text-right">
-                    <div className="text-2xl font-black text-emerald-700">45,000</div>
-                    <div className="text-sm text-emerald-600 font-medium">Square Feet</div>
+                    <div className="text-2xl font-black text-brand-primary">45,000</div>
+                    <div className="text-small text-brand-light font-medium">Square Feet</div>
                   </div>
                 </div>
                 
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">Competition Gap</span>
+                  <span className="text-neutral-900 font-medium">Competition Gap</span>
                   <div className="text-right">
-                    <div className="text-2xl font-black text-teal-600">17,000</div>
-                    <div className="text-sm text-emerald-600 font-medium">SF Opportunity</div>
+                    <div className="text-2xl font-black text-brand-light">17,000</div>
+                    <div className="text-small text-brand-primary font-medium">SF Opportunity</div>
                   </div>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">Projected ROI</span>
+                  <span className="text-neutral-900 font-medium">Projected ROI</span>
                   <div className="text-right">
-                    <div className="text-2xl font-black text-emerald-600">35%</div>
-                    <div className="text-sm text-emerald-600 font-medium">5-Year Return</div>
+                    <div className="text-2xl font-black text-brand-primary">35%</div>
+                    <div className="text-small text-brand-primary font-medium">5-Year Return</div>
                   </div>
                 </div>
               </div>
               
-              <div className="mt-8 p-6 bg-emerald-50 rounded-xl border border-emerald-200">
+              <div className="mt-8 p-6 bg-sage-200 rounded-xl border border-brand-primary">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="bg-emerald-500 p-1.5 rounded-lg shadow-sm">
+                  <div className="bg-brand-primary p-1.5 rounded-lg shadow-sm">
                     <TrendingUp className="h-4 w-4 text-white" />
                   </div>
-                  <span className="font-bold text-emerald-700">Recommendation: High Potential</span>
+                  <span className="font-bold text-brand-dark">Recommendation: High Potential</span>
                 </div>
-                <p className="text-sm text-emerald-600 leading-relaxed font-medium">
+                <p className="text-small text-brand-dark leading-relaxed font-medium">
                   This location shows excellent potential for flexible workspace with 
                   projected 18-month break-even based on operator experience.
                 </p>

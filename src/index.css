@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-primary: #2D9B7A;
+    --brand-dark: #1A4B3A;
+    --brand-light: #4DB599;
+    --text-primary: #343A40;
+    --text-secondary: #6C757D;
+    --background: #FFFFFF;
+    --background-alt: #F8F9FA;
+  }
+}
+
+@layer utilities {
+  .text-h1 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  .text-h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  .text-h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  
+  .text-body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  
+  .text-small {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+  
+  .text-caption {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+}

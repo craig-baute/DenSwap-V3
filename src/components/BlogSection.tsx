@@ -46,11 +46,11 @@ export const BlogSection: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-8">
+          <h2 className="text-h1 md:text-5xl font-bold text-brand-primary mb-8">
             Latest Industry
-            <span className="text-emerald-600"> Insights</span>
+            <span className="text-brand-light"> Insights</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-body text-neutral-500 max-w-3xl mx-auto">
             Stay ahead of the curve with expert analysis and real-world insights from the coworking industry.
           </p>
         </div>
@@ -65,7 +65,7 @@ export const BlogSection: React.FC = () => {
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <span className="bg-brand-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
                     {post.category}
                   </span>
                 </div>
@@ -83,15 +83,15 @@ export const BlogSection: React.FC = () => {
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-emerald-700 mb-3 group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-h3 font-bold text-brand-primary mb-3 group-hover:text-brand-light transition-colors">
                   {post.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-body text-neutral-500 mb-4 leading-relaxed">
                   {post.excerpt}
                 </p>
                 
-                <a href="#" className="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-700 transition-colors group">
+                <a href="#" className="inline-flex items-center text-brand-primary font-semibold hover:text-brand-light transition-colors group">
                   Read More
                   <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -101,7 +101,7 @@ export const BlogSection: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-          <a href="/blog" className="group bg-emerald-600 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
+          <a href="/blog" className="group bg-gradient-to-r from-brand-primary to-brand-light text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
             View All Articles
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </a>

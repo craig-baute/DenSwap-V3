@@ -66,11 +66,11 @@ export const ProductsSection: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-8">
+          <h2 className="text-h1 md:text-5xl font-bold text-brand-primary mb-8">
             Comprehensive solutions designed to
-            <span className="text-emerald-600"> maximize your space's potential</span>
+            <span className="text-brand-light"> maximize your space's potential</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-body text-neutral-500 max-w-3xl mx-auto">
             and meet modern workplace demands.
           </p>
         </div>
@@ -79,16 +79,16 @@ export const ProductsSection: React.FC = () => {
           {products.map((product, index) => {
             const Icon = product.icon;
             const colorClasses = {
-              blue: "from-blue-500 to-blue-600 border-blue-200 bg-blue-50",
-              green: "from-green-500 to-green-600 border-green-200 bg-green-50",
+              blue: "from-info-500 to-brand-primary border-sage-200 bg-neutral-50",
+              green: "from-brand-primary to-brand-light border-sage-200 bg-sage-200",
               purple: "from-purple-500 to-purple-600 border-purple-200 bg-purple-50"
             };
 
             return (
-              <div key={index} className={`bg-white rounded-2xl shadow-lg border ${product.featured ? 'border-emerald-300 relative' : 'border-gray-200'} p-8 hover:shadow-xl transition-all duration-300 ${product.comingSoon ? 'opacity-75' : ''}`}>
+              <div key={index} className={`bg-white rounded-2xl shadow-lg border ${product.featured ? 'border-brand-light relative' : 'border-neutral-500'} p-8 hover:shadow-xl transition-all duration-300 ${product.comingSoon ? 'opacity-75' : ''}`}>
                 {product.featured && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-brand-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
                       MOST POPULAR
                     </span>
                   </div>
@@ -100,28 +100,28 @@ export const ProductsSection: React.FC = () => {
                   <Icon className="h-8 w-8 text-white" />
                 </div>
 
-                <h3 className="text-2xl font-bold text-emerald-700 mb-4">{product.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{product.description}</p>
+                <h3 className="text-h2 font-bold text-brand-primary mb-4">{product.title}</h3>
+                <p className="text-body text-neutral-500 mb-6 leading-relaxed">{product.description}</p>
 
                 <ul className="space-y-3 mb-8">
                   {product.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center gap-3">
-                      <CheckCircle className="h-4 w-4 text-emerald-600 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm">{feature}</span>
+                      <CheckCircle className="h-4 w-4 text-brand-primary flex-shrink-0" />
+                      <span className="text-neutral-500 text-small">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Price:</span>
-                    <span className="font-semibold text-emerald-700">{product.price}</span>
+                    <span className="text-neutral-500">Price:</span>
+                    <span className="font-semibold text-brand-primary">{product.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">Timeline:</span>
+                    <span className="text-neutral-500">Timeline:</span>
                     <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4 text-gray-500" />
-                      <span className="font-semibold text-emerald-700">{product.timeline}</span>
+                      <Clock className="h-4 w-4 text-neutral-500" />
+                      <span className="font-semibold text-brand-primary">{product.timeline}</span>
                     </div>
                   </div>
                 </div>

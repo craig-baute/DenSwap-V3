@@ -117,23 +117,23 @@ export const StrategySection: React.FC = () => {
       <section className="py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:32px_32px]"></div>
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-tr from-teal-600/20 to-emerald-600/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-brand-primary/20 to-brand-light/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-tr from-brand-light/20 to-brand-primary/20 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+              <h2 className="text-h1 md:text-5xl font-black text-white mb-6">
                 Your Coworking Strategy Partner
               </h2>
-              <div className="text-5xl md:text-6xl font-black text-emerald-400 mb-8">
+              <div className="text-5xl md:text-6xl font-black text-brand-light mb-8">
                 Future-Proof Your Portfolio
               </div>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-body text-neutral-500 mb-8 leading-relaxed">
                 From 1 building to 100 - data-driven insights that turn empty spaces into profit centers.
               </p>
               
-              <a href="/book-consultation" className="group bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
+              <a href="/book-consultation" className="group bg-gradient-to-r from-brand-primary to-brand-light text-white px-8 py-4 rounded-2xl text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center">
                 <Calendar className="mr-2 h-5 w-5" />
                 Schedule Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -149,9 +149,9 @@ export const StrategySection: React.FC = () => {
                     <span className="text-gray-300 font-medium">Portfolio Occupancy</span>
                     <div className="flex items-center gap-2">
                       <div className="w-32 bg-gray-700 rounded-full h-3 shadow-inner">
-                        <div className="bg-gradient-to-r from-emerald-400 to-emerald-500 h-3 rounded-full shadow-sm" style={{ width: '87%' }}></div>
+                        <div className="bg-gradient-to-r from-brand-primary to-brand-light h-3 rounded-full shadow-sm" style={{ width: '87%' }}></div>
                       </div>
-                      <span className="text-sm font-bold text-emerald-400">87%</span>
+                      <span className="text-sm font-bold text-brand-light">87%</span>
                     </div>
                   </div>
                   
@@ -166,7 +166,7 @@ export const StrategySection: React.FC = () => {
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300 font-medium">Market Penetration</span>
                     <div className="text-right">
-                      <div className="text-2xl font-black text-teal-400">62%</div>
+                      <div className="text-2xl font-black text-brand-light">62%</div>
                       <div className="text-sm text-gray-400 font-medium">of Target Market</div>
                     </div>
                   </div>
@@ -174,20 +174,21 @@ export const StrategySection: React.FC = () => {
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300 font-medium">ROI Timeline</span>
                     <div className="text-right">
-                      <div className="text-2xl font-black text-emerald-400">18mo</div>
+                      <div className="text-2xl font-black text-brand-light">18mo</div>
                       <div className="text-sm text-gray-400 font-medium">Average Breakeven</div>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-8 p-6 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-xl border border-emerald-400/30">
+                <div className="mt-8 p-6 bg-gradient-to-br from-brand-primary/20 to-brand-light/20 rounded-xl border border-brand-light/30">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="bg-emerald-500 p-1.5 rounded-lg shadow-sm">
+                    <div className="bg-brand-primary p-1.5 rounded-lg shadow-sm">
                       <TrendingUp className="h-4 w-4 text-white" />
                     </div>
-                    <span className="font-bold text-emerald-300">Portfolio Optimized</span>
+                    <span className="font-bold text-brand-light">Portfolio Optimized</span>
                   </div>
-                  <p className="text-sm text-emerald-100 leading-relaxed font-medium">
+                  <p className="text-small text-brand-light/80 leading-relaxed font-medium">
                     Your properties are performing 34% above market average with our strategic guidance.
                   </p>
                 </div>
@@ -200,11 +201,11 @@ export const StrategySection: React.FC = () => {
               const Icon = benefit.icon;
               return (
                 <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all">
-                  <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-3 rounded-xl w-12 h-12 flex items-center justify-center mb-4">
+                  <div className="bg-gradient-to-br from-brand-primary to-brand-light p-3 rounded-xl w-12 h-12 flex items-center justify-center mb-4">
                     <Icon className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{benefit.title}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-h3 font-bold text-white mb-2">{benefit.title}</h3>
+                  <p className="text-white/80 text-small leading-relaxed">{benefit.description}</p>
                 </div>
               );
             })}
@@ -212,7 +213,7 @@ export const StrategySection: React.FC = () => {
 
           <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-h2 font-bold text-white mb-4">
                 End-to-End Partnership
               </h3>
             </div>
@@ -223,15 +224,15 @@ export const StrategySection: React.FC = () => {
                 return (
                   <div key={index} className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all">
                     <div className="flex items-center mb-4">
-                      <div className="bg-emerald-500/20 p-3 rounded-lg mr-4 border border-emerald-400/30">
-                        <Icon className="h-6 w-6 text-emerald-400" />
+                      <div className="bg-brand-primary/20 p-3 rounded-lg mr-4 border border-brand-light/30">
+                        <Icon className="h-6 w-6 text-brand-light" />
                       </div>
-                      <h4 className="text-lg font-bold text-white">{service.name}</h4>
+                      <h4 className="text-h3 font-bold text-white">{service.name}</h4>
                     </div>
                     <div className="space-y-2">
                       {service.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-center text-sm text-gray-300">
-                          <CheckCircle className="h-4 w-4 text-emerald-400 mr-2 flex-shrink-0" />
+                        <div key={detailIndex} className="flex items-center text-small text-neutral-500">
+                          <CheckCircle className="h-4 w-4 text-brand-light mr-2 flex-shrink-0" />
                           {detail}
                         </div>
                       ))}

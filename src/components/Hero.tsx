@@ -17,16 +17,17 @@ export const Hero: React.FC = () => {
       </video>
       
       {/* Green Overlay */}
-      <div className="absolute inset-0 bg-emerald-700/75 z-10"></div>
+      <div className="absolute inset-0 bg-brand-dark/75 z-10"></div>
       
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-white/10 bg-[size:24px_24px] opacity-30 z-40"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-600/30 to-teal-600/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 z-20"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-teal-600/30 to-emerald-600/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 z-20"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-brand-primary/30 to-brand-light/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 z-20"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-brand-light/30 to-brand-primary/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 z-20"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
         <div className="text-center relative z-30">
           <div className="inline-flex items-center px-5 py-2.5 bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-sm font-bold text-white mb-8 shadow-sm">
+          <div className="inline-flex items-center px-5 py-2.5 bg-brand-primary/20 backdrop-blur-sm border border-brand-light/30 rounded-full text-sm font-bold text-white mb-8 shadow-sm">
             <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
             Trusted by 100+ property owners across the US
           </div>

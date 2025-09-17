@@ -39,11 +39,11 @@ export const ContactSection: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-8">
+          <h2 className="text-h1 md:text-5xl font-bold text-brand-primary mb-8">
             Ready to Transform
-            <span className="text-emerald-600"> Your Property?</span>
+            <span className="text-brand-light"> Your Property?</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-body text-neutral-500 max-w-3xl mx-auto">
             Get in touch with our team to discuss your coworking potential and receive a custom analysis.
           </p>
         </div>
@@ -51,10 +51,10 @@ export const ContactSection: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 relative z-10">
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-emerald-700 mb-6">
+              <h3 className="text-h2 font-bold text-brand-primary mb-6">
                 Let's Discuss Your Vision
               </h3>
-              <p className="text-gray-700 mb-8 leading-relaxed">
+              <p className="text-body text-neutral-900 mb-8 leading-relaxed">
                 Our experts are ready to analyze your property and provide data-driven 
                 recommendations for coworking success. Every conversation starts with understanding 
                 your goals and constraints.
@@ -63,56 +63,56 @@ export const ContactSection: React.FC = () => {
 
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-green-500 to-green-600 p-3 rounded-2xl shadow-lg">
+                <div className="bg-gradient-to-br from-brand-primary to-brand-light p-3 rounded-2xl shadow-lg">
                   <Mail className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-emerald-700">Email</div>
-                  <div className="text-emerald-600">contact@denswap.com</div>
+                  <div className="font-semibold text-brand-primary">Email</div>
+                  <div className="text-brand-light">contact@denswap.com</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-2xl shadow-lg">
+                <div className="bg-gradient-to-br from-brand-primary to-secondary-400 p-3 rounded-2xl shadow-lg">
                   <Phone className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-emerald-700">Phone</div>
-                  <div className="text-emerald-600">+1 (555) 123-4567</div>
+                  <div className="font-semibold text-brand-primary">Phone</div>
+                  <div className="text-brand-light">+1 (555) 123-4567</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="bg-gradient-to-br from-green-600 to-blue-600 p-3 rounded-2xl shadow-lg">
+                <div className="bg-gradient-to-br from-brand-dark to-brand-primary p-3 rounded-2xl shadow-lg">
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-emerald-700">Coverage</div>
-                  <div className="text-emerald-600">Multiple States Across the US</div>
+                  <div className="font-semibold text-brand-primary">Coverage</div>
+                  <div className="text-brand-light">Multiple States Across the US</div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-emerald-200 shadow-sm">
-              <h4 className="font-semibold text-emerald-700 mb-3">What to Expect:</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
+            <div className="bg-white rounded-2xl p-6 border border-sage-200 shadow-sm">
+              <h4 className="font-semibold text-brand-primary mb-3">What to Expect:</h4>
+              <ul className="space-y-2 text-small text-neutral-500">
                 <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-brand-primary rounded-full"></div>
                   Initial consultation within 24 hours
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-brand-primary rounded-full"></div>
                   Custom analysis proposal
                 </li>
                 <li className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 bg-brand-primary rounded-full"></div>
                   Detailed feasibility study delivery
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 border border-emerald-200 shadow-lg">
+          <div className="bg-white rounded-3xl p-8 border border-sage-200 shadow-lg">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -126,7 +126,7 @@ export const ContactSection: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 bg-neutral-50 border border-neutral-500 text-neutral-900 placeholder-neutral-500 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-colors"
                     placeholder="Your full name"
                   />
                 </div>
@@ -142,7 +142,7 @@ export const ContactSection: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 bg-neutral-50 border border-neutral-500 text-neutral-900 placeholder-neutral-500 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-colors"
                     placeholder="your.email@company.com"
                   />
                 </div>
@@ -159,7 +159,7 @@ export const ContactSection: React.FC = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 bg-neutral-50 border border-neutral-500 text-neutral-900 placeholder-neutral-500 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-colors"
                     placeholder="Your company"
                   />
                 </div>
@@ -174,7 +174,7 @@ export const ContactSection: React.FC = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 bg-neutral-50 border border-neutral-500 text-neutral-900 placeholder-neutral-500 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-colors"
                     placeholder="+1 (555) 123-4567"
                   />
                 </div>
@@ -190,14 +190,14 @@ export const ContactSection: React.FC = () => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-300 text-gray-900 placeholder-gray-500 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-500 text-neutral-900 placeholder-neutral-500 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-colors"
                   placeholder="Property details, location, current situation, specific goals..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-emerald-600 text-white py-4 px-6 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-brand-primary to-brand-light text-white py-4 px-6 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Send className="h-5 w-5" />
                 Send Message

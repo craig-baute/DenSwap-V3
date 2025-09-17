@@ -13,29 +13,29 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-light rounded-lg flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-lg tracking-tight">D</span>
             </div>
-            <span className="ml-3 text-xl font-black text-gray-900 tracking-tight">DenSwap</span>
+            <span className="ml-3 text-xl font-black text-neutral-900 tracking-tight">DenSwap</span>
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <div className="relative group">
-              <button className="flex items-center text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+              <button className="flex items-center text-neutral-500 hover:text-brand-primary font-medium transition-colors">
                 Products
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
-                  <a href="/demand-report" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  <a href="/demand-report" className="block px-4 py-3 text-neutral-500 hover:bg-sage-200 hover:text-brand-primary transition-colors">
                     Demand Analysis
                   </a>
-                  <a href="/feasibility-study" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  <a href="/feasibility-study" className="block px-4 py-3 text-neutral-500 hover:bg-sage-200 hover:text-brand-primary transition-colors">
                     Feasibility Study
                   </a>
                   <div className="relative">
-                    <a href="/analytics-map" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors flex items-center justify-between">
+                    <a href="/analytics-map" className="block px-4 py-3 text-neutral-500 hover:bg-sage-200 hover:text-brand-primary transition-colors flex items-center justify-between">
                       <span>Map Analytics</span>
                       <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-2 py-1 rounded-full text-xs font-semibold shadow-sm">
                         Coming Soon
@@ -46,41 +46,41 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
               </div>
             </div>
             <div className="relative group">
-              <button className="flex items-center text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+              <button className="flex items-center text-neutral-500 hover:text-brand-primary font-medium transition-colors">
                 Use Cases
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="py-2">
-                  <a href="/reits-investment-funds" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  <a href="/reits-investment-funds" className="block px-4 py-3 text-neutral-500 hover:bg-sage-200 hover:text-brand-primary transition-colors">
                     REITs & Investment Funds
                   </a>
-                  <a href="/coworking-operators" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  <a href="/coworking-operators" className="block px-4 py-3 text-neutral-500 hover:bg-sage-200 hover:text-brand-primary transition-colors">
                     Coworking Operators
                   </a>
-                  <a href="/franchisee-case-studies" className="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  <a href="/franchisee-case-studies" className="block px-4 py-3 text-neutral-500 hover:bg-sage-200 hover:text-brand-primary transition-colors">
                     Franchisee Case Studies
                   </a>
                 </div>
               </div>
             </div>
-            <a href="/blog" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+            <a href="/blog" className="text-neutral-500 hover:text-brand-primary font-medium transition-colors">
               Blog
             </a>
-            <a href="/case-studies" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+            <a href="/case-studies" className="text-neutral-500 hover:text-brand-primary font-medium transition-colors">
               Case Studies
             </a>
-            <a href="/about" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+            <a href="/about" className="text-neutral-500 hover:text-brand-primary font-medium transition-colors">
               About
             </a>
-            <a href="/contact" className="text-gray-700 hover:text-emerald-600 font-medium transition-colors">
+            <a href="/contact" className="text-neutral-500 hover:text-brand-primary font-medium transition-colors">
               Contact
             </a>
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="/sample-report" className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
+            <a href="/sample-report" className="bg-gradient-to-r from-brand-primary to-brand-light text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
               Download a Sample Report
             </a>
           </div>
