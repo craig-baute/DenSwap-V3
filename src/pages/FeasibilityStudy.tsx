@@ -83,48 +83,141 @@ export const FeasibilityStudy: React.FC = () => {
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-50 via-white to-blue-50/40 py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:24px_24px] opacity-25"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-100 to-blue-100 rounded-full blur-3xl opacity-25 -translate-y-1/2 translate-x-1/2"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Will your building print money
-              <span className="text-emerald-600"> or burn cash</span>
-              <br />
-              <span className="text-4xl md:text-5xl">with coworking?</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
-              Stop guessing on flexible office. DenSwap's Feasibility Study gives you the brutal facts 
-              and the operator-proven plan to maximize profit and crush risk.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <button 
-                onClick={handleOrderReport}
-                className="group bg-gradient-to-r from-emerald-600 to-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center"
-              >
-                Order a Feasibility Report
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <a 
-                href="/sample-report"
-                className="group bg-white border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-xl text-lg font-bold hover:bg-emerald-50 hover:shadow-lg transition-all duration-300 flex items-center justify-center"
-              >
-                <FileText className="mr-2 h-5 w-5" />
-                Download Sample Feasibility Study
-              </a>
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-emerald-800 text-white overflow-hidden">
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Report Mockups - Left Side */}
+              <div className="relative">
+                <div className="transform -rotate-12 hover:rotate-0 transition-transform duration-500">
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
+                    {/* Report Cover */}
+                    <div className="bg-gradient-to-br from-brand-primary to-brand-light p-8 text-white">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">D</span>
+                        </div>
+                        <span className="font-bold text-lg">DENSWAP</span>
+                      </div>
+                      <h3 className="text-2xl font-bold mb-2">Coworking</h3>
+                      <h3 className="text-2xl font-bold mb-4">Feasibility Study</h3>
+                      <p className="text-sm opacity-90">Market Analysis Report</p>
+                      
+                      {/* Hexagon Pattern */}
+                      <div className="absolute bottom-4 right-4 opacity-30">
+                        <div className="grid grid-cols-3 gap-1">
+                          {[...Array(6)].map((_, i) => (
+                            <div key={i} className="w-4 h-4 border border-white/40" style={{
+                              clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
+                            }}></div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Report Content Preview */}
+                    <div className="p-6 bg-white">
+                      <div className="space-y-4">
+                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                        <div className="h-3 bg-gray-100 rounded w-full"></div>
+                        <div className="h-3 bg-gray-100 rounded w-2/3"></div>
+                        
+                        <div className="bg-brand-primary/10 rounded-lg p-4 mt-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="font-semibold text-gray-900 text-sm">Market Viability:</span>
+                            <span className="text-lg font-bold text-brand-primary">Excellent</span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div className="bg-gradient-to-r from-brand-primary to-brand-light h-2 rounded-full" style={{ width: '88%' }}></div>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-2 mt-4">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-700">Projected ROI:</span>
+                            <span className="font-semibold text-brand-primary">28%</span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-700">Breakeven Timeline:</span>
+                            <span className="font-semibold text-brand-light">16 months</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -right-4 bg-brand-light text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                  Expert Analysis
+                </div>
+                <div className="absolute -bottom-4 -left-4 bg-white text-slate-600 px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                  20+ Pages
+                </div>
+              </div>
+
+              {/* Content - Right Side */}
+              <div className="space-y-8">
+                <div>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Building confidence to build
+                    <span className="text-brand-light"> flex spaces.</span>
+                    <span className="text-yellow-400 text-5xl ml-2">*</span>
+                  </h1>
+                  
+                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
+                    Are you considering transforming your commercial property into a flexible 
+                    coworking space? Our feasibility reports can provide you with the insight you 
+                    need to make a confident investment decision. Our team of experts utilizes 
+                    market data APIs, proprietary information on coworking spaces, and unique 
+                    consulting expertise to assess whether a given building is suited for a 
+                    successful flex/coworking business.
+                  </p>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    Get Free Sample Report
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Schedule Consultation
+                  </a>
+                </div>
+                
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-6 pt-8">
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">115+</div>
+                    <div className="text-slate-200 text-sm">Projects Completed</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">35,000+</div>
+                    <div className="text-slate-200 text-sm">Markets Covered</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">$500M+</div>
+                    <div className="text-slate-200 text-sm">Assets Analyzed</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Curved Bottom Element */}
+        <div className="relative">
+          <svg className="w-full h-24" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+          </svg>
+        </div>
       </section>
 
-      {/* Testimonial Section */}
+      {/* Testimonial Quote Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-gray-50 to-emerald-50 rounded-2xl p-8 border border-gray-200">
+          <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border border-gray-200">
             <div className="flex items-center gap-6">
               <img 
                 src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150" 
