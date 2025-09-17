@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
-import { TrendingUp, Building, Users, DollarSign, CheckCircle, ArrowRight, BarChart3, Target, Clock, MapPin, Calculator, PieChart, Settings, Palette, Wifi, FileText } from 'lucide-react';
+import { TrendingUp, Building, Users, DollarSign, CheckCircle, ArrowRight, BarChart3, Target, Clock, MapPin, Calculator, PieChart, Settings, Palette, Wifi, FileText, Calendar } from 'lucide-react';
 
 export const FeasibilityStudy: React.FC = () => {
   const [formData, setFormData] = useState({
