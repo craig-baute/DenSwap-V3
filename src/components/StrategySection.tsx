@@ -204,7 +204,7 @@ export const StrategySection: React.FC = () => {
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-h3 font-bold text-white mb-2">{benefit.title}</h3>
-                  <p className="text-neutral-500 text-small leading-relaxed">{benefit.description}</p>
+                  <p className="text-white/80 text-small">{benefit.description}</p>
                 </div>
               );
             })}
