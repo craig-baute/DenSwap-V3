@@ -36,9 +36,11 @@ export const TestimonialSection: React.FC = () => {
               </blockquote>
               
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">S</span>
-                </div>
+                <img
+                  src="/somo-cowork-logo.png"
+                  alt="Somo Group Logo"
+                  className="w-12 h-12 object-contain"
+                />
                 <div>
                   <div className="font-semibold text-gray-900">Somo Group</div>
                   <div className="text-gray-600 text-sm">Commercial Building Development</div>
