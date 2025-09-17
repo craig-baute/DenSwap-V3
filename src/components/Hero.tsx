@@ -27,7 +27,6 @@ export const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
         <div className="text-center relative z-30">
           <div className="inline-flex items-center px-5 py-2.5 bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/30 rounded-full text-sm font-bold text-white mb-8 shadow-sm">
-          <div className="inline-flex items-center px-5 py-2.5 bg-brand-primary/20 backdrop-blur-sm border border-brand-light/30 rounded-full text-sm font-bold text-white mb-8 shadow-sm">
             <span className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
             Trusted by 100+ property owners across the US
           </div>
@@ -85,5 +84,3 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
-  )
-}
