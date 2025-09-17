@@ -3,7 +3,6 @@ import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-white py-20 relative overflow-hidden">
     <footer className="bg-gradient-to-br from-forest-800 via-brand-dark to-forest-800 text-white py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/5 bg-[size:24px_24px]"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-brand-primary/20 to-brand-light/20 rounded-full blur-3xl"></div>
@@ -75,7 +74,6 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-16 pt-8 text-center text-gray-400 relative font-medium">
         <div className="border-t border-brand-dark mt-16 pt-8 text-center text-neutral-500 relative font-medium">
           <p>&copy; 2025 DenSwap. All rights reserved. | Professional coworking analytics and consulting.</p>
         </div>
@@ -83,5 +81,3 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
-  )
-}
