@@ -24,8 +24,8 @@ export const DemandReport: React.FC = () => {
               {/* Report Image - Left Side - Large and Prominent */}
               <div className="relative">
                 <div className="relative">
-                  src="/feasibility-header-mid.png"
-                    src="/image.png"
+                  <img 
+                    src="/feasibility-header-mid.png"
                     alt="Professional Coworking Feasibility Study Report"
                     className="w-full h-auto max-w-none scale-110 transform -rotate-6 hover:-rotate-3 transition-transform duration-500 shadow-2xl"
                   />
