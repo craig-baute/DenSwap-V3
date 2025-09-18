@@ -21,13 +21,15 @@ export const DemandReport: React.FC = () => {
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Report Image - Left Side */}
+              {/* Report Image - Left Side - Large and Prominent */}
               <div className="relative">
-                <img 
-                  src="/image.png"
-                  alt="Professional Coworking Feasibility Study Report"
-                  className="w-full h-auto transform -rotate-6 hover:-rotate-3 transition-transform duration-500 shadow-2xl"
-                />
+                <div className="relative">
+                  <img 
+                    src="/image.png"
+                    alt="Professional Coworking Feasibility Study Report"
+                    className="w-full h-auto max-w-none scale-110 transform -rotate-6 hover:-rotate-3 transition-transform duration-500 shadow-2xl"
+                  />
+                </div>
               </div>
 
               {/* Content - Right Side */}
@@ -510,8 +512,8 @@ export const DemandReport: React.FC = () => {
 
         {/* Curved Bottom */}
         <div className="absolute bottom-0 left-0 w-full">
-          <svg className="w-full h-24" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+          <svg className="w-full h-32" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120C360 40 720 40 1440 120V0H0V120Z" fill="white"/>
           </svg>
         </div>
       </section>
