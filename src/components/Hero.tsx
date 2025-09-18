@@ -6,18 +6,17 @@ export const Hero: React.FC = () => {
     <section className="relative py-24 overflow-hidden">
       {/* Video Background */}
       <video 
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover"
         autoPlay 
         loop 
         muted 
         playsInline
       >
-        <source src="https://videos.pexels.com/video-files/3153464/3153464-hd_1920_1080_30fps.mp4" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
       {/* Green Overlay */}
-      <div className="absolute inset-0 bg-brand-dark/75 z-10"></div>
       
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-white/10 bg-[size:24px_24px] opacity-30 z-40"></div>
