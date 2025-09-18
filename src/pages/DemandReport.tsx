@@ -21,23 +21,13 @@ export const DemandReport: React.FC = () => {
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Report Preview Image - Left Side */}
+              {/* Report Image - Left Side */}
               <div className="relative">
-                <div className="transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-                  <img 
-                    src="/feasibility-header-mid.png"
-                    alt="Professional Coworking Feasibility Study Report"
-                    className="w-full max-w-lg mx-auto shadow-2xl rounded-lg"
-                  />
-                </div>
-                
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 bg-emerald-400 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                  24hr Delivery
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                  Complete Analysis
-                </div>
+                <img 
+                  src="/image.png"
+                  alt="Professional Coworking Feasibility Study Report"
+                  className="w-full h-auto transform -rotate-6 hover:-rotate-3 transition-transform duration-500 shadow-2xl"
+                />
               </div>
 
               {/* Content - Right Side */}
@@ -101,8 +91,8 @@ export const DemandReport: React.FC = () => {
 
         {/* Curved Bottom Element */}
         <div className="relative">
-          <svg className="w-full h-24" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+          <svg className="w-full h-32" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120C240 60 480 30 720 30C960 30 1200 60 1440 120V0H0V120Z" fill="white"/>
           </svg>
         </div>
       </section>
