@@ -23,69 +23,20 @@ export const DemandReport: React.FC = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               {/* Report Preview Image - Left Side */}
               <div className="relative">
-                <div className="transform -rotate-6 hover:rotate-0 transition-transform duration-500">
-                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
-                    {/* Report Cover */}
-                    <div className="bg-gradient-to-br from-emerald-500 to-teal-600 p-8 text-white">
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-                          <span className="text-white font-bold text-sm">D</span>
-                        </div>
-                        <span className="font-bold text-lg">DenSwap</span>
-                      </div>
-                      <h3 className="text-2xl font-bold mb-2">Coworking Feasibility Study</h3>
-                      <p className="text-emerald-100 text-sm">Market Analysis Report</p>
-                      
-                      {/* Hexagon Pattern */}
-                      <div className="absolute bottom-4 right-4 opacity-30">
-                        <div className="grid grid-cols-3 gap-1">
-                          {[...Array(6)].map((_, i) => (
-                            <div key={i} className="w-4 h-4 border border-white/40" style={{
-                              clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
-                            }}></div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Report Content Preview */}
-                    <div className="p-6 bg-white">
-                      <div className="space-y-4">
-                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                        <div className="h-3 bg-gray-100 rounded w-full"></div>
-                        <div className="h-3 bg-gray-100 rounded w-2/3"></div>
-                        
-                        <div className="bg-emerald-50 rounded-lg p-4 mt-4">
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="font-semibold text-gray-900 text-sm">Market Demand Score:</span>
-                            <span className="text-lg font-bold text-emerald-600">9.2/10</span>
-                          </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div className="bg-gradient-to-r from-emerald-500 to-teal-500 h-2 rounded-full" style={{ width: '92%' }}></div>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-2 mt-4">
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-700">Supportable SF:</span>
-                            <span className="font-semibold text-emerald-600">31,833</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-700">Competition Gap:</span>
-                            <span className="font-semibold text-blue-600">17,000 SF</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <img 
+                    src="/feasibility-header-mid.png"
+                    alt="Professional Coworking Feasibility Study Report"
+                    className="w-full max-w-lg mx-auto shadow-2xl rounded-lg"
+                  />
                 </div>
                 
                 {/* Floating Elements */}
                 <div className="absolute -top-4 -right-4 bg-emerald-400 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
                   24hr Delivery
                 </div>
-                <div className="absolute -bottom-4 -left-4 bg-white text-slate-600 px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                  $500 Report
+                <div className="absolute -bottom-4 -left-4 bg-white text-slate-600 px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                  Complete Analysis
                 </div>
               </div>
 
