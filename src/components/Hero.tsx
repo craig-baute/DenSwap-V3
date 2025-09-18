@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
         muted 
         playsInline
       >
-        <source src="/videos/hero-background.mp4" type="video/mp4" />
+        <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
