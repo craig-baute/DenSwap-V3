@@ -90,13 +90,6 @@ export const DemandReport: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Curved Bottom Element */}
-        <div className="relative">
-          <svg className="w-full h-32" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120C240 60 480 30 720 30C960 30 1200 60 1440 120V0H0V120Z" fill="white"/>
-          </svg>
-        </div>
       </section>
 
       {/* Testimonial Section */}
