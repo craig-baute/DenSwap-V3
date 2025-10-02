@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, Download } from 'lucide-react';
 export const CTASection: React.FC = () => {
   return (
     <section className="py-24 bg-gradient-to-br from-forest-800 via-brand-dark to-forest-800 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-white/5 bg-[size:20px_20px]"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-brand-primary/20 to-brand-light/20 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-brand-light/20 to-brand-primary/20 rounded-full blur-3xl"></div>
       

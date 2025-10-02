@@ -4,6 +4,9 @@ import { BarChart3, TrendingUp, MapPin, DollarSign, ArrowRight } from 'lucide-re
 export const SolutionSection: React.FC = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-brand-primary/5 bg-[size:32px_32px] opacity-40"></div>
+      
       {/* Brand Background Elements */}
       <div className="absolute -top-16 -right-16 w-80 h-80 bg-gradient-to-bl from-brand-light/12 to-sage-200/8 rounded-full blur-2xl"></div>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-gradient-to-tr from-brand-primary/10 to-brand-dark/5 rounded-full blur-3xl"></div>

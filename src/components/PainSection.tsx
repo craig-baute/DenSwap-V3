@@ -6,6 +6,9 @@ export const PainSection: React.FC = () => {
     <>
       {/* Original Version */}
       <section className="py-24 bg-gray-50 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-grid-gray-300/20 bg-[size:24px_24px] opacity-40"></div>
+        
         {/* Brand Background Elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-brand-primary/15 to-brand-light/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-sage-200/20 to-brand-primary/15 rounded-full blur-2xl transform translate-x-1/2 translate-y-1/2"></div>

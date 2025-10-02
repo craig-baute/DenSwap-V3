@@ -4,6 +4,9 @@ import { Quote, ArrowRight, CheckCircle } from 'lucide-react';
 export const TestimonialSection: React.FC = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-brand-primary/6 bg-[size:30px_30px] opacity-30"></div>
+      
       {/* Brand Background Elements */}
       <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-bl from-brand-primary/15 to-sage-200/10 rounded-full blur-2xl transform translate-x-1/3 -translate-y-1/3"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-brand-light/12 to-brand-primary/8 rounded-full blur-xl transform -translate-x-1/3 translate-y-1/3"></div>

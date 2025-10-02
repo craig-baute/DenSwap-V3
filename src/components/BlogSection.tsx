@@ -31,6 +31,9 @@ export const BlogSection: React.FC = () => {
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-brand-primary/5 bg-[size:28px_28px] opacity-35"></div>
+      
       {/* Brand Background Elements */}
       <div className="absolute -top-12 -left-12 w-64 h-64 bg-gradient-to-br from-brand-dark/8 to-brand-primary/12 rounded-full blur-xl"></div>
       <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-gradient-to-tl from-sage-200/15 to-brand-light/10 rounded-full blur-2xl"></div>

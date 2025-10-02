@@ -7,6 +7,7 @@ Based on the sophisticated dark background "Your Coworking Strategy Partner" sec
 
 ### **Dark Foundation with Depth**
 - **Primary Background**: `bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900`
+- **Subtle Grid Texture**: `bg-grid-white/5 bg-[size:20px_20px]` for sophisticated texture
 - **Gradient Accent Orbs**: `bg-gradient-to-br from-emerald-600/20 to-teal-600/20 rounded-full blur-3xl` for atmospheric depth
 
 ### **Glass-Morphism Card System**
