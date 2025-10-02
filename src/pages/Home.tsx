@@ -121,12 +121,14 @@ const Home = () => {
         <img
           src="/Blob top left.png"
           alt=""
-          className="absolute top-0 left-0 w-80 h-80 object-contain opacity-20 pointer-events-none"
+          className="absolute -top-20 -left-20 w-[600px] h-[600px] object-contain opacity-40 pointer-events-none"
+          style={{ filter: 'brightness(0.95) hue-rotate(140deg) saturate(1.5)' }}
         />
         <img
           src="/Blob bottom right.png"
           alt=""
-          className="absolute bottom-0 right-0 w-96 h-96 object-contain opacity-20 pointer-events-none"
+          className="absolute -bottom-20 -right-20 w-[700px] h-[700px] object-contain opacity-40 pointer-events-none"
+          style={{ filter: 'brightness(0.95) hue-rotate(160deg) saturate(1.5)' }}
         />
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full blur-3xl opacity-60"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-teal-100 to-emerald-100 rounded-full blur-3xl opacity-60"></div>
@@ -171,7 +173,8 @@ const Home = () => {
           <img
             src="/blob top left-2.png"
             alt=""
-            className="absolute top-0 right-0 w-72 h-72 object-contain opacity-15 pointer-events-none"
+            className="absolute -top-10 -right-10 w-[500px] h-[500px] object-contain opacity-30 pointer-events-none"
+            style={{ filter: 'brightness(0.95) hue-rotate(150deg) saturate(1.5)' }}
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -284,7 +287,8 @@ const Home = () => {
           <img
             src="/Blob bottom left.png"
             alt=""
-            className="absolute bottom-0 left-0 w-80 h-80 object-contain opacity-15 pointer-events-none"
+            className="absolute -bottom-10 -left-10 w-[550px] h-[550px] object-contain opacity-30 pointer-events-none"
+            style={{ filter: 'brightness(0.95) hue-rotate(140deg) saturate(1.5)' }}
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -382,12 +386,14 @@ const Home = () => {
           <img
             src="/Bloob top middle.png"
             alt=""
-            className="absolute top-0 left-0 w-96 h-96 object-contain opacity-15 pointer-events-none"
+            className="absolute -top-20 -left-20 w-[650px] h-[650px] object-contain opacity-35 pointer-events-none"
+            style={{ filter: 'brightness(0.95) hue-rotate(145deg) saturate(1.5)' }}
           />
           <img
             src="/Blob bottom right copy.png"
             alt=""
-            className="absolute bottom-0 right-0 w-80 h-80 object-contain opacity-15 pointer-events-none"
+            className="absolute -bottom-10 -right-10 w-[550px] h-[550px] object-contain opacity-35 pointer-events-none"
+            style={{ filter: 'brightness(0.95) hue-rotate(155deg) saturate(1.5)' }}
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -459,12 +465,14 @@ const Home = () => {
           <img
             src="/blob top left-2 copy.png"
             alt=""
-            className="absolute top-0 right-0 w-72 h-72 object-contain opacity-15 pointer-events-none"
+            className="absolute -top-10 -right-10 w-[500px] h-[500px] object-contain opacity-30 pointer-events-none"
+            style={{ filter: 'brightness(0.95) hue-rotate(150deg) saturate(1.5)' }}
           />
           <img
             src="/Blob bottom left copy.png"
             alt=""
-            className="absolute bottom-0 left-0 w-80 h-80 object-contain opacity-15 pointer-events-none"
+            className="absolute -bottom-10 -left-10 w-[550px] h-[550px] object-contain opacity-30 pointer-events-none"
+            style={{ filter: 'brightness(0.95) hue-rotate(140deg) saturate(1.5)' }}
           />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -535,12 +543,14 @@ const Home = () => {
         <img
           src="/Blob top left copy.png"
           alt=""
-          className="absolute top-0 left-0 w-96 h-96 object-contain opacity-20 pointer-events-none"
+          className="absolute -top-20 -left-20 w-[650px] h-[650px] object-contain opacity-50 pointer-events-none"
+          style={{ filter: 'brightness(0.95) hue-rotate(145deg) saturate(2)' }}
         />
         <img
           src="/Bloob top middle copy.png"
           alt=""
-          className="absolute bottom-0 right-0 w-80 h-80 object-contain opacity-20 pointer-events-none"
+          className="absolute -bottom-10 -right-10 w-[550px] h-[550px] object-contain opacity-50 pointer-events-none"
+          style={{ filter: 'brightness(0.95) hue-rotate(155deg) saturate(2)' }}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -601,12 +611,14 @@ const Home = () => {
         <img
           src="/Blob top left.png"
           alt=""
-          className="absolute top-0 left-0 w-80 h-80 object-contain opacity-30 pointer-events-none"
+          className="absolute -top-20 -left-20 w-[600px] h-[600px] object-contain opacity-50 pointer-events-none"
+          style={{ filter: 'brightness(1.1) hue-rotate(140deg) saturate(1.8)' }}
         />
         <img
           src="/Blob bottom right.png"
           alt=""
-          className="absolute bottom-0 right-0 w-96 h-96 object-contain opacity-30 pointer-events-none"
+          className="absolute -bottom-20 -right-20 w-[700px] h-[700px] object-contain opacity-50 pointer-events-none"
+          style={{ filter: 'brightness(1.1) hue-rotate(160deg) saturate(1.8)' }}
         />
         <div className="absolute inset-0 bg-grid-white/5 bg-[size:20px_20px]"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 rounded-full blur-3xl"></div>
