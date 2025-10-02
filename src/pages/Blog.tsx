@@ -474,7 +474,6 @@ export const Blog: React.FC = () => {
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-50 via-white to-emerald-50/40 py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:24px_24px] opacity-25"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full blur-3xl opacity-25 -translate-y-1/2 translate-x-1/2"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

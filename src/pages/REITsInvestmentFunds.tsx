@@ -11,7 +11,6 @@ export const REITsInvestmentFunds: React.FC = () => {
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-50 via-white to-emerald-50/40 py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-gray-200/40 bg-[size:24px_24px] opacity-25"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100 to-emerald-100 rounded-full blur-3xl opacity-25 -translate-y-1/2 translate-x-1/2"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -487,7 +486,6 @@ export const REITsInvestmentFunds: React.FC = () => {
 
       {/* Risk vs Reward Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:20px_20px]"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-600/20 to-emerald-600/20 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -572,7 +570,6 @@ export const REITsInvestmentFunds: React.FC = () => {
 
       {/* Final CTA Section */}
       <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-emerald-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px]"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">

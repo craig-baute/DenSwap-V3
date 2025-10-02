@@ -24,9 +24,6 @@ export const ContactSection: React.FC = () => {
 
   return (
     <section className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-brand-primary/6 bg-[size:36px_36px] opacity-35"></div>
-      
       {/* Brand Background Elements */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-brand-primary/12 to-brand-light/8 rounded-full blur-3xl transform translate-x-1/4 -translate-y-1/4"></div>
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-sage-200/15 to-brand-dark/10 rounded-full blur-2xl transform -translate-x-1/4 translate-y-1/4"></div>

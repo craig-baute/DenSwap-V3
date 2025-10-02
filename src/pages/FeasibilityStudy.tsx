@@ -435,7 +435,6 @@ export const FeasibilityStudy: React.FC = () => {
 
       {/* Enterprise CTA Section */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 via-emerald-700 to-blue-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px]"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-emerald-400/20 rounded-full blur-3xl"></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">

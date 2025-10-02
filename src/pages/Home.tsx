@@ -620,7 +620,6 @@ const Home = () => {
           className="absolute -bottom-20 -right-20 w-[700px] h-[700px] object-contain opacity-50 pointer-events-none"
           style={{ filter: 'brightness(1.1) hue-rotate(160deg) saturate(1.8)' }}
         />
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:20px_20px]"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 rounded-full blur-3xl"></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
