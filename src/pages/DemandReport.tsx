@@ -16,81 +16,42 @@ export const DemandReport: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
-      {/* Hero Section with Clean Design */}
-      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
-        {/* Background Report Image - Left Side */}
-        <div className="absolute left-0 top-0 bottom-0 w-1/2 overflow-hidden">
-          <img
-            src="/feasibility-header-mid.png"
-            alt="Professional Coworking Feasibility Study Report"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-20 transform scale-110"
-          />
-        </div>
-
+      {/* Hero Section with Report Background */}
+      <section className="relative bg-[#2d5f6f] text-white overflow-hidden">
         <div className="relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left Side - Empty space for background image */}
-              <div className="relative min-h-[400px] lg:min-h-[600px]">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Side - Report Image */}
+              <div className="relative lg:pl-8">
+                <img
+                  src="/feasibility-header-mid.png"
+                  alt="Coworking Feasibility Study Report"
+                  className="w-full h-auto max-w-2xl transform -rotate-6 hover:-rotate-3 transition-transform duration-500"
+                />
               </div>
 
-              {/* Content - Right Side */}
-              <div className="space-y-8">
-                <div>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                    Know Exactly How Much Coworking
-                    <span className="text-emerald-300"> Your Market Can Support.</span>
-                    <br />
-                    <span className="text-3xl md:text-4xl lg:text-5xl">Fast.</span>
-                  </h1>
-                  
-                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
-                    Get precise square footage calculations, know which type of coworking will succeed, 
-                    and property recommendations for any ZIP code in 24 hours. Stop guessing. Start with data.
-                  </p>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center gap-3 flex-1">
-                    <input
-                      type="text"
-                      placeholder="Enter ZIP Code"
-                      value={zipCode}
-                      onChange={(e) => setZipCode(e.target.value)}
-                      className="flex-1 px-4 py-3 border-2 border-white/30 rounded-lg text-lg bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50"
-                    />
-                    <button 
-                      onClick={handleOrderReport}
-                      className="group bg-white text-slate-700 px-6 py-3 rounded-lg text-base font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center whitespace-nowrap"
-                    >
-                      Get Demand Report
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-                
-                <p className="text-sm text-slate-200">
-                  Only $500 for each additional report
-                </p>
+              {/* Right Side - Content */}
+              <div className="space-y-6 lg:pr-8">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  Building confidence to build flex spaces.
+                </h1>
 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 pt-8">
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">115+</div>
-                    <div className="text-slate-200 text-sm">Projects Completed</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">35,000+</div>
-                    <div className="text-slate-200 text-sm">Markets Covered</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">$500M+</div>
-                    <div className="text-slate-200 text-sm">Assets Analyzed</div>
-                  </div>
-                </div>
+                <p className="text-lg md:text-xl text-slate-100 leading-relaxed">
+                  Are you considering transforming your commercial property into a flexible coworking space?
+                  Our feasibility reports can provide you with the insight you need to make a confident investment decision.
+                  Our team of experts utilizes market data APIs, proprietary information on coworking spaces, and unique
+                  consulting expertise to assess whether a given building is suited for a successful flex/coworking business.
+                </p>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Curved Bottom */}
+        <div className="absolute bottom-0 left-0 w-full">
+          <svg className="w-full h-16 md:h-24" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 120L1440 120L1440 0C1440 0 1080 80 720 80C360 80 0 0 0 0L0 120Z" fill="white"/>
+          </svg>
         </div>
       </section>
 
