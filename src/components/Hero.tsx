@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
             Profit with Coworking<br />
             Operator-Proven Data.
           </h1>
-          <p className="text-lg md:text-xl text-blue-400 mb-12 max-w-5xl mx-auto leading-relaxed font-semibold bg-blue-900/40 py-4 px-6 rounded-lg">
+          <p className="text-lg md:text-xl text-white mb-12 max-w-5xl mx-auto leading-relaxed font-semibold">
             Are you still using outdated CRE methods in a changed coworking office world? DenSwap provides human-centric data, informed by 14 years of opening and operating coworking locations, for truly thriving flexible office spaces.
           </p>
 
