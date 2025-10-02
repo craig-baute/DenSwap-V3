@@ -4,16 +4,20 @@ import { TrendingUp, MapPin, DollarSign } from 'lucide-react';
 export const Hero: React.FC = () => {
   return (
     <section className="relative py-24 overflow-hidden min-h-[700px]">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center"
-        style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1920)'
-        }}
-      ></div>
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60 z-10"></div>
+      {/* Green Overlay with Transparency */}
+      <div className="absolute inset-0 bg-emerald-900/70 z-10"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
         <div className="text-center relative z-30">
@@ -27,7 +31,7 @@ export const Hero: React.FC = () => {
             Profit with Coworking<br />
             Operator-Proven Data.
           </h1>
-          <p className="text-lg md:text-xl text-blue-400 mb-12 max-w-5xl mx-auto leading-relaxed font-semibold bg-blue-900/40 py-4 px-6 rounded-lg">
+          <p className="text-lg md:text-xl text-white mb-12 max-w-5xl mx-auto leading-relaxed font-semibold">
             Are you still using outdated CRE methods in a changed coworking office world? DenSwap provides human-centric data, informed by 14 years of opening and operating coworking locations, for truly thriving flexible office spaces.
           </p>
 
