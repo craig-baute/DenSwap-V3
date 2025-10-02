@@ -18,20 +18,18 @@ export const DemandReport: React.FC = () => {
       
       {/* Hero Section with Clean Design */}
       <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
-        {/* Background Report Image - Left Side */}
-        <div className="absolute left-0 top-0 bottom-0 w-1/2 overflow-hidden">
-          <img
-            src="/feasibility-header-mid.png"
-            alt="Professional Coworking Feasibility Study Report"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-20 transform scale-110"
-          />
-        </div>
-
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left Side - Empty space for background image */}
-              <div className="relative min-h-[400px] lg:min-h-[600px]">
+              {/* Report Image - Left Side - Large and Prominent */}
+              <div className="relative">
+                <div className="relative">
+                  <img 
+                    src="/feasibility-header-mid.png"
+                    alt="Professional Coworking Feasibility Study Report"
+                    className="w-full h-auto max-w-none scale-110 transform -rotate-6 hover:-rotate-3 transition-transform duration-500 shadow-2xl"
+                  />
+                </div>
               </div>
 
               {/* Content - Right Side */}
