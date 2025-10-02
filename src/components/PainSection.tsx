@@ -10,16 +10,7 @@ export const PainSection: React.FC = () => {
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-brand-primary/15 to-brand-light/10 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tl from-sage-200/20 to-brand-primary/15 rounded-full blur-2xl transform translate-x-1/2 translate-y-1/2"></div>
         
-        {/* Hexagonal Pattern Elements */}
-        <div className="absolute top-1/4 right-10 opacity-10">
-          <div className="grid grid-cols-4 gap-2">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="w-6 h-6 border-2 border-brand-primary" style={{
-                clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
-              }}></div>
-            ))}
-          </div>
-        </div>
+  
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 relative z-10">
