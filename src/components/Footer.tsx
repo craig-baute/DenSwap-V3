@@ -4,7 +4,6 @@ import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-br from-forest-800 via-brand-dark to-forest-800 text-white py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/5 bg-[size:24px_24px]"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-brand-primary/20 to-brand-light/20 rounded-full blur-3xl"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 relative">

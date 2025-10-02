@@ -19,6 +19,13 @@ export const Hero: React.FC = () => {
       {/* Green Overlay with Transparency */}
       <div className="absolute inset-0 bg-emerald-900/70 z-10"></div>
 
+      {/* Curved Bottom Edge */}
+      <div className="absolute bottom-0 left-0 right-0 z-20">
+        <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
+        </svg>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
         <div className="text-center relative z-30">
           <div className="inline-flex items-center px-5 py-2.5 bg-emerald-700/80 backdrop-blur-sm border border-emerald-600/50 rounded-full text-sm font-semibold text-white mb-8 shadow-sm">

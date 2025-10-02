@@ -27,6 +27,13 @@ export const DemandReport: React.FC = () => {
           />
         </div>
 
+        {/* Curved Bottom Edge */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
+          </svg>
+        </div>
+
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
