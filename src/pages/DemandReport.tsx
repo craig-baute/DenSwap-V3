@@ -404,10 +404,10 @@ export const DemandReport: React.FC = () => {
 
       {/* Target Audience Section */}
       <section className="relative py-20 bg-gray-50 overflow-hidden">
-        {/* Background Blob - Top Middle */}
-        <div className="absolute -top-40 left-1/2 transform -translate-x-1/2 w-2/3 h-3/4 pointer-events-none">
+        {/* Background Blob - Bottom Left */}
+        <div className="absolute -bottom-40 left-0 w-1/2 h-3/4 pointer-events-none">
           <img
-            src="/Bloob top middle.png"
+            src="/Blob bottom left.png"
             alt=""
             className="w-full h-full object-contain opacity-100"
           />
@@ -491,16 +491,9 @@ export const DemandReport: React.FC = () => {
         </div>
       </section>
 
-      {/* Final CTA Section with Curved Design */}
+      {/* Final CTA Section with Flat Design */}
       <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
-        {/* Curved Top */}
-        <div className="absolute top-0 left-0 w-full">
-          <svg className="w-full h-24" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0L60 15C120 30 240 60 360 75C480 90 600 90 720 82.5C840 75 960 60 1080 52.5C1200 45 1320 45 1380 45L1440 45V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0Z" fill="#f8fafc"/>
-          </svg>
-        </div>
-        
-        <div className="relative z-10 pt-32 pb-20">
+        <div className="relative z-10 py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
               Ready to move while others hesitate?
@@ -548,12 +541,6 @@ export const DemandReport: React.FC = () => {
           </div>
         </div>
 
-        {/* Curved Bottom */}
-        <div className="absolute bottom-0 left-0 w-full">
-          <svg className="w-full h-32" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120C360 40 720 40 1440 120V0H0V120Z" fill="white"/>
-          </svg>
-        </div>
       </section>
 
       <ContactSection />
