@@ -215,8 +215,17 @@ export const DemandReport: React.FC = () => {
       </section>
 
       {/* What You Get Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gray-50 overflow-hidden">
+        {/* Background Blob - Top Right */}
+        <div className="absolute -top-40 right-0 w-1/2 h-3/4 pointer-events-none">
+          <img
+            src="/blob top left-2.png"
+            alt=""
+            className="w-full h-full object-contain opacity-100 transform scale-x-[-1]"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               $500 buys you what successful operators worked hard to know.
@@ -291,8 +300,17 @@ export const DemandReport: React.FC = () => {
       </section>
 
       {/* Sample Report Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-white overflow-hidden">
+        {/* Background Blob - Bottom Right */}
+        <div className="absolute -bottom-40 right-0 w-1/2 h-3/4 pointer-events-none">
+          <img
+            src="/Blob bottom right.png"
+            alt=""
+            className="w-full h-full object-contain opacity-100"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Understand Coworking's Potential Anywhere in the US
@@ -385,8 +403,17 @@ export const DemandReport: React.FC = () => {
       </section>
 
       {/* Target Audience Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gray-50 overflow-hidden">
+        {/* Background Blob - Top Middle */}
+        <div className="absolute -top-40 left-1/2 transform -translate-x-1/2 w-2/3 h-3/4 pointer-events-none">
+          <img
+            src="/Bloob top middle.png"
+            alt=""
+            className="w-full h-full object-contain opacity-100"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Risk/Reward Is Now In Your Favor.
