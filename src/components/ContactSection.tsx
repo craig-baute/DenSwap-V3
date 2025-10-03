@@ -36,8 +36,6 @@ export const ContactSection: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-20 right-24 w-20 h-20 border-2 border-brand-light/40 transform -rotate-45 rounded-lg opacity-12"></div>
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 relative z-10">
           <h2 className="text-h1 md:text-5xl font-bold text-brand-primary mb-8">
