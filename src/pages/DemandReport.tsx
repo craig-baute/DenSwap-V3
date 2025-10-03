@@ -129,11 +129,11 @@ export const DemandReport: React.FC = () => {
       {/* Main Value Proposition */}
       <section className="relative py-20 bg-white overflow-hidden">
         {/* Background Blob - Bottom Left */}
-        <div className="absolute bottom-0 left-0 w-1/3 h-2/3 pointer-events-none">
+        <div className="absolute bottom-0 left-0 w-1/2 h-full pointer-events-none">
           <img
             src="/Blob bottom left.png"
             alt=""
-            className="w-full h-full object-contain opacity-20"
+            className="w-full h-full object-contain opacity-100"
           />
         </div>
 
