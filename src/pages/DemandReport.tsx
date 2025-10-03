@@ -127,8 +127,17 @@ export const DemandReport: React.FC = () => {
       </section>
 
       {/* Main Value Proposition */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-white overflow-hidden">
+        {/* Background Blob - Bottom Left */}
+        <div className="absolute bottom-0 left-0 w-1/3 h-2/3 pointer-events-none">
+          <img
+            src="/Blob bottom left.png"
+            alt=""
+            className="w-full h-full object-contain opacity-20"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
