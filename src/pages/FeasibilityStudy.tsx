@@ -84,15 +84,8 @@ export const FeasibilityStudy: React.FC = () => {
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-emerald-800 text-white overflow-hidden">
-        {/* Curved Bottom Edge */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
-          <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
-          </svg>
-        </div>
-
         <div className="relative z-10">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
             <div className="space-y-8">
               <div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -113,6 +106,31 @@ export const FeasibilityStudy: React.FC = () => {
                   <Calendar className="mr-2 h-5 w-5" />
                   Schedule a Call
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border border-gray-200">
+            <div className="flex items-center gap-6">
+              <img
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150"
+                alt="Mike Kriel"
+                className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
+              />
+              <div className="flex-1">
+                <blockquote className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                  "These reports give us focus to know where to put our energy and money in our RE portfolio."
+                </blockquote>
+                <div className="text-gray-700">
+                  <div className="font-semibold">Mike Kriel</div>
+                  <div className="text-sm">CEO, Launch Workplaces</div>
+                  <div className="text-sm">Director, Global Workplace Association</div>
+                </div>
               </div>
             </div>
           </div>
@@ -253,31 +271,6 @@ export const FeasibilityStudy: React.FC = () => {
             </div>
           </div>
         </div>
-        </div>
-      </section>
-
-      {/* Testimonial Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border border-gray-200">
-            <div className="flex items-center gap-6">
-              <img
-                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150"
-                alt="Mike Kriel"
-                className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
-              />
-              <div className="flex-1">
-                <blockquote className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
-                  "These reports give us focus to know where to put our energy and money in our RE portfolio."
-                </blockquote>
-                <div className="text-gray-700">
-                  <div className="font-semibold">Mike Kriel</div>
-                  <div className="text-sm">CEO, Launch Workplaces</div>
-                  <div className="text-sm">Director, Global Workplace Association</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

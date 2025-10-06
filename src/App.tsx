@@ -38,11 +38,11 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
       <Hero />
-      <TestimonialSection />
       <PainSection />
       <SolutionSection />
       <ProductsSection />
       <StrategySection />
+      <TestimonialSection />
       <BlogSection />
       <CTASection />
       <ContactSection />
