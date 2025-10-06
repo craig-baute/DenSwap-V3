@@ -13,10 +13,11 @@ export const Header: React.FC<HeaderProps> = ({ isMobileMenuOpen, setIsMobileMen
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <div className="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-light rounded-lg flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-lg tracking-tight">D</span>
-            </div>
-            <span className="ml-3 text-xl font-black text-neutral-900 tracking-tight">DenSwap</span>
+            <img
+              src="/DenSwap Green Logo - words and image.png"
+              alt="DenSwap Logo"
+              className="h-8 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}
