@@ -84,64 +84,108 @@ export const FeasibilityStudy: React.FC = () => {
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-emerald-800 text-white overflow-hidden">
-        {/* Background Blobs */}
-        <div className="absolute -top-40 left-0 w-1/2 h-3/4 pointer-events-none opacity-30">
-          <img
-            src="/Blob top left.png"
-            alt=""
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <div className="absolute -bottom-40 right-0 w-1/2 h-3/4 pointer-events-none opacity-30">
-          <img
-            src="/Blob bottom right.png"
-            alt=""
-            className="w-full h-full object-contain"
-          />
-        </div>
-
-        {/* Curved Bottom Edge */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
-          <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
-          </svg>
-        </div>
-
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Map Image - Left Side */}
+              {/* Report Mockups - Left Side */}
               <div className="relative">
-                <img
-                  src="/DenSwap Map Webimage copy.png"
-                  alt="DenSwap Market Analysis Map"
-                  className="w-full h-auto rounded-2xl shadow-2xl"
-                />
+                <div className="transform -rotate-12 hover:rotate-0 transition-transform duration-500">
+                  <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
+                    {/* Report Cover */}
+                    <div className="bg-gradient-to-br from-brand-primary to-brand-light p-8 text-white">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">D</span>
+                        </div>
+                        <span className="font-bold text-lg">DENSWAP</span>
+                      </div>
+                      <h3 className="text-2xl font-bold mb-2">Coworking</h3>
+                      <h3 className="text-2xl font-bold mb-4">Feasibility Study</h3>
+                      <p className="text-sm opacity-90">Market Analysis Report</p>
+                      
+                      {/* Hexagon Pattern */}
+                      <div className="absolute bottom-4 right-4 opacity-30">
+                        <div className="grid grid-cols-3 gap-1">
+                          {[...Array(6)].map((_, i) => (
+                            <div key={i} className="w-4 h-4 border border-white/40" style={{
+                              clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
+                            }}></div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Report Content Preview */}
+                    <div className="p-6 bg-white">
+                      <div className="space-y-4">
+                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                        <div className="h-3 bg-gray-100 rounded w-full"></div>
+                        <div className="h-3 bg-gray-100 rounded w-2/3"></div>
+                        
+                        <div className="bg-brand-primary/10 rounded-lg p-4 mt-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="font-semibold text-gray-900 text-sm">Market Viability:</span>
+                            <span className="text-lg font-bold text-brand-primary">Excellent</span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div className="bg-gradient-to-r from-brand-primary to-brand-light h-2 rounded-full" style={{ width: '88%' }}></div>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-2 mt-4">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-700">Projected ROI:</span>
+                            <span className="font-semibold text-brand-primary">28%</span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-700">Breakeven Timeline:</span>
+                            <span className="font-semibold text-brand-light">16 months</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -right-4 bg-brand-light text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                  Expert Analysis
+                </div>
+                <div className="absolute -bottom-4 -left-4 bg-white text-slate-600 px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                  20+ Pages
+                </div>
               </div>
 
               {/* Content - Right Side */}
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                    Will Your Building Print Money or Burn Cash
-                  </h2>
-
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Building confidence to build
+                    <span className="text-brand-light"> flex spaces.</span>
+                    <span className="text-yellow-400 text-5xl ml-2">*</span>
+                  </h1>
+                  
                   <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
-                    Most property owners are about to make the most expensive mistake of their career. Here's how the smart money thinks about coworking.
+                    Are you considering transforming your commercial property into a flexible 
+                    coworking space? Our feasibility reports can provide you with the insight you 
+                    need to make a confident investment decision. Our team of experts utilizes 
+                    market data APIs, proprietary information on coworking spaces, and unique 
+                    consulting expertise to assess whether a given building is suited for a 
+                    successful flex/coworking business.
                   </p>
                 </div>
-
+                
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                    Download a Sample Report
+                    Get Free Sample Report
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </a>
                   <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
                     <Calendar className="mr-2 h-5 w-5" />
-                    Schedule a Call
+                    Schedule Consultation
                   </a>
                 </div>
-
+                
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 pt-8">
                   <div className="text-center">
@@ -160,6 +204,13 @@ export const FeasibilityStudy: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Curved Bottom Element */}
+        <div className="relative">
+          <svg className="w-full h-24" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+          </svg>
         </div>
       </section>
 
