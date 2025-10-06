@@ -88,6 +88,9 @@ export const FeasibilityStudy: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
             <div className="space-y-8">
               <div>
+                <div className="inline-flex items-center px-6 py-2.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white mb-6 shadow-sm">
+                  The $500k Question
+                </div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                   Will Your Building Print Money or Burn Cash
                 </h2>
