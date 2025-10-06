@@ -84,22 +84,6 @@ export const FeasibilityStudy: React.FC = () => {
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-emerald-800 text-white overflow-hidden">
-        {/* Background Blobs */}
-        <div className="absolute -top-40 left-0 w-1/2 h-3/4 pointer-events-none opacity-30">
-          <img
-            src="/Blob top left.png"
-            alt=""
-            className="w-full h-full object-contain"
-          />
-        </div>
-        <div className="absolute -bottom-40 right-0 w-1/2 h-3/4 pointer-events-none opacity-30">
-          <img
-            src="/Blob bottom right.png"
-            alt=""
-            className="w-full h-full object-contain"
-          />
-        </div>
-
         {/* Curved Bottom Edge */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -108,54 +92,42 @@ export const FeasibilityStudy: React.FC = () => {
         </div>
 
         <div className="relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Map Image - Left Side */}
-              <div className="relative">
-                <img
-                  src="/DenSwap Map Webimage copy.png"
-                  alt="DenSwap Market Analysis Map"
-                  className="w-full h-auto rounded-2xl shadow-2xl"
-                />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Will Your Building Print Money or Burn Cash
+                </h2>
+
+                <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
+                  Most property owners are about to make the most expensive mistake of their career. Here's how the smart money thinks about coworking.
+                </p>
               </div>
 
-              {/* Content - Right Side */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                    Will Your Building Print Money or Burn Cash
-                  </h2>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                  Download a Sample Report
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Schedule a Call
+                </a>
+              </div>
 
-                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
-                    Most property owners are about to make the most expensive mistake of their career. Here's how the smart money thinks about coworking.
-                  </p>
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 pt-8">
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">115+</div>
+                  <div className="text-slate-200 text-sm">Projects Completed</div>
                 </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                    Download a Sample Report
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
-                    <Calendar className="mr-2 h-5 w-5" />
-                    Schedule a Call
-                  </a>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">35,000+</div>
+                  <div className="text-slate-200 text-sm">Markets Covered</div>
                 </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 pt-8">
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">115+</div>
-                    <div className="text-slate-200 text-sm">Projects Completed</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">35,000+</div>
-                    <div className="text-slate-200 text-sm">Markets Covered</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">$500M+</div>
-                    <div className="text-slate-200 text-sm">Assets Analyzed</div>
-                  </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">$500M+</div>
+                  <div className="text-slate-200 text-sm">Assets Analyzed</div>
                 </div>
               </div>
             </div>
@@ -193,16 +165,12 @@ export const FeasibilityStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Data Analysis Dashboard" 
-                className="w-full h-96 object-cover rounded-2xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                <div className="text-center">
-                  <div className="text-3xl font-black text-emerald-600 mb-1">24%</div>
-                  <div className="text-sm text-gray-600 font-medium">Top Quartile Returns</div>
-                </div>
+              <div className="bg-gradient-to-br from-brand-primary to-brand-light p-8 rounded-2xl">
+                <img
+                  src="/DenSwap Map Webimage copy.png"
+                  alt="DenSwap Market Analysis Map"
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
               </div>
             </div>
 
@@ -211,16 +179,16 @@ export const FeasibilityStudy: React.FC = () => {
                 The Data vs.
                 <span className="text-emerald-600"> The Dream</span>
               </h2>
-              
+
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Everyone's focused on WeWork's failure and arguing about the future of work. 
+                  Everyone's focused on WeWork's failure and arguing about the future of work.
                   Sophisticated investors are deploying capital into data-driven coworking plays.
                 </p>
 
                 <p>
-                  Smart investors aren't repeating WeWork's mistakes. They're using a data-first, 
-                  fundamental focus, market intelligence, and financial models grounded in reality 
+                  Smart investors aren't repeating WeWork's mistakes. They're using a data-first,
+                  fundamental focus, market intelligence, and financial models grounded in reality
                   that Adam Neumann ignored.
                 </p>
 
@@ -229,22 +197,16 @@ export const FeasibilityStudy: React.FC = () => {
                 </p>
 
                 <p>
-                  Coworking ventures fail because they're built on hope, not math. They confuse 
-                  "busy coffee shops" with "sustainable business models." They mistake foot traffic 
+                  Coworking ventures fail because they're built on hope, not math. They confuse
+                  "busy coffee shops" with "sustainable business models." They mistake foot traffic
                   for paying coworking customers.
                 </p>
 
                 <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                  <div className="grid grid-cols-2 gap-6 text-center">
-                    <div>
-                      <div className="text-3xl font-black text-red-600 mb-2">-$180K</div>
-                      <div className="text-sm text-gray-600">Median Loss Year One</div>
-                    </div>
-                    <div>
-                      <div className="text-3xl font-black text-emerald-600 mb-2">24%</div>
-                      <div className="text-sm text-gray-600">Top Quartile Returns</div>
-                    </div>
-                  </div>
+                  <p className="text-lg text-gray-800 mb-4">
+                    The median coworking space bleeds <span className="font-black text-red-600">$180K</span> in year one.
+                    The top performing generate profits in <span className="font-black text-emerald-600">4 months</span> and spend less on startup.
+                  </p>
                 </div>
 
                 <p className="font-semibold">
@@ -257,7 +219,16 @@ export const FeasibilityStudy: React.FC = () => {
       </section>
 
       {/* Capital Allocation Section */}
-      <section className="py-20 bg-white">
+      <section className="relative py-20 bg-white overflow-hidden">
+        {/* Background Blob - Bottom Left */}
+        <div className="absolute -bottom-40 left-0 w-1/2 h-3/4 pointer-events-none">
+          <img
+            src="/Blob bottom left.png"
+            alt=""
+            className="w-full h-full object-contain opacity-100"
+          />
+        </div>
+        <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -319,6 +290,32 @@ export const FeasibilityStudy: React.FC = () => {
                 <p className="text-lg font-semibold text-gray-900 text-center">
                   A feasibility study prevents $300K+ in destruction.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border border-gray-200">
+            <div className="flex items-center gap-6">
+              <img
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150"
+                alt="Mike Kriel"
+                className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
+              />
+              <div className="flex-1">
+                <blockquote className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                  "These reports give us focus to know where to put our energy and money in our RE portfolio."
+                </blockquote>
+                <div className="text-gray-700">
+                  <div className="font-semibold">Mike Kriel</div>
+                  <div className="text-sm">CEO, Launch Workplaces</div>
+                  <div className="text-sm">Director, Global Workplace Association</div>
+                </div>
               </div>
             </div>
           </div>
