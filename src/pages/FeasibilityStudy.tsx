@@ -114,6 +114,47 @@ export const FeasibilityStudy: React.FC = () => {
                   Schedule a Call
                 </a>
               </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 pt-8">
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">115+</div>
+                  <div className="text-slate-200 text-sm">Projects Completed</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">35,000+</div>
+                  <div className="text-slate-200 text-sm">Markets Covered</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">$500M+</div>
+                  <div className="text-slate-200 text-sm">Assets Analyzed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Quote Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border border-gray-200">
+            <div className="flex items-center gap-6">
+              <img 
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150" 
+                alt="Mike Kriel" 
+                className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
+              />
+              <div className="flex-1">
+                <blockquote className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                  "These reports give us focus to know where to put our energy and money in our RE portfolio."
+                </blockquote>
+                <div className="text-gray-700">
+                  <div className="font-semibold">Mike Kriel</div>
+                  <div className="text-sm">CEO, Launch Workplaces</div>
+                  <div className="text-sm">Director, Global Workplace Association</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -173,50 +214,6 @@ export const FeasibilityStudy: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonial Quote Section */}
-      <section className="py-0 bg-white overflow-hidden">
-        <div className="grid lg:grid-cols-2 gap-0">
-          {/* Left Side - Content */}
-          <div className="bg-gray-50 py-20 px-8 lg:px-16 flex items-center">
-            <div className="max-w-xl">
-              <div className="mb-8">
-                <img
-                  src="/somo-cowork-logo.png"
-                  alt="SOMO Cowork"
-                  className="h-12 w-auto mb-12"
-                />
-              </div>
-
-              <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                "After only four months in operation, we exceeded our expectations and reached our annual goal."
-              </blockquote>
-
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The developers of SOMO Village partnered with DenSwap to build a thriving and profitable workspace as the ultimate amenity for their new $1 billion, 200-acre residential redevelopment in Sonoma County.
-              </p>
-
-              <a
-                href="/case-studies"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-300"
-              >
-                <span>See how DenSwap helped build SOMO Cowork</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Side - Image */}
-          <div className="relative h-[500px] lg:h-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-emerald-900 opacity-10"></div>
-            <img
-              src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Modern coworking space"
-              className="w-full h-full object-cover"
-            />
           </div>
         </div>
       </section>
@@ -297,6 +294,31 @@ export const FeasibilityStudy: React.FC = () => {
             </div>
           </div>
         </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border border-gray-200">
+            <div className="flex items-center gap-6">
+              <img
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150"
+                alt="Mike Kriel"
+                className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
+              />
+              <div className="flex-1">
+                <blockquote className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                  "These reports give us focus to know where to put our energy and money in our RE portfolio."
+                </blockquote>
+                <div className="text-gray-700">
+                  <div className="font-semibold">Mike Kriel</div>
+                  <div className="text-sm">CEO, Launch Workplaces</div>
+                  <div className="text-sm">Director, Global Workplace Association</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
