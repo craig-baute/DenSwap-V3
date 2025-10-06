@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative py-24 overflow-hidden min-h-[700px]">
+    <section className="relative py-40 overflow-hidden min-h-[900px]">
       {/* Video Background */}
       <video
         key={videoUrl}
