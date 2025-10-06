@@ -24,7 +24,7 @@ import { DemandReport } from './pages/DemandReport';
 import { FeasibilityStudy } from './pages/FeasibilityStudy';
 import { AnalyticsMap } from './pages/AnalyticsMap';
 import { Contact } from './pages/Contact';
-import { About } from './pages/About';
+import { WhyUseUs } from './pages/WhyUseUs';
 import CaseStudies from './pages/CaseStudies';
 import { REITsInvestmentFunds } from './pages/REITsInvestmentFunds';
 import { CoworkingOperators } from './pages/CoworkingOperators';
@@ -67,7 +67,7 @@ const App: React.FC = () => {
         <Route path="/feasibility-study" element={<FeasibilityStudy />} />
         <Route path="/analytics-map" element={<AnalyticsMap />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<WhyUseUs />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/reits-investment-funds" element={<REITsInvestmentFunds />} />
         <Route path="/coworking-operators" element={<CoworkingOperators />} />
