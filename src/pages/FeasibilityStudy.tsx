@@ -119,50 +119,6 @@ export const FeasibilityStudy: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonial Quote Section */}
-      <section className="py-0 bg-white overflow-hidden">
-        <div className="grid lg:grid-cols-2 gap-0">
-          {/* Left Side - Content */}
-          <div className="bg-gray-50 py-20 px-8 lg:px-16 flex items-center">
-            <div className="max-w-xl">
-              <div className="mb-8">
-                <img
-                  src="/somo-cowork-logo.png"
-                  alt="SOMO Cowork"
-                  className="h-12 w-auto mb-12"
-                />
-              </div>
-
-              <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                "After only four months in operation, we exceeded our expectations and reached our annual goal."
-              </blockquote>
-
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The developers of SOMO Village partnered with DenSwap to build a thriving and profitable workspace as the ultimate amenity for their new $1 billion, 200-acre residential redevelopment in Sonoma County.
-              </p>
-
-              <a
-                href="/case-studies"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-300"
-              >
-                <span>See how DenSwap helped build SOMO Cowork</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Side - Image */}
-          <div className="relative h-[500px] lg:h-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-emerald-900 opacity-10"></div>
-            <img
-              src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Modern coworking space"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* The Data vs. The Dream Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -378,6 +334,50 @@ export const FeasibilityStudy: React.FC = () => {
                 Download Sample Study
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial Quote Section */}
+      <section className="py-0 bg-white overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-0">
+          {/* Left Side - Content */}
+          <div className="bg-gray-50 py-20 px-8 lg:px-16 flex items-center">
+            <div className="max-w-xl">
+              <div className="mb-8">
+                <img
+                  src="/somo-cowork-logo.png"
+                  alt="SOMO Cowork"
+                  className="h-12 w-auto mb-12"
+                />
+              </div>
+
+              <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                "After only four months in operation, we exceeded our expectations and reached our annual goal."
+              </blockquote>
+
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                The developers of SOMO Village partnered with DenSwap to build a thriving and profitable workspace as the ultimate amenity for their new $1 billion, 200-acre residential redevelopment in Sonoma County.
+              </p>
+
+              <a
+                href="/case-studies"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-300"
+              >
+                <span>See how DenSwap helped build SOMO Cowork</span>
+                <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right Side - Image */}
+          <div className="relative h-[500px] lg:h-auto">
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-emerald-900 opacity-10"></div>
+            <img
+              src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Modern coworking space"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </section>
