@@ -4,6 +4,7 @@ import { MediaLibrary } from '../components/MediaLibrary';
 import { AuthorManager } from '../components/AuthorManager';
 import { CaseStudyCMS } from '../components/CaseStudyCMS';
 import { HeroVideoManager } from '../components/HeroVideoManager';
+import { TeamMemberCMS } from '../components/TeamMemberCMS';
 import { Save, Plus, CreditCard as Edit3, Trash2, Eye, EyeOff, Calendar, User, FileText, BarChart3, Users, Building, Settings, LogOut, ArrowLeft, Search, Share, Twitter, Code, Target, Video } from 'lucide-react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -42,7 +43,7 @@ interface BlogPost {
 
 export const BlogAdmin: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [currentView, setCurrentView] = useState<'dashboard' | 'posts' | 'authors' | 'caseStudies' | 'media' | 'heroVideo'>('dashboard');
+  const [currentView, setCurrentView] = useState<'dashboard' | 'posts' | 'authors' | 'caseStudies' | 'media' | 'heroVideo' | 'teamMembers'>('dashboard');
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -847,6 +848,11 @@ export const BlogAdmin: React.FC = () => {
     return <HeroVideoManager onBack={() => setCurrentView('dashboard')} />;
   }
 
+  // Team Members View
+  if (currentView === 'teamMembers') {
+    return <TeamMemberCMS onBack={() => setCurrentView('dashboard')} />;
+  }
+
   // Media Library View
   if (currentView === 'media') {
     return (
@@ -1145,6 +1151,17 @@ export const BlogAdmin: React.FC = () => {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Hero Video</h3>
             <p className="text-gray-600 text-sm">Manage homepage background video</p>
+          </button>
+
+          <button
+            onClick={() => setCurrentView('teamMembers')}
+            className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-shadow text-left group"
+          >
+            <div className="bg-orange-100 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4 group-hover:bg-orange-200 transition-colors">
+              <Users className="h-6 w-6 text-orange-600" />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Team Members</h3>
+            <p className="text-gray-600 text-sm">Manage About page team section</p>
           </button>
 
           <button

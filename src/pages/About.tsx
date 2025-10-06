@@ -1,30 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
-import { TrendingUp, Building, Users, Target, Award, CheckCircle, BarChart3, MapPin, Calendar, ArrowRight } from 'lucide-react';
+import { TrendingUp, Building, Users, Target, Award, CheckCircle, BarChart3, MapPin, Calendar, ArrowRight, Linkedin, Mail } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import type { TeamMember } from '../components/TeamMemberCMS';
 
 export const About: React.FC = () => {
-  const teamMembers = [
-    {
-      name: "Sarah Chen",
-      title: "Senior Market Analyst",
-      bio: "8+ years of experience in commercial real estate analytics and coworking market research. Specializes in demand forecasting and competitive analysis.",
-      image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=300"
-    },
-    {
-      name: "Mike Rodriguez",
-      title: "Operations Director",
-      bio: "Extensive experience in coworking space development and management. Led the successful launch of 15+ coworking locations across Texas and California.",
-      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=300"
-    },
-    {
-      name: "Jennifer Walsh",
-      title: "Financial Modeling Expert",
-      bio: "Former investment banker turned coworking financial specialist. Creates accurate P&L projections based on real operational data.",
-      image: "https://images.pexels.com/photos/3184394/pexels-photo-3184394.jpeg?auto=compress&cs=tinysrgb&w=300"
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+  const [loadingTeam, setLoadingTeam] = useState(true);
+
+  useEffect(() => {
+    fetchTeamMembers();
+  }, []);
+
+  const fetchTeamMembers = async () => {
+    try {
+      setLoadingTeam(true);
+      const { data, error } = await supabase
+        .from('team_members')
+        .select('*')
+        .eq('is_active', true)
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+      setTeamMembers(data || []);
+    } catch (error) {
+      console.error('Error fetching team members:', error);
+    } finally {
+      setLoadingTeam(false);
     }
-  ];
+  };
 
   const milestones = [
     {
@@ -242,22 +248,62 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                  <div className="text-emerald-600 font-semibold mb-4">{member.title}</div>
-                  <p className="text-gray-600 leading-relaxed">{member.bio}</p>
+          {loadingTeam ? (
+            <div className="text-center py-12">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-emerald-600 border-t-transparent"></div>
+              <p className="mt-4 text-gray-600">Loading team members...</p>
+            </div>
+          ) : teamMembers.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-600">No team members available at the moment.</p>
+            </div>
+          ) : (
+            <div className="grid lg:grid-cols-3 gap-8">
+              {teamMembers.map((member) => (
+                <div key={member.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  <img
+                    src={member.picture_url || 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300'}
+                    alt={member.name}
+                    className="w-full h-64 object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=300';
+                    }}
+                  />
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                    <div className="text-emerald-600 font-semibold mb-4">{member.title}</div>
+                    <p className="text-gray-600 leading-relaxed mb-4">{member.description}</p>
+                    {(member.linkedin_url || member.email) && (
+                      <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+                        {member.linkedin_url && (
+                          <a
+                            href={member.linkedin_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-emerald-600 hover:text-emerald-700 transition-colors"
+                            aria-label={`${member.name}'s LinkedIn profile`}
+                          >
+                            <Linkedin className="h-5 w-5" />
+                            <span className="text-sm font-medium">LinkedIn</span>
+                          </a>
+                        )}
+                        {member.email && (
+                          <a
+                            href={`mailto:${member.email}`}
+                            className="flex items-center gap-2 text-emerald-600 hover:text-emerald-700 transition-colors"
+                            aria-label={`Email ${member.name}`}
+                          >
+                            <Mail className="h-5 w-5" />
+                            <span className="text-sm font-medium">Email</span>
+                          </a>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
