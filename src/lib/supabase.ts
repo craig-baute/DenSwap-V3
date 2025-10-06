@@ -56,3 +56,52 @@ export const listFiles = async (folder = '') => {
 
   return data
 }
+
+// Media metadata utilities
+export const getMediaMetadata = async (fileName: string, folder: string) => {
+  const { data, error } = await supabase
+    .from('media_metadata')
+    .select('*')
+    .eq('file_name', fileName)
+    .eq('folder', folder)
+    .maybeSingle()
+
+  if (error) {
+    throw error
+  }
+
+  return data
+}
+
+export const updateMediaTitle = async (fileName: string, folder: string, title: string) => {
+  const { data, error } = await supabase
+    .from('media_metadata')
+    .upsert({
+      file_name: fileName,
+      folder: folder,
+      title: title,
+      updated_at: new Date().toISOString()
+    }, {
+      onConflict: 'file_name,folder'
+    })
+    .select()
+    .single()
+
+  if (error) {
+    throw error
+  }
+
+  return data
+}
+
+export const deleteMediaMetadata = async (fileName: string, folder: string) => {
+  const { error } = await supabase
+    .from('media_metadata')
+    .delete()
+    .eq('file_name', fileName)
+    .eq('folder', folder)
+
+  if (error) {
+    throw error
+  }
+}
