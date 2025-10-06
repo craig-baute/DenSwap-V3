@@ -4,7 +4,7 @@ import { MediaLibrary } from '../components/MediaLibrary';
 import { AuthorManager } from '../components/AuthorManager';
 import { CaseStudyCMS } from '../components/CaseStudyCMS';
 import { HeroVideoManager } from '../components/HeroVideoManager';
-import { Save, Plus, Edit3, Trash2, Eye, EyeOff, Calendar, User, FileText, BarChart3, Users, Building, Settings, LogOut, ArrowLeft, Search, Share, Twitter, Code, Target, Video } from 'lucide-react';
+import { Save, Plus, CreditCard as Edit3, Trash2, Eye, EyeOff, Calendar, User, FileText, BarChart3, Users, Building, Settings, LogOut, ArrowLeft, Search, Share, Twitter, Code, Target, Video } from 'lucide-react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
