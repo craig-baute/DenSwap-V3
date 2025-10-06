@@ -855,20 +855,35 @@ export const BlogAdmin: React.FC = () => {
 
   // Media Library View
   if (currentView === 'media') {
+    const handleMediaSelect = (url: string, fileName: string) => {
+      if (currentPost) {
+        setCurrentPost({ ...currentPost, image: url });
+        setIsEditing(true);
+      }
+    };
+
     return (
       <div className="min-h-screen bg-gray-50">
         <div className="bg-white shadow-sm border-b">
           <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <div>
               <button
-                onClick={() => setCurrentView('dashboard')}
+                onClick={() => {
+                  if (currentPost) {
+                    setIsEditing(true);
+                  } else {
+                    setCurrentView('dashboard');
+                  }
+                }}
                 className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-2"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Back to Dashboard
+                {currentPost ? 'Back to Post Editor' : 'Back to Dashboard'}
               </button>
               <h1 className="text-2xl font-bold text-gray-900">Media Library</h1>
-              <p className="text-gray-600">Upload and manage media files</p>
+              <p className="text-gray-600">
+                {currentPost ? 'Select an image for your blog post' : 'Upload and manage media files'}
+              </p>
             </div>
             <button
               onClick={handleLogout}
@@ -879,9 +894,11 @@ export const BlogAdmin: React.FC = () => {
             </button>
           </div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 py-8">
-          <MediaLibrary />
+          <MediaLibrary
+            onSelectMedia={currentPost ? handleMediaSelect : undefined}
+          />
         </div>
       </div>
     );
