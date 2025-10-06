@@ -114,22 +114,6 @@ export const FeasibilityStudy: React.FC = () => {
                   Schedule a Call
                 </a>
               </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8">
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">115+</div>
-                  <div className="text-slate-200 text-sm">Projects Completed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">35,000+</div>
-                  <div className="text-slate-200 text-sm">Markets Covered</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">$500M+</div>
-                  <div className="text-slate-200 text-sm">Assets Analyzed</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
