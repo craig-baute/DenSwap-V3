@@ -1,18 +1,61 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TrendingUp, MapPin, DollarSign } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+
+const DEFAULT_VIDEO_URL = 'https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4';
 
 export const Hero: React.FC = () => {
+  const [videoUrl, setVideoUrl] = useState<string>(DEFAULT_VIDEO_URL);
+
+  useEffect(() => {
+    loadVideoUrl();
+
+    const handleVideoUpdate = () => {
+      loadVideoUrl();
+    };
+
+    window.addEventListener('hero-video-updated', handleVideoUpdate);
+
+    return () => {
+      window.removeEventListener('hero-video-updated', handleVideoUpdate);
+    };
+  }, []);
+
+  const loadVideoUrl = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('site_settings')
+        .select('value')
+        .eq('key', 'hero_video_url')
+        .maybeSingle();
+
+      if (error && error.code !== 'PGRST116') {
+        console.error('Error loading hero video:', error);
+      }
+
+      if (data?.value) {
+        setVideoUrl(data.value);
+      } else {
+        setVideoUrl(DEFAULT_VIDEO_URL);
+      }
+    } catch (error) {
+      console.error('Error loading hero video:', error);
+      setVideoUrl(DEFAULT_VIDEO_URL);
+    }
+  };
+
   return (
     <section className="relative py-24 overflow-hidden min-h-[700px]">
       {/* Video Background */}
       <video
+        key={videoUrl}
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         loop
         muted
         playsInline
       >
-        <source src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+        <source src={videoUrl} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

@@ -8,6 +8,7 @@ interface FileUploadProps {
   maxSizeMB?: number;
   folder?: string;
   className?: string;
+  fileTypeLabel?: string;
 }
 
 export const FileUpload: React.FC<FileUploadProps> = ({
@@ -15,7 +16,8 @@ export const FileUpload: React.FC<FileUploadProps> = ({
   acceptedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
   maxSizeMB = 5,
   folder = 'uploads',
-  className = ''
+  className = '',
+  fileTypeLabel = 'files'
 }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -26,7 +28,11 @@ export const FileUpload: React.FC<FileUploadProps> = ({
 
   const validateFile = (file: File): string | null => {
     if (!acceptedTypes.includes(file.type)) {
-      return `File type not supported. Please use: ${acceptedTypes.map(type => type.split('/')[1]).join(', ')}`;
+      const fileExtensions = acceptedTypes.map(type => {
+        const parts = type.split('/');
+        return parts[1] || parts[0];
+      }).join(', ');
+      return `File type not supported. Please use: ${fileExtensions}`;
     }
 
     const maxSizeBytes = maxSizeMB * 1024 * 1024;
@@ -159,10 +165,13 @@ export const FileUpload: React.FC<FileUploadProps> = ({
             <Upload className="h-12 w-12 text-gray-400 mx-auto" />
             <div>
               <div className="text-lg font-semibold text-gray-900 mb-1">
-                Drop files here or click to upload
+                Drop {fileTypeLabel} here or click to upload
               </div>
               <div className="text-sm text-gray-600">
-                Supports: {acceptedTypes.map(type => type.split('/')[1]).join(', ')} up to {maxSizeMB}MB
+                Supports: {acceptedTypes.map(type => {
+                  const parts = type.split('/');
+                  return parts[1] || parts[0];
+                }).join(', ')} up to {maxSizeMB}MB
               </div>
             </div>
           </div>
