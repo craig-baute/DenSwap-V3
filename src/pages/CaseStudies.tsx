@@ -16,7 +16,7 @@ const CaseStudies = () => {
     const mockFeaturedProject = {
       id: 1,
       title: "Downtown Office Transformation",
-      subtitle: "From 60% vacancy to thriving coworking hub",
+      subtitle: "From 70% vacancy to thriving coworking hub",
       location: "Seattle, WA",
       buildingSize: "25,000 sq ft",
       image: "/images/case-study-featured.jpg",
