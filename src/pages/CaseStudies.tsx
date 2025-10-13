@@ -20,7 +20,7 @@ const CaseStudies = () => {
       location: "Seattle, WA",
       buildingSize: "25,000 sq ft",
       image: "/images/case-study-featured.jpg",
-      challenge: "A 25,000 sq ft office building struggling with 60% vacancy and declining rental income. Traditional office tenants were not renewing leases, and the property was underperforming significantly.",
+      challenge: "A 25,000 sq ft office building struggling with 70% vacancy and declining rental income. Traditional office tenants were not renewing leases, and the property was underperforming significantly.",
       solution: "We conducted comprehensive market analysis, developed optimal space allocation plans, and implemented a phased conversion to flexible coworking spaces with private offices, meeting rooms, and shared amenities.",
       results: {
         occupancy: "95%",
