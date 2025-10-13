@@ -302,7 +302,7 @@ export const DemandReport: React.FC = () => {
       {/* Sample Report Section */}
       <section className="relative py-20 bg-white overflow-hidden">
         {/* Background Blob - Bottom Right */}
-        <div className="absolute -bottom-40 right-0 w-1/2 h-3/4 pointer-events-none">
+        <div className="absolute bottom-0 right-0 w-1/2 h-3/4 pointer-events-none -z-10">
           <img
             src="/Blob bottom right.png"
             alt=""

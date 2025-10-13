@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
+import { CaseStudySection } from '../components/CaseStudySection';
 import { TrendingUp, Building, Users, DollarSign, CheckCircle, ArrowRight, BarChart3, Target, Clock, MapPin, Calculator, PieChart, Settings, Palette, Wifi, FileText, Calendar } from 'lucide-react';
 
+interface CaseStudy {
+  id: number;
+  title: string;
+  quote: string;
+  company: string;
+  role: string;
+  project_details: string;
+  results: {
+    months_to_goal: number;
+    annual_target: number;
+    occupancy_rate: number;
+    month_breakeven: number;
+  };
+  services: string[];
+}
+
 export const FeasibilityStudy: React.FC = () => {
+  const [caseStudy, setCaseStudy] = useState<CaseStudy | null>(null);
   const [formData, setFormData] = useState({
     propertyLocation: '',
     buildingSize: '',
@@ -14,6 +32,25 @@ export const FeasibilityStudy: React.FC = () => {
   const handleOrderReport = () => {
     console.log('Ordering feasibility report:', formData);
   };
+
+  useEffect(() => {
+    const mockCaseStudy = {
+      id: 1,
+      title: 'Somo Group',
+      quote: 'After only four months in operation, we exceeded our expectations and reached our annual goal.',
+      company: 'Somo Group',
+      role: 'Commercial Building Development',
+      project_details: 'Working on a new commercial building associated with a housing development.',
+      results: {
+        months_to_goal: 4,
+        annual_target: 100,
+        occupancy_rate: 85,
+        month_breakeven: 18,
+      },
+      services: ['Feasibility', 'Business Model', 'Floor Plan', 'Launch'],
+    };
+    setCaseStudy(mockCaseStudy);
+  }, []);
 
   const includedCategories = [
     {
@@ -83,85 +120,82 @@ export const FeasibilityStudy: React.FC = () => {
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-emerald-800 text-white overflow-hidden">
-        {/* Curved Bottom Edge */}
+      <section className="relative bg-[#1a3a3a] text-white overflow-hidden py-20">
+        <div className="absolute inset-0">
+          <img src="/feasibility-header-mid.png" alt="" className="w-full h-full object-cover opacity-10" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-16 items-center min-h-[600px]">
+            <div className="space-y-8">
+              <div>
+                <span className="inline-block bg-white/10 text-white text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                  COWORKING FEASIBILITY STUDY
+                </span>
+                <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+                  Will Your Building Print Money or <span className="text-red-500">Burn Cash?</span>
+                </h1>
+                <p className="mt-6 text-lg text-slate-200 max-w-lg">
+                  Most property owners are about to make the most expensive mistake of their career. Here's how the smart money thinks about coworking.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/20 transition-all duration-300 inline-flex items-center justify-center">
+                  Schedule a Call
+                </a>
+                <a href="/sample-report" className="group bg-gradient-to-r from-brand-primary to-brand-light text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
+                  Download a Sample Report
+                </a>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                  <div className="flex items-center gap-4">
+                    <MapPin className="h-8 w-8 text-emerald-400" />
+                    <div>
+                      <p className="font-semibold">Your Property</p>
+                      <p className="text-2xl font-bold">10,000 SF</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                  <div className="flex items-center gap-4">
+                    <MapPin className="h-8 w-8 text-emerald-400" />
+                    <div>
+                      <p className="font-semibold">Startup Costs</p>
+                      <p className="text-2xl font-bold">$178,560</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                  <p className="font-semibold">Market Saturation:</p>
+                  <p className="text-xl font-bold">37,000 SF Undersupplied</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                  <p className="font-semibold">Confidence Level:</p>
+                  <p className="text-xl font-bold">High</p>
+                </div>
+              </div>
+              <div className="bg-emerald-400/20 backdrop-blur-sm p-6 rounded-xl">
+                <p className="font-semibold">Recommended Positioning:</p>
+                <p className="text-2xl font-bold text-emerald-300">Mid-Range Flex</p>
+              </div>
+              <div className="bg-blue-500/80 backdrop-blur-sm p-6 rounded-xl text-center">
+                <p className="font-semibold">Annual Profit at Stability:</p>
+                <p className="text-4xl font-bold">$97,340</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
           </svg>
         </div>
-
-        <div className="relative z-10">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Will Your Building Print Money or Burn Cash
-                </h2>
-
-                <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
-                  Most property owners are about to make the most expensive mistake of their career. Here's how the smart money thinks about coworking.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
-                  Download a Sample Report
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Schedule a Call
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
-      {/* Testimonial Quote Section */}
-      <section className="py-0 bg-white overflow-hidden">
-        <div className="grid lg:grid-cols-2 gap-0">
-          {/* Left Side - Content */}
-          <div className="bg-gray-50 py-20 px-8 lg:px-16 flex items-center">
-            <div className="max-w-xl">
-              <div className="mb-8">
-                <img
-                  src="/somo-cowork-logo.png"
-                  alt="SOMO Cowork"
-                  className="h-12 w-auto mb-12"
-                />
-              </div>
-
-              <blockquote className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                "After only four months in operation, we exceeded our expectations and reached our annual goal."
-              </blockquote>
-
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                The developers of SOMO Village partnered with DenSwap to build a thriving and profitable workspace as the ultimate amenity for their new $1 billion, 200-acre residential redevelopment in Sonoma County.
-              </p>
-
-              <a
-                href="/case-studies"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-emerald-600 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-300"
-              >
-                <span>See how DenSwap helped build SOMO Cowork</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Right Side - Image */}
-          <div className="relative h-[500px] lg:h-auto">
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-emerald-900 opacity-10"></div>
-            <img
-              src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Modern coworking space"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* The Data vs. The Dream Section */}
       <section className="py-20 bg-gray-50">
@@ -178,7 +212,7 @@ export const FeasibilityStudy: React.FC = () => {
             </div>
 
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              <h2 className="text-h2 text-3xl md:text-4xl font-bold text-gray-900 mb-8">
                 The Data vs.
                 <span className="text-emerald-600"> The Dream</span>
               </h2>
@@ -234,7 +268,7 @@ export const FeasibilityStudy: React.FC = () => {
         <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-h2 text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               This is about capital allocation.
               <span className="text-red-600"> And capital preservation.</span>
             </h2>
@@ -300,36 +334,12 @@ export const FeasibilityStudy: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border border-gray-200">
-            <div className="flex items-center gap-6">
-              <img
-                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150"
-                alt="Mike Kriel"
-                className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg"
-              />
-              <div className="flex-1">
-                <blockquote className="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
-                  "These reports give us focus to know where to put our energy and money in our RE portfolio."
-                </blockquote>
-                <div className="text-gray-700">
-                  <div className="font-semibold">Mike Kriel</div>
-                  <div className="text-sm">CEO, Launch Workplaces</div>
-                  <div className="text-sm">Director, Global Workplace Association</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* What's Included Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-h2 text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Everything Included in the Feasibility Study
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -382,12 +392,14 @@ export const FeasibilityStudy: React.FC = () => {
         </div>
       </section>
 
+      <CaseStudySection caseStudy={caseStudy} />
+
       {/* Enterprise CTA Section */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 via-emerald-700 to-blue-600 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-emerald-400/20 rounded-full blur-3xl"></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-h2 text-4xl md:text-5xl font-bold mb-6">
             Multiple Buildings or Large Investor?
           </h2>
           

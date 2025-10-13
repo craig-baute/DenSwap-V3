@@ -74,7 +74,7 @@ export const TestimonialSection: React.FC = () => {
 
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-6">
+              <h2 className="text-h2 text-4xl md:text-5xl font-bold text-emerald-700 mb-6">
                 Success Stories from
                 <span className="text-emerald-600"> Real Operators</span>
               </h2>
