@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FileUpload } from './FileUpload';
-import { listFiles, getPublicUrl, deleteFile } from '../lib/supabase';
-import { Image, Trash2, Copy, CheckCircle, Folder, Search, Grid, List, Loader2 } from 'lucide-react';
+import { listFiles, getPublicUrl, deleteFile, getMediaMetadata, updateMediaTitle, deleteMediaMetadata } from '../lib/supabase';
+import { Image, Trash2, Copy, CheckCircle, Folder, Search, Grid2x2 as Grid, List, Loader2, CreditCard as Edit2, Check, X } from 'lucide-react';
 
 interface MediaFile {
   name: string;
@@ -13,6 +13,10 @@ interface MediaFile {
     size: number;
     mimetype: string;
   };
+}
+
+interface MediaMetadata {
+  title: string;
 }
 
 interface MediaLibraryProps {
@@ -31,6 +35,9 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
+  const [mediaTitles, setMediaTitles] = useState<Record<string, string>>({});
+  const [editingTitle, setEditingTitle] = useState<string | null>(null);
+  const [editTitleValue, setEditTitleValue] = useState('');
 
   useEffect(() => {
     loadFiles();
@@ -41,6 +48,15 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
       setLoading(true);
       const fileList = await listFiles(folder);
       setFiles(fileList || []);
+
+      const titles: Record<string, string> = {};
+      for (const file of fileList || []) {
+        const metadata = await getMediaMetadata(file.name, folder);
+        if (metadata && metadata.title) {
+          titles[file.name] = metadata.title;
+        }
+      }
+      setMediaTitles(titles);
     } catch (error) {
       console.error('Error loading files:', error);
     } finally {
@@ -60,11 +76,37 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
 
     try {
       await deleteFile(`${folder}/${fileName}`);
+      await deleteMediaMetadata(fileName, folder);
       await loadFiles();
     } catch (error) {
       console.error('Error deleting file:', error);
       alert('Failed to delete file');
     }
+  };
+
+  const startEditingTitle = (fileName: string) => {
+    setEditingTitle(fileName);
+    setEditTitleValue(mediaTitles[fileName] || fileName);
+  };
+
+  const saveTitle = async (fileName: string) => {
+    try {
+      await updateMediaTitle(fileName, folder, editTitleValue);
+      setMediaTitles({ ...mediaTitles, [fileName]: editTitleValue });
+      setEditingTitle(null);
+    } catch (error) {
+      console.error('Error saving title:', error);
+      alert('Failed to save title');
+    }
+  };
+
+  const cancelEditingTitle = () => {
+    setEditingTitle(null);
+    setEditTitleValue('');
+  };
+
+  const getDisplayTitle = (fileName: string) => {
+    return mediaTitles[fileName] || fileName;
   };
 
   const copyUrlToClipboard = async (fileName: string) => {
@@ -178,9 +220,48 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
                       </div>
                     </div>
                     <div className="p-3">
-                      <div className="text-sm font-medium text-gray-900 truncate mb-1">
-                        {file.name}
-                      </div>
+                      {editingTitle === file.name ? (
+                        <div className="flex items-center gap-1 mb-1">
+                          <input
+                            type="text"
+                            value={editTitleValue}
+                            onChange={(e) => setEditTitleValue(e.target.value)}
+                            className="flex-1 text-sm px-2 py-1 border border-emerald-300 rounded focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                            autoFocus
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') saveTitle(file.name);
+                              if (e.key === 'Escape') cancelEditingTitle();
+                            }}
+                          />
+                          <button
+                            onClick={() => saveTitle(file.name)}
+                            className="p-1 text-emerald-600 hover:bg-emerald-50 rounded"
+                            title="Save"
+                          >
+                            <Check className="h-3 w-3" />
+                          </button>
+                          <button
+                            onClick={cancelEditingTitle}
+                            className="p-1 text-gray-600 hover:bg-gray-50 rounded"
+                            title="Cancel"
+                          >
+                            <X className="h-3 w-3" />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-1 mb-1 group/title">
+                          <div className="text-sm font-medium text-gray-900 truncate flex-1" title={getDisplayTitle(file.name)}>
+                            {getDisplayTitle(file.name)}
+                          </div>
+                          <button
+                            onClick={() => startEditingTitle(file.name)}
+                            className="opacity-0 group-hover/title:opacity-100 p-1 text-gray-400 hover:text-emerald-600 rounded transition-opacity"
+                            title="Edit title"
+                          >
+                            <Edit2 className="h-3 w-3" />
+                          </button>
+                        </div>
+                      )}
                       <div className="text-xs text-gray-500">
                         {formatFileSize(file.metadata?.size || 0)}
                       </div>
@@ -220,7 +301,46 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
                       />
                     </div>
                     <div className="flex-1 ml-4">
-                      <div className="font-medium text-gray-900">{file.name}</div>
+                      {editingTitle === file.name ? (
+                        <div className="flex items-center gap-2 mb-1">
+                          <input
+                            type="text"
+                            value={editTitleValue}
+                            onChange={(e) => setEditTitleValue(e.target.value)}
+                            className="flex-1 px-3 py-1 border border-emerald-300 rounded focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                            autoFocus
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') saveTitle(file.name);
+                              if (e.key === 'Escape') cancelEditingTitle();
+                            }}
+                          />
+                          <button
+                            onClick={() => saveTitle(file.name)}
+                            className="p-2 text-emerald-600 hover:bg-emerald-50 rounded"
+                            title="Save"
+                          >
+                            <Check className="h-4 w-4" />
+                          </button>
+                          <button
+                            onClick={cancelEditingTitle}
+                            className="p-2 text-gray-600 hover:bg-gray-50 rounded"
+                            title="Cancel"
+                          >
+                            <X className="h-4 w-4" />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-2 mb-1 group/title">
+                          <div className="font-medium text-gray-900 flex-1">{getDisplayTitle(file.name)}</div>
+                          <button
+                            onClick={() => startEditingTitle(file.name)}
+                            className="opacity-0 group-hover/title:opacity-100 p-1 text-gray-400 hover:text-emerald-600 rounded transition-opacity"
+                            title="Edit title"
+                          >
+                            <Edit2 className="h-4 w-4" />
+                          </button>
+                        </div>
+                      )}
                       <div className="text-sm text-gray-500">
                         {formatFileSize(file.metadata?.size || 0)} • {new Date(file.updated_at).toLocaleDateString()}
                       </div>

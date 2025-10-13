@@ -119,83 +119,37 @@ export const FeasibilityStudy: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
-      {/* Hero Section */}
-      <section className="relative bg-[#1a3a3a] text-white overflow-hidden py-20">
-        <div className="absolute inset-0">
-          <img src="/feasibility-header-mid.png" alt="" className="w-full h-full object-cover opacity-10" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center min-h-[600px]">
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-emerald-800 text-white overflow-hidden">
+        <div className="relative z-10">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
             <div className="space-y-8">
               <div>
-                <span className="inline-block bg-white/10 text-white text-sm font-semibold px-4 py-2 rounded-full mb-4">
-                  COWORKING FEASIBILITY STUDY
-                </span>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                  Will Your Building Print Money or <span className="text-red-500">Burn Cash?</span>
-                </h1>
-                <p className="mt-6 text-lg text-slate-200 max-w-lg">
+                <div className="inline-flex items-center px-6 py-2.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm font-semibold text-white mb-6 shadow-sm">
+                  The $500k Question
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Will Your Building Print Money or Burn Cash
+                </h2>
+
+                <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
                   Most property owners are about to make the most expensive mistake of their career. Here's how the smart money thinks about coworking.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/20 transition-all duration-300 inline-flex items-center justify-center">
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                  Download a Sample Report
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                  <Calendar className="mr-2 h-5 w-5" />
                   Schedule a Call
                 </a>
-                <a href="/sample-report" className="group bg-gradient-to-r from-brand-primary to-brand-light text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
-                  Download a Sample Report
-                </a>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-                  <div className="flex items-center gap-4">
-                    <MapPin className="h-8 w-8 text-emerald-400" />
-                    <div>
-                      <p className="font-semibold">Your Property</p>
-                      <p className="text-2xl font-bold">10,000 SF</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-                  <div className="flex items-center gap-4">
-                    <MapPin className="h-8 w-8 text-emerald-400" />
-                    <div>
-                      <p className="font-semibold">Startup Costs</p>
-                      <p className="text-2xl font-bold">$178,560</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-                  <p className="font-semibold">Market Saturation:</p>
-                  <p className="text-xl font-bold">37,000 SF Undersupplied</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-                  <p className="font-semibold">Confidence Level:</p>
-                  <p className="text-xl font-bold">High</p>
-                </div>
-              </div>
-              <div className="bg-emerald-400/20 backdrop-blur-sm p-6 rounded-xl">
-                <p className="font-semibold">Recommended Positioning:</p>
-                <p className="text-2xl font-bold text-emerald-300">Mid-Range Flex</p>
-              </div>
-              <div className="bg-blue-500/80 backdrop-blur-sm p-6 rounded-xl text-center">
-                <p className="font-semibold">Annual Profit at Stability:</p>
-                <p className="text-4xl font-bold">$97,340</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 z-20">
-          <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
-          </svg>
-        </div>
       </section>
-
 
       {/* The Data vs. The Dream Section */}
       <section className="py-20 bg-gray-50">
@@ -333,7 +287,6 @@ export const FeasibilityStudy: React.FC = () => {
         </div>
         </div>
       </section>
-
 
       {/* What's Included Section */}
       <section className="py-20 bg-gray-50">
