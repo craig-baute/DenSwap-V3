@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
-import { MapPin, Building, Users, TrendingUp, CheckCircle, ArrowRight, DollarSign, Target, BarChart3, Clock } from 'lucide-react';
+import { MapPin, Building, Users, TrendingUp, CheckCircle, ArrowRight, DollarSign, Target, BarChart3, Clock, Calendar, Calculator } from 'lucide-react';
 
 export const DemandReport: React.FC = () => {
   const [zipCode, setZipCode] = useState('');
@@ -16,83 +16,85 @@ export const DemandReport: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
-      {/* Hero Section with Clean Design */}
-      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
-        {/* Background Report Image - Left Side */}
-        <div className="absolute left-0 top-0 bottom-0 w-1/2 overflow-hidden">
-          <img
-            src="/feasibility-header-mid.png"
-            alt="Professional Coworking Feasibility Study Report"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-20 transform scale-110"
-          />
+      <section className="relative bg-[#1a4e48] text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/feasibility-header-mid.png" alt="Feasibility Study Background" className="w-full h-full object-cover opacity-20" />
         </div>
-
         {/* Curved Bottom Edge */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
           </svg>
         </div>
-
-        <div className="relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Left Side - Empty space for background image */}
-              <div className="relative min-h-[400px] lg:min-h-[600px]">
-              </div>
-
-              {/* Content - Right Side */}
-              <div className="space-y-8">
-                <div>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative min-h-[400px] lg:min-h-[600px]">
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-semibold text-white mb-4">
+                  Coworking Demand Report
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                     Know Exactly How Much Coworking
                     <span className="text-emerald-300"> Your Market Can Support.</span>
-                    <br />
-                    <span className="text-3xl md:text-4xl lg:text-5xl">Fast.</span>
                   </h1>
-                  
-                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
+                <p className="text-lg md:text-xl text-slate-200 mb-8 max-w-2xl">
                     Get precise square footage calculations, know which type of coworking will succeed, 
                     and property recommendations for any ZIP code in 24 hours. Stop guessing. Start with data.
-                  </p>
-                </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex items-center gap-3 flex-1">
-                    <input
-                      type="text"
-                      placeholder="Enter ZIP Code"
-                      value={zipCode}
-                      onChange={(e) => setZipCode(e.target.value)}
-                      className="flex-1 px-4 py-3 border-2 border-white/30 rounded-lg text-lg bg-white/10 backdrop-blur-sm text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50"
-                    />
-                    <button 
-                      onClick={handleOrderReport}
-                      className="group bg-white text-slate-700 px-6 py-3 rounded-lg text-base font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center whitespace-nowrap"
-                    >
-                      Get Demand Report
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-                
-                <p className="text-sm text-slate-200">
-                  Only $500 for each additional report
                 </p>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 pt-8">
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">115+</div>
-                    <div className="text-slate-200 text-sm">Projects Completed</div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                  Download a Sample Report
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a href="/book-consultation" className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Schedule a Call
+                </a>
+              </div>
+            </div>
+            </div>
+            <div>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20">
+                  <div className="flex items-center gap-4 mb-2">
+                    <MapPin className="h-6 w-6 text-emerald-300" />
+                    <h3 className="font-semibold text-lg">Your Property</h3>
                   </div>
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">35,000+</div>
-                    <div className="text-slate-200 text-sm">Markets Covered</div>
+                  <p className="text-2xl font-bold">10,000 SF</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20">
+                  <div className="flex items-center gap-4 mb-2">
+                    <Calculator className="h-6 w-6 text-emerald-300" />
+                    <h3 className="font-semibold text-lg">Startup Costs</h3>
                   </div>
-                  <div className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">$500M+</div>
-                    <div className="text-slate-200 text-sm">Assets Analyzed</div>
+                  <p className="text-2xl font-bold">$178,560</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20">
+                  <div className="flex items-center gap-4 mb-2">
+                    <Users className="h-6 w-6 text-emerald-300" />
+                    <h3 className="font-semibold text-lg">Market Saturation:</h3>
+                  </div>
+                  <p className="text-2xl font-bold">37,000 SF Undersupplied</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20">
+                  <div className="flex items-center gap-4 mb-2">
+                    <CheckCircle className="h-6 w-6 text-emerald-300" />
+                    <h3 className="font-semibold text-lg">Confidence Level:</h3>
+                  </div>
+                  <p className="text-2xl font-bold">High</p>
+                </div>
+                <div className="bg-emerald-300/20 backdrop-blur-lg p-6 rounded-2xl border border-emerald-300/30 col-span-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold text-lg">Recommended Positioning:</h3>
+                    <p className="text-lg font-bold text-emerald-200">Mid-Range Flex</p>
+                  </div>
+                </div>
+                <div className="bg-blue-400/20 backdrop-blur-lg p-6 rounded-2xl border border-blue-400/30 col-span-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold text-lg">Annual Profit at Stability:</h3>
+                    <p className="text-2xl font-bold text-blue-200">$97,340</p>
                   </div>
                 </div>
               </div>

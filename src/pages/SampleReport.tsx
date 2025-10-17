@@ -1,368 +1,213 @@
 import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { FileText, Mail, Building, User, Phone, MessageSquare, CheckCircle, Calendar } from 'lucide-react';
+import { ContactSection } from '../components/ContactSection';
+import { TrendingUp, Building, Users, DollarSign, CheckCircle, ArrowRight, BarChart3, Target, Clock, MapPin, Calculator, PieChart, Settings, Palette, Wifi, FileText, Calendar } from 'lucide-react';
 
 export const SampleReport: React.FC = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    businessEmail: '',
-    propertyLocation: '',
-    businessType: '',
-    phoneNumber: '',
-    message: ''
-  });
+  const [email, setEmail] = useState('');
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const businessTypes = [
-    'Existing Coworking Operator',
-    'Individual Investor',
-    'Property Group (1-10 locations)',
-    'Property Group (11-30 locations)',
-    'Property Group (30+ locations)'
-  ];
-
-  const freeEmailDomains = [
-    'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com',
-    'icloud.com', 'live.com', 'msn.com', 'ymail.com', 'rocketmail.com',
-    'protonmail.com', 'mail.com', 'zoho.com'
-  ];
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return false;
-    
-    const domain = email.split('@')[1]?.toLowerCase();
-    return !freeEmailDomains.includes(domain);
-  };
-
-  const validateForm = (): boolean => {
-    const newErrors: Record<string, string> = {};
-
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required';
-    }
-
-    if (!formData.businessEmail.trim()) {
-      newErrors.businessEmail = 'Business email is required';
-    } else if (!validateEmail(formData.businessEmail)) {
-      newErrors.businessEmail = 'Please use a corporate email address (no Gmail, Yahoo, etc.)';
-    }
-
-    if (!formData.propertyLocation.trim()) {
-      newErrors.propertyLocation = 'Property location is required';
-    }
-
-    if (!formData.businessType) {
-      newErrors.businessType = 'Please select your business type';
-    }
-
-    if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = 'Phone number is required';
-    } else if (!/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phoneNumber.replace(/\s/g, ''))) {
-      newErrors.phoneNumber = 'Please enter a valid phone number';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleDownload = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-
-    // Simulate API call
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', formData);
-      
-      setIsSubmitted(true);
-    } catch (error) {
-      console.error('Submission error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Handle report download
+    console.log('Downloading sample report for email:', email);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+  const includedCategories = [
+    {
+      title: "Market Analysis",
+      icon: BarChart3,
+      items: [
+        "Target Area Definition",
+        "Demographic Analysis", 
+        "Competition Mapping",
+        "Demand Forecasting"
+      ]
+    },
+    {
+      title: "Financial Projections",
+      icon: DollarSign,
+      items: [
+        "Revenue Projections",
+        "Space Allocation",
+        "Build-out Costs",
+        "Operating Expenses"
+      ]
+    },
+    {
+      title: "Space Planning",
+      icon: Building,
+      items: [
+        "Office Size Allocation",
+        "Floor Plan Layout",
+        "# of Meeting Rooms",
+        "Optimal Layout Design"
+      ]
+    },
+    {
+      title: "Operations Strategy",
+      icon: Settings,
+      items: [
+        "Staffing Strategy",
+        "IT and Hardware",
+        "Membership Policies",
+        "Management Structure"
+      ]
+    },
+    {
+      title: "Launch Strategy",
+      icon: Target,
+      items: [
+        "Timeline and Planning",
+        "Marketing Plan",
+        "Pre-Leasing Plan",
+        "Go-to-Market Strategy"
+      ]
+    },
+    {
+      title: "Marketing & Amenities",
+      icon: Palette,
+      items: [
+        "Budget and Selection",
+        "'Talk about' Perks",
+        "Digital Marketing",
+        "Community Building"
+      ]
     }
-  };
-
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
-        
-        <section className="py-20 bg-gradient-to-b from-green-50 to-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="bg-white rounded-xl shadow-lg p-12">
-              <div className="bg-green-100 p-4 rounded-full w-20 h-20 mx-auto mb-8 flex items-center justify-center">
-                <CheckCircle className="h-10 w-10 text-green-600" />
-              </div>
-              
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Thank You!
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                The sample report has been sent to your email inbox. To discuss your specific needs with a CoworkSpace Analytics Consultant,{' '}
-                <a 
-                  href="/book-consultation" 
-                  className="text-blue-600 hover:text-blue-700 font-semibold underline"
-                >
-                  Click Here
-                </a>
-                {' '}to schedule a consultation call.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="/book-consultation"
-                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center gap-2"
-                >
-                  <Calendar className="h-5 w-5" />
-                  Schedule Consultation
-                </a>
-                <a 
-                  href="/"
-                  className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors"
-                >
-                  Return to Home
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Footer />
-      </div>
-    );
-  }
+  ];
 
   return (
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-20">
+      <section className="bg-gradient-to-b from-green-50 to-white py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="bg-blue-100 p-4 rounded-full w-20 h-20 mx-auto mb-8 flex items-center justify-center">
-              <FileText className="h-10 w-10 text-blue-600" />
+            <div className="bg-green-100 p-4 rounded-full w-20 h-20 mx-auto mb-8 flex items-center justify-center">
+              <FileText className="h-10 w-10 text-green-600" />
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Download a Sample Coworking
-              <span className="text-blue-600"> Feasibility Study</span>
+              Download Your Free
+              <span className="text-green-600"> Sample Report</span>
             </h1>
             
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              See exactly how our comprehensive analysis works with a real market study. 
-              This sample report demonstrates our methodology for determining coworking viability, 
-              financial projections, and operational recommendations.
+              See for yourself how our data-driven feasibility studies provide the clarity 
+              and confidence you need to make your next investment decision.
             </p>
 
-            <div className="bg-blue-50 rounded-xl p-6 max-w-2xl mx-auto">
-              <h3 className="text-lg font-semibold text-blue-900 mb-3">What's Included:</h3>
-              <ul className="text-left space-y-2 text-blue-800">
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600" />
-                  Market demand analysis for a 15,000 SF property
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600" />
-                  5-year financial projections and P&L breakdown
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600" />
-                  Management structure recommendations
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-blue-600" />
-                  Competitive landscape assessment
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Form Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
-                    <User className="inline h-4 w-4 mr-1" />
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.fullName ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    placeholder="Enter your full name"
-                  />
-                  {errors.fullName && (
-                    <p className="mt-1 text-sm text-red-600">{errors.fullName}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="businessEmail" className="block text-sm font-medium text-gray-700 mb-2">
-                    <Mail className="inline h-4 w-4 mr-1" />
-                    Business Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="businessEmail"
-                    name="businessEmail"
-                    value={formData.businessEmail}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.businessEmail ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    placeholder="your.name@company.com"
-                  />
-                  {errors.businessEmail && (
-                    <p className="mt-1 text-sm text-red-600">{errors.businessEmail}</p>
-                  )}
-                  <p className="mt-1 text-xs text-gray-500">Corporate email required (no Gmail, Yahoo, etc.)</p>
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="propertyLocation" className="block text-sm font-medium text-gray-700 mb-2">
-                  <Building className="inline h-4 w-4 mr-1" />
-                  Property Location *
-                </label>
+            <form onSubmit={handleDownload} className="max-w-md mx-auto">
+              <div className="flex items-center gap-3">
                 <input
-                  type="text"
-                  id="propertyLocation"
-                  name="propertyLocation"
-                  value={formData.propertyLocation}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.propertyLocation ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="City, State (e.g., Austin, TX)"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
-                {errors.propertyLocation && (
-                  <p className="mt-1 text-sm text-red-600">{errors.propertyLocation}</p>
-                )}
+                <button 
+                  type="submit"
+                  className="group bg-green-600 text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-green-700 hover:scale-105 transition-all duration-300 flex items-center whitespace-nowrap"
+                >
+                  Download Now
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </button>
               </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="businessType" className="block text-sm font-medium text-gray-700 mb-2">
-                    Business Type *
-                  </label>
-                  <select
-                    id="businessType"
-                    name="businessType"
-                    value={formData.businessType}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.businessType ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                  >
-                    <option value="">Select your business type</option>
-                    {businessTypes.map((type) => (
-                      <option key={type} value={type}>{type}</option>
-                    ))}
-                  </select>
-                  {errors.businessType && (
-                    <p className="mt-1 text-sm text-red-600">{errors.businessType}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
-                    <Phone className="inline h-4 w-4 mr-1" />
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phoneNumber"
-                    name="phoneNumber"
-                    value={formData.phoneNumber}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                      errors.phoneNumber ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                    placeholder="+1 (555) 123-4567"
-                  />
-                  {errors.phoneNumber && (
-                    <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  <MessageSquare className="inline h-4 w-4 mr-1" />
-                  Message / Additional Information (Optional)
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Tell us about your property, specific questions, or goals..."
-                />
-              </div>
-
-              <div className="bg-gray-50 rounded-lg p-4">
-                <p className="text-sm text-gray-600">
-                  By submitting this form, you agree to receive communications from CoworkSpace Analytics. 
-                  We respect your privacy and will never share your information with third parties.
-                </p>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    Sending Report...
-                  </>
-                ) : (
-                  <>
-                    <FileText className="h-5 w-5" />
-                    Get Free Sample Report
-                  </>
-                )}
-              </button>
             </form>
           </div>
         </div>
       </section>
 
+      {/* What's Included Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-h2 text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Everything Included in the Feasibility Study
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Comprehensive analysis covering every aspect of your coworking investment
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {includedCategories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <div key={index} className="bg-white rounded-xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow">
+                  <div className="bg-emerald-500 p-3 rounded-xl w-12 h-12 flex items-center justify-center mb-6">
+                    <Icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
+                  <ul className="space-y-2">
+                    {category.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="flex items-center gap-2 text-gray-600">
+                        <CheckCircle className="h-4 w-4 text-emerald-500 flex-shrink-0" />
+                        <span className="text-sm">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Critical Questions Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">We Answer the Critical Questions</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Before you invest a dime, we provide the data-driven answers you need to make a confident decision.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">1. Can Coworking Be Supported in Where My Building Is?</h3>
+              <p className="text-gray-600">We analyze the local market, demographics, and competition to determine if there's enough demand to sustain a coworking space.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">2. What type of coworking will work with my budget and location?</h3>
+              <p className="text-gray-600">We recommend the right mix of private offices, dedicated desks, and hot desks to match your budget and the needs of the local market.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">3. Will coworking generate enough revenue?</h3>
+              <p className="text-gray-600">Our financial projections provide a clear picture of your potential revenue, expenses, and profitability.</p>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">4. What's the best path forward to make coworking happen.</h3>
+              <p className="text-gray-600">We provide a step-by-step launch plan, including marketing, pre-leasing, and operational strategies to ensure a successful opening.</p>
+            </div>
+          </div>
+          <div className="mt-12 text-center bg-red-50 border border-red-200 rounded-xl p-8">
+            <p className="text-xl text-red-800 font-semibold">We aren't afraid to tell you it won't work. Saying "No" now saves you hundreds of thousands of dollars and years of lost time.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Trust Us Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="flex gap-6">
+              <img src="https://via.placeholder.com/200x300" alt="John Doe" className="rounded-lg shadow-lg transform rotate-[-3deg]" />
+              <img src="https://via.placeholder.com/200x300" alt="Jane Smith" className="rounded-lg shadow-lg transform rotate-[3deg] mt-8" />
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Why Trust Us</h2>
+              <p className="text-xl text-gray-600">We're market researchers and coworking entrepreneurs who developed a methodology to find the perfect locations for our own spaces. Now, we're sharing our secrets with you.</p>
+              <p className="text-lg text-gray-700">With 14+ years of experience and analysis of over 4,500 coworking spaces, we blend data analytics with real-world insights. Our approach is dynamic, adapting to new data, primary research, and industry trends.</p>
+              <p className="text-lg text-gray-700">We treat office space as a consumer product, using the same sophisticated location analysis as top retailers. We go beyond census data, incorporating purchasing behaviors, travel patterns, and more to give you a true competitive edge.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <ContactSection />
       <Footer />
     </div>
   );

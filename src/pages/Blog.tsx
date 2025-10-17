@@ -473,10 +473,17 @@ export const Blog: React.FC = () => {
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 via-white to-emerald-50/40 py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full blur-3xl opacity-25 -translate-y-1/2 translate-x-1/2"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-[#1a4e48] text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/White Walled Coworking space.jpg" alt="White Walled Coworking space" className="w-full h-full object-cover opacity-20" />
+        </div>
+        {/* Curved Bottom Edge */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
+          </svg>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Industry Insights &

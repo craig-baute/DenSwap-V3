@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
-import { CaseStudy, CaseStudyProject } from '../components/CaseStudyCMS';
 import { 
   TrendingUp, 
   Building, 
@@ -17,10 +16,31 @@ import {
   Clock 
 } from 'lucide-react';
 
+interface CaseStudy {
+  id: number;
+  title: string;
+  subtitle: string;
+  location: string;
+  buildingSize: string;
+  image: string;
+  challenge: string;
+  solution?: string;
+  results: {
+    occupancy: string;
+    noiIncrease: string;
+    members?: string;
+    breakeven?: string;
+  };
+  timeline?: string;
+  testimonial: string;
+  clientName?: string;
+  clientTitle?: string;
+}
+
 const Home = () => {
-  const [featuredProject, setFeaturedProject] = useState(null);
-  const [highlightedProjects, setHighlightedProjects] = useState([]);
-  const [otherProjects, setOtherProjects] = useState([]);
+  const [featuredProject, setFeaturedProject] = useState<CaseStudy | null>(null);
+  const [highlightedProjects, setHighlightedProjects] = useState<CaseStudy[]>([]);
+  const [otherProjects, setOtherProjects] = useState<CaseStudy[]>([]);
 
   useEffect(() => {
     // Mock data - replace with actual API calls
@@ -114,30 +134,18 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-50 via-white to-emerald-50 relative overflow-hidden">
-        <img
-          src="/Blob top left.png"
-          alt=""
-          className="absolute -top-20 -left-20 w-[600px] h-[600px] object-contain opacity-40 pointer-events-none"
-          style={{ filter: 'brightness(0.95) hue-rotate(140deg) saturate(1.5)' }}
-        />
-        <img
-          src="/Blob bottom right.png"
-          alt=""
-          className="absolute -bottom-20 -right-20 w-[700px] h-[700px] object-contain opacity-40 pointer-events-none"
-          style={{ filter: 'brightness(0.95) hue-rotate(160deg) saturate(1.5)' }}
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="relative h-screen text-white">
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Proven
-              <span className="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent"> Results</span>
+              <span className="text-emerald-300"> Results</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
               Real transformations. Real returns. See how property owners across the country 
               have unlocked hidden value with our coworking conversion strategies.
             </p>
@@ -146,20 +154,20 @@ const Home = () => {
           {/* Stats Grid */}
           <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-4xl font-bold text-emerald-600 mb-2">150+</div>
-              <div className="text-gray-600">Properties Analyzed</div>
+              <div className="text-4xl font-bold mb-2">150+</div>
+              <div>Properties Analyzed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-teal-600 mb-2">85%</div>
-              <div className="text-gray-600">Success Rate</div>
+              <div className="text-4xl font-bold mb-2">85%</div>
+              <div>Success Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-emerald-600 mb-2">$50M+</div>
-              <div className="text-gray-600">Value Created</div>
+              <div className="text-4xl font-bold mb-2">$50M+</div>
+              <div>Value Created</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-teal-600 mb-2">12 Months</div>
-              <div className="text-gray-600">Avg. Breakeven</div>
+              <div className="text-4xl font-bold mb-2">12 Months</div>
+              <div>Avg. Breakeven</div>
             </div>
           </div>
         </div>

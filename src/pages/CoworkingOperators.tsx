@@ -9,64 +9,52 @@ export const CoworkingOperators: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-50 via-white to-teal-50/40 py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-full blur-3xl opacity-25 -translate-y-1/2 translate-x-1/2"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center px-5 py-2.5 bg-emerald-100 border border-emerald-200 rounded-full text-sm font-semibold text-emerald-800 mb-8 shadow-sm">
-              <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse"></span>
-              For Coworking Operators
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Grow based on data and experience,
-              <span className="text-emerald-600"> not just gut.</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
-              Grow your brand in a smart, data-driven way so you can build your empire, not become a WeWork. 
-              Our feasibility studies and data are based on operating coworking for 14 years.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <a href="/feasibility-study" className="group bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
-                Plan Your Next Location
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="/book-consultation" className="group bg-white border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-xl text-lg font-bold hover:bg-emerald-50 hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center">
-                <Calendar className="mr-2 h-5 w-5" />
-                Schedule a Call
-              </a>
-            </div>
+      {/* Hero Section with Clean Design */}
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
+        {/* Background Report Image - Left Side */}
+        <div className="absolute left-0 top-0 bottom-0 w-1/2 overflow-hidden">
+          <img
+            src="/ModernCoworkingSpaceWithPeople.jpg"
+            alt="Modern Coworking Space"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-20 transform scale-110"
+          />
+        </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-3 rounded-xl shadow-lg">
-                  <Building className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="text-2xl font-black text-gray-900">150+</div>
-                  <div className="text-gray-700 text-sm font-medium">Locations Analyzed</div>
-                </div>
+        {/* Curved Bottom Edge */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
+          </svg>
+        </div>
+
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left Side - Empty space for background image */}
+              <div className="relative min-h-[400px] lg:min-h-[600px]">
               </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-teal-500 to-teal-600 p-3 rounded-xl shadow-lg">
-                  <Shield className="h-6 w-6 text-white" />
+
+              {/* Content - Right Side */}
+              <div className="space-y-8">
+                <div>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Grow based on data and experience,
+                    <span className="text-emerald-300"> not just gut.</span>
+                  </h1>
+                  
+                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
+                    Grow your brand in a smart, data-driven way so you can build your empire, not become a WeWork. 
+                    Our feasibility studies and data are based on operating coworking for 14 years.
+                  </p>
                 </div>
-                <div className="text-left">
-                  <div className="text-2xl font-black text-gray-900">85%</div>
-                  <div className="text-gray-700 text-sm font-medium">Success Rate</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-emerald-600 to-teal-600 p-3 rounded-xl shadow-lg">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="text-2xl font-black text-gray-900">14</div>
-                  <div className="text-gray-700 text-sm font-medium">Years Operating</div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="/feasibility-study" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    Plan Your Next Location
+                  </a>
+                  <a href="/book-consultation" className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center">
+                    Schedule a Call
+                  </a>
                 </div>
               </div>
             </div>

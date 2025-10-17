@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
-import { Map, TrendingUp, Building, Search, Target, BarChart3, CheckCircle, ArrowRight, Mail, Bell, Zap, Eye, DollarSign, MapPin } from 'lucide-react';
+import { Map, TrendingUp, Building, Search, Target, BarChart3, CheckCircle, ArrowRight, Mail, Bell, Zap, Eye, DollarSign, MapPin, Calendar, Calculator, Users } from 'lucide-react';
 
 export const AnalyticsMap: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -71,73 +71,91 @@ export const AnalyticsMap: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-50 via-white to-blue-50/40 py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full blur-3xl opacity-25 -translate-y-1/2 translate-x-1/2"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-sm font-bold mb-8 shadow-lg border-2 border-white/20 backdrop-blur-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                <div className="w-2 h-2 bg-white/70 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                <div className="w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+      <section className="relative bg-[#1a4e48] text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/feasibility-header-mid.png" alt="Feasibility Study Background" className="w-full h-full object-cover opacity-20" />
+        </div>
+        {/* Curved Bottom Edge */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
+          </svg>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative min-h-[400px] lg:min-h-[600px]">
+            <div className="space-y-8">
+              <div>
+                <div className="inline-flex items-center px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-semibold text-white mb-4">
+                  Analytics Map
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                  The Ultimate
+                  <span className="text-emerald-300"> Coworking Intelligence</span>
+                  <br />
+                  <span className="text-4xl md:text-5xl">Superpower for Investors</span>
+                </h1>
+                <p className="text-lg md:text-xl text-slate-200 mb-8 max-w-2xl">
+                  Discover undervalued properties with massive coworking potential. Analyze entire portfolios instantly. 
+                  Find opportunities others miss with our revolutionary market intelligence platform.
+                </p>
               </div>
-              <span>Coming Q2 2025</span>
-              <div className="bg-white/20 px-2 py-1 rounded text-xs font-semibold">
-                PREVIEW
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                  Download a Sample Report
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a href="/book-consultation" className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Schedule a Call
+                </a>
               </div>
             </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              The Ultimate
-              <span className="text-emerald-600"> Coworking Intelligence</span>
-              <br />
-              <span className="text-4xl md:text-5xl">Superpower for Investors</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
-              Discover undervalued properties with massive coworking potential. Analyze entire portfolios instantly. 
-              Find opportunities others miss with our revolutionary market intelligence platform.
-            </p>
-            
-            {!isSubscribed ? (
-              <form onSubmit={handleNotifyMe} className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 px-6 py-4 border-2 border-white/30 rounded-xl text-lg bg-white/15 backdrop-blur-sm text-white placeholder-white/80 focus:ring-2 focus:ring-white/60 focus:border-white/60 shadow-lg"
-                  required
-                />
-                <button 
-                  type="submit"
-                  className="group bg-white text-purple-600 px-8 py-4 rounded-xl text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center relative overflow-hidden shadow-lg"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-50 to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <span className="relative z-10 flex items-center gap-2">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-blue-400/20 animate-pulse"></div>
-                  <span className="relative z-10 flex items-center gap-2">
-                  <Bell className="mr-2 h-5 w-5" />
-                  Notify Me
-                  </span>
-                  </span>
-                </button>
-              </form>
-            ) : (
-              <div className="bg-white/15 backdrop-blur-sm border-2 border-white/30 rounded-xl p-6 max-w-md mx-auto shadow-lg">
-                <div className="flex items-center justify-center gap-2 text-green-800 font-semibold mb-2">
-                  <CheckCircle className="h-5 w-5" />
-                  You're on the list!
+            </div>
+            <div>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20">
+                  <div className="flex items-center gap-4 mb-2">
+                    <MapPin className="h-6 w-6 text-emerald-300" />
+                    <h3 className="font-semibold text-lg">Your Property</h3>
+                  </div>
+                  <p className="text-2xl font-bold">10,000 SF</p>
                 </div>
-                <p className="text-purple-100 text-sm">We'll contact you with exclusive early access details when Analytics Map launches.</p>
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20">
+                  <div className="flex items-center gap-4 mb-2">
+                    <Calculator className="h-6 w-6 text-emerald-300" />
+                    <h3 className="font-semibold text-lg">Startup Costs</h3>
+                  </div>
+                  <p className="text-2xl font-bold">$178,560</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20">
+                  <div className="flex items-center gap-4 mb-2">
+                    <Users className="h-6 w-6 text-emerald-300" />
+                    <h3 className="font-semibold text-lg">Market Saturation:</h3>
+                  </div>
+                  <p className="text-2xl font-bold">37,000 SF Undersupplied</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/20">
+                  <div className="flex items-center gap-4 mb-2">
+                    <CheckCircle className="h-6 w-6 text-emerald-300" />
+                    <h3 className="font-semibold text-lg">Confidence Level:</h3>
+                  </div>
+                  <p className="text-2xl font-bold">High</p>
+                </div>
+                <div className="bg-emerald-300/20 backdrop-blur-lg p-6 rounded-2xl border border-emerald-300/30 col-span-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold text-lg">Recommended Positioning:</h3>
+                    <p className="text-lg font-bold text-emerald-200">Mid-Range Flex</p>
+                  </div>
+                </div>
+                <div className="bg-blue-400/20 backdrop-blur-lg p-6 rounded-2xl border border-blue-400/30 col-span-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold text-lg">Annual Profit at Stability:</h3>
+                    <p className="text-2xl font-bold text-blue-200">$97,340</p>
+                  </div>
+                </div>
               </div>
-            )}
-            
-            <p className="text-sm text-gray-500">
-              Be the first to access the most powerful coworking market intelligence tool ever built
-            </p>
+            </div>
           </div>
         </div>
       </section>

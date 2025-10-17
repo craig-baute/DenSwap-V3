@@ -9,68 +9,56 @@ export const REITsInvestmentFunds: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
-      {/* Hero Section */}
-      <section className="relative bg-brand-primary text-white overflow-hidden py-20">
-        <div className="absolute inset-0 bg-brand-dark opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center min-h-[600px]">
-            <div className="space-y-8">
-              <div>
-                <span className="inline-block bg-white/10 text-white text-sm font-semibold px-4 py-2 rounded-full mb-4">
-                  For REITs & Investment Funds
-                </span>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-                  Discover where coworking can
-                  <span className="text-brand-light"> increase the value</span>
-                  <br />
-                  <span className="text-4xl md:text-5xl">of buildings in your portfolio.</span>
-                </h1>
-                <p className="mt-6 text-lg text-slate-200 max-w-lg">
-                  Coworking won't work everywhere. Our data shines a light on which buildings it will, 
-                  so you can focus time and money to rapidly increase the value of your assets.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="/book-consultation" className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:bg-white/20 transition-all duration-300 inline-flex items-center justify-center">
-                  Request a Portfolio Assessment
-                </a>
-                <a href="/sample-report" className="group bg-brand-light text-white px-8 py-4 rounded-2xl text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
-                  Download Sample Feasibility
-                </a>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-                  <div className="flex items-center gap-4">
-                    <Building className="h-8 w-8 text-brand-light" />
-                    <div>
-                      <p className="font-semibold">Assets Analyzed</p>
-                      <p className="text-2xl font-bold">$500M+</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-                  <div className="flex items-center gap-4">
-                    <TrendingUp className="h-8 w-8 text-brand-light" />
-                    <div>
-                      <p className="font-semibold">Avg. NOI Increase</p>
-                      <p className="text-2xl font-bold">180%</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
-                <p className="font-semibold">Properties Optimized</p>
-                <p className="text-2xl font-bold">150+</p>
-              </div>
-            </div>
-          </div>
+      {/* Hero Section with Clean Design */}
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
+        {/* Background Report Image - Left Side */}
+        <div className="absolute left-0 top-0 bottom-0 w-1/2 overflow-hidden">
+          <img
+            src="/ModernCoworkingSpaceWithPeople.jpg"
+            alt="Modern Coworking Space"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-20 transform scale-110"
+          />
         </div>
+
+        {/* Curved Bottom Edge */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
           <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
           </svg>
+        </div>
+
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left Side - Empty space for background image */}
+              <div className="relative min-h-[400px] lg:min-h-[600px]">
+              </div>
+
+              {/* Content - Right Side */}
+              <div className="space-y-8">
+                <div>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Increase portfolio value based on data,
+                    <span className="text-emerald-300"> not just gut.</span>
+                  </h1>
+                  
+                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
+                    Coworking won't work everywhere. Our data shines a light on which buildings it will, 
+                    so you can focus time and money to rapidly increase the value of your assets. Our feasibility studies and data are based on operating coworking for 14 years.
+                  </p>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="/book-consultation" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    Request a Portfolio Assessment
+                  </a>
+                  <a href="/sample-report" className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center">
+                    Download Sample Feasibility
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

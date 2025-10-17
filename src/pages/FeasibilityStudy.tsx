@@ -3,6 +3,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
 import { CaseStudySection } from '../components/CaseStudySection';
+import { PropertyShowcase } from '../components/PropertyShowcase';
 import { TrendingUp, Building, Users, DollarSign, CheckCircle, ArrowRight, BarChart3, Target, Clock, MapPin, Calculator, PieChart, Settings, Palette, Wifi, FileText, Calendar } from 'lucide-react';
 
 interface CaseStudy {
@@ -233,15 +234,7 @@ export const FeasibilityStudy: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="bg-gradient-to-br from-brand-primary to-brand-light p-8 rounded-2xl">
-                <img
-                  src="/DenSwap Map Webimage copy.png"
-                  alt="DenSwap Market Analysis Map"
-                  className="w-full h-auto rounded-lg shadow-2xl"
-                />
-              </div>
-            </div>
+            <PropertyShowcase />
 
             <div>
               <h2 className="text-h2 text-3xl md:text-4xl font-bold text-gray-900 mb-8">
@@ -367,7 +360,13 @@ export const FeasibilityStudy: React.FC = () => {
       </section>
 
       {/* Critical Questions Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white relative overflow-hidden">
+        <img
+          src="/Blob bottom right.png"
+          alt=""
+          className="absolute -bottom-20 -right-20 w-[700px] h-[700px] object-contain opacity-40 pointer-events-none"
+          style={{ filter: 'brightness(0.95) hue-rotate(160deg) saturate(1.5)' }}
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">We Answer the Critical Questions</h2>

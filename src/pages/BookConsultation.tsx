@@ -4,30 +4,19 @@ import { Footer } from '../components/Footer';
 import { Calendar, Clock, User, CheckCircle, Video, Phone } from 'lucide-react';
 
 export const BookConsultation: React.FC = () => {
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
-  const [consultationType, setConsultationType] = useState('video');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
-    company: '',
-    propertyDetails: ''
+    companyName: '',
+    product: '',
+    location: '',
+    phone: ''
   });
-
-  const timeSlots = [
-    '9:00 AM - 9:30 AM',
-    '10:00 AM - 10:30 AM',
-    '11:00 AM - 11:30 AM',
-    '1:00 PM - 1:30 PM',
-    '2:00 PM - 2:30 PM',
-    '3:00 PM - 3:30 PM',
-    '4:00 PM - 4:30 PM'
-  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle consultation booking
-    console.log('Consultation booked:', { ...formData, selectedTimeSlot, consultationType });
+    console.log('Consultation booked:', formData);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -119,38 +108,6 @@ export const BookConsultation: React.FC = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Book Your Call</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
-                    Consultation Type
-                  </label>
-                  <div className="grid grid-cols-2 gap-4">
-                    <button
-                      type="button"
-                      onClick={() => setConsultationType('video')}
-                      className={`p-4 border-2 rounded-lg flex items-center gap-3 transition-colors ${
-                        consultationType === 'video' 
-                          ? 'border-blue-500 bg-blue-50 text-blue-700' 
-                          : 'border-gray-300 hover:border-gray-400'
-                      }`}
-                    >
-                      <Video className="h-5 w-5" />
-                      <span className="font-medium">Video Call</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setConsultationType('phone')}
-                      className={`p-4 border-2 rounded-lg flex items-center gap-3 transition-colors ${
-                        consultationType === 'phone' 
-                          ? 'border-blue-500 bg-blue-50 text-blue-700' 
-                          : 'border-gray-300 hover:border-gray-400'
-                      }`}
-                    >
-                      <Phone className="h-5 w-5" />
-                      <span className="font-medium">Phone Call</span>
-                    </button>
-                  </div>
-                </div>
-
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -185,6 +142,55 @@ export const BookConsultation: React.FC = () => {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
+                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">
+                      Company Name
+                    </label>
+                    <input
+                      type="text"
+                      id="companyName"
+                      name="companyName"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="product" className="block text-sm font-medium text-gray-700 mb-2">
+                      What product are you interested in?
+                    </label>
+                    <select
+                      id="product"
+                      name="product"
+                      value={formData.product}
+                      onChange={(e) => setFormData(prev => ({ ...prev, product: e.target.value }))}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      <option value="">Select a product</option>
+                      <option value="feasibility-study">Feasibility Study</option>
+                      <option value="demand-report">Demand Report</option>
+                      <option value="franchise-consulting">Franchise Consulting</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
+                      Location
+                    </label>
+                    <input
+                      type="text"
+                      id="location"
+                      name="location"
+                      value={formData.location}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number *
                     </label>
@@ -198,57 +204,6 @@ export const BookConsultation: React.FC = () => {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                   </div>
-
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Company Name
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
-                    Preferred Time Slot
-                  </label>
-                  <div className="grid grid-cols-2 gap-2">
-                    {timeSlots.map((slot) => (
-                      <button
-                        key={slot}
-                        type="button"
-                        onClick={() => setSelectedTimeSlot(slot)}
-                        className={`p-3 text-sm border rounded-lg transition-colors ${
-                          selectedTimeSlot === slot
-                            ? 'border-blue-500 bg-blue-50 text-blue-700'
-                            : 'border-gray-300 hover:border-gray-400'
-                        }`}
-                      >
-                        {slot}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="propertyDetails" className="block text-sm font-medium text-gray-700 mb-2">
-                    Tell us about your property
-                  </label>
-                  <textarea
-                    id="propertyDetails"
-                    name="propertyDetails"
-                    rows={3}
-                    value={formData.propertyDetails}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Location, size, current status, specific questions..."
-                  />
                 </div>
 
                 <button

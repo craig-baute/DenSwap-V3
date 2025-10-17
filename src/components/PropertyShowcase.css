@@ -1,0 +1,141 @@
+/* --- Root Variables for Easy Theming --- */
+:root {
+  --color-bg-container: #1E392A; /* Main dark green from the image */
+  --color-bg-card: #2A4B3A; /* Slightly lighter green for the cards */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #C0C0C0;
+  --color-success: #34D399; /* A vibrant green for the checkmark */
+  --color-failure: #EF4444; /* A clear red for the 'X' */
+  --color-pill-bg: rgba(0, 0, 0, 0.4);
+
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --border-radius-container: 16px;
+  --border-radius-card: 12px;
+}
+
+/* --- Main Container Styling --- */
+.property-showcase-container {
+  background-color: var(--color-bg-container);
+  /* Subtle geometric background pattern inspired by the design */
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M 50 0 L 100 50 L 50 100 L 0 50 Z" stroke="rgba(255,255,255,0.03)" stroke-width="1" fill="none"/></svg>');
+  padding: 2rem;
+  border-radius: var(--border-radius-container);
+  font-family: var(--font-family-sans);
+  max-width: 900px; /* Example max-width */
+  margin: 0 auto; /* Center the component */
+}
+
+/* --- Grid Layout --- */
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* --- Property Card Styling --- */
+.property-card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--border-radius-card);
+  overflow: hidden; /* Ensures the image respects the border-radius */
+  position: relative; /* Anchor for absolutely positioned children */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.property-card:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.property-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Card Image & Pill Tag --- */
+.card-image-wrapper {
+  position: relative;
+}
+
+.property-card img {
+  width: 100%;
+  display: block; /* Removes bottom space under image */
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.property-tag {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--color-pill-bg);
+  color: var(--color-text-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px; /* Pill shape */
+  font-size: 0.75rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px); /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Card Content & Text --- */
+.card-content {
+  padding: 1rem;
+  flex-grow: 1; /* Ensures cards have same height if text wraps */
+}
+
+.property-address {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.property-sqft {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* --- Status Icon (Checkmark / X) --- */
+.status-icon {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-icon.status-success {
+  background-color: var(--color-success);
+}
+
+.status-icon.status-failure {
+  background-color: var(--color-failure);
+}
+
+.status-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+  .property-showcase-container {
+    padding: 1.5rem;
+  }
+
+  .property-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+    gap: 1.5rem;
+  }
+}

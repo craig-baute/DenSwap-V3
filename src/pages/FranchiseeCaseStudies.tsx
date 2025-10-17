@@ -57,65 +57,52 @@ export const FranchiseeCaseStudies: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-50 via-white to-blue-50/40 py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100 to-slate-100 rounded-full blur-3xl opacity-25 -translate-y-1/2 translate-x-1/2"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center px-5 py-2.5 bg-red-100 border border-red-200 rounded-full text-sm font-semibold text-red-800 mb-8 shadow-sm">
-              <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
-              High-Risk Decision Ahead
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Ready to Open a Coworking Space?
-              <br />
-              <span className="text-red-600">First, Let's See If It Will Work.</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
-              DenSwap provides unbiased data and a strategic matching process to ensure your coworking 
-              franchise has the highest chance of success.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <a href="/sample-report" className="group bg-gradient-to-r from-blue-600 to-emerald-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center">
-                Get Your Free Market Feasibility Report
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="/book-consultation" className="group bg-white border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl text-lg font-bold hover:bg-blue-50 hover:shadow-lg transition-all duration-300 inline-flex items-center justify-center">
-                <Calendar className="mr-2 h-5 w-5" />
-                Start Your Free Franchise Match
-              </a>
-            </div>
+      {/* Hero Section with Clean Design */}
+      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
+        {/* Background Report Image - Left Side */}
+        <div className="absolute left-0 top-0 bottom-0 w-1/2 overflow-hidden">
+          <img
+            src="/ModernCoworkingSpaceWithPeople.jpg"
+            alt="Modern Coworking Space"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-20 transform scale-110"
+          />
+        </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-xl shadow-lg">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="text-2xl font-black text-gray-900">$400K</div>
-                  <div className="text-gray-700 text-sm font-medium">Avg. Investment Protected</div>
-                </div>
+        {/* Curved Bottom Edge */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <svg className="w-full h-24" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0 Q600,120 1200,0 L1200,120 L0,120 Z" fill="white" />
+          </svg>
+        </div>
+
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Left Side - Empty space for background image */}
+              <div className="relative min-h-[400px] lg:min-h-[600px]">
               </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-3 rounded-xl shadow-lg">
-                  <Target className="h-6 w-6 text-white" />
+
+              {/* Content - Right Side */}
+              <div className="space-y-8">
+                <div>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Ready to Open a Coworking Space?
+                    <span className="text-red-500"> First, Let's See If It Will Work.</span>
+                  </h1>
+                  
+                  <p className="text-lg md:text-xl text-slate-100 mb-8 leading-relaxed">
+                    DenSwap provides unbiased data and a strategic matching process to ensure your coworking 
+                    franchise has the highest chance of success.
+                  </p>
                 </div>
-                <div className="text-left">
-                  <div className="text-2xl font-black text-gray-900">95%</div>
-                  <div className="text-gray-700 text-sm font-medium">Match Success Rate</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-blue-600 to-emerald-600 p-3 rounded-xl shadow-lg">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-left">
-                  <div className="text-2xl font-black text-gray-900">50+</div>
-                  <div className="text-gray-700 text-sm font-medium">Successful Franchises</div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="/sample-report" className="group bg-white text-slate-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    Get Your Free Market Feasibility Report
+                  </a>
+                  <a href="/book-consultation" className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center">
+                    Start Your Free Franchise Match
+                  </a>
                 </div>
               </div>
             </div>
