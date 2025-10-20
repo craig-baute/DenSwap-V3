@@ -10,11 +10,11 @@ export const REITsInvestmentFunds: React.FC = () => {
       <Header isMobileMenuOpen={false} setIsMobileMenuOpen={() => {}} />
       
       {/* Hero Section with Clean Design */}
-      <section className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-teal-800 text-white overflow-hidden">
+      <section className="relative bg-emerald-700 text-white overflow-hidden">
         {/* Background Report Image - Left Side */}
         <div className="absolute left-0 top-0 bottom-0 w-1/2 overflow-hidden">
           <img
-            src="/ModernCoworkingSpaceWithPeople.jpg"
+            src="/Big Tables.jpg"
             alt="Modern Coworking Space"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-20 transform scale-110"
           />
@@ -95,7 +95,7 @@ export const REITsInvestmentFunds: React.FC = () => {
             </div>
 
             <div className="relative">
-              <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+            <div className="bg-emerald-50 rounded-2xl p-8 shadow-xl border border-gray-200">
                 <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">The Numbers Don't Lie</h3>
                 
                 <div className="space-y-6">
@@ -135,8 +135,58 @@ export const REITsInvestmentFunds: React.FC = () => {
         </div>
       </section>
 
+      {/* New Perspective Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              A New Perspective on Coworking Success
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We use a data-driven approach, backed by 14 years of experience, to identify profitable coworking opportunities that traditional CRE firms miss.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <p className="text-lg text-gray-700">Our methodology goes beyond outdated metrics like census data and traffic counts. We analyze the specific factors that drive coworking demand, such as the local freelance economy, remote work trends, and the presence of specific industries.</p>
+              <p className="text-lg text-gray-700">This allows us to identify markets with strong pricing power, avoid oversaturation, and pinpoint the buildings with the highest potential for success. We don't just find locations; we find opportunities.</p>
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-emerald-50 rounded-xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <BarChart3 className="h-6 w-6 text-emerald-600" />
+                  <span className="font-semibold text-gray-900">Beyond the Obvious</span>
+                </div>
+                <p className="text-sm text-gray-600">We look past surface-level data to uncover the real drivers of coworking demand.</p>
+              </div>
+              <div className="bg-emerald-50 rounded-xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Target className="h-6 w-6 text-emerald-600" />
+                  <span className="font-semibold text-gray-900">Precision Targeting</span>
+                </div>
+                <p className="text-sm text-gray-600">We identify the specific building types and locations that are primed for coworking success.</p>
+              </div>
+              <div className="bg-emerald-50 rounded-xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Shield className="h-6 w-6 text-emerald-600" />
+                  <span className="font-semibold text-gray-900">Risk Mitigation</span>
+                </div>
+                <p className="text-sm text-gray-600">Our analysis helps you avoid oversaturated markets and locations with low pricing power.</p>
+              </div>
+              <div className="bg-emerald-50 rounded-xl p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <Award className="h-6 w-6 text-emerald-600" />
+                  <span className="font-semibold text-gray-900">14 Years of Experience</span>
+                </div>
+                <p className="text-sm text-gray-600">Our data is backed by over a decade of hands-on experience in the coworking industry.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-20 bg-white relative">
+      <section className="py-20 bg-white relative overflow-hidden">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-25 translate-y-1/2 translate-x-1/2"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -197,16 +247,16 @@ export const REITsInvestmentFunds: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-purple-50 rounded-2xl p-8 border border-purple-200">
-              <div className="bg-purple-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <Shield className="h-8 w-8 text-purple-600" />
+            <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-200">
+              <div className="bg-emerald-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                <Shield className="h-8 w-8 text-emerald-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Decreasing Tenant Attrition</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Coworking members have higher retention rates than traditional office tenants because 
                 they're invested in the community and workspace experience, not just square footage.
               </p>
-              <div className="bg-white rounded-lg p-4 border border-purple-200">
+              <div className="bg-white rounded-lg p-4 border border-emerald-200">
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
                     <div className="text-2xl font-bold text-red-600">65%</div>
@@ -214,7 +264,7 @@ export const REITsInvestmentFunds: React.FC = () => {
                     <div className="text-xs text-gray-600">Annual Retention</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-purple-600">85%</div>
+                    <div className="text-2xl font-bold text-emerald-600">85%</div>
                     <div className="text-xs text-gray-600">Coworking</div>
                     <div className="text-xs text-gray-600">Member Retention</div>
                   </div>
@@ -265,18 +315,16 @@ export const REITsInvestmentFunds: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-8">
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-blue-200">
               <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <BarChart3 className="h-8 w-8 text-blue-600" />
+                <MapPin className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Demand Analysis</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Single Location</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Quick coworking potential assessment for any property in your pipeline. Get instant 
-                clarity on which assets deserve further investigation and capital allocation.
+                Get a detailed analysis of a single property to determine its potential as a coworking space.
               </p>
-              
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-blue-500" />
-                  <span className="text-gray-700">Market demand scoring for any ZIP code</span>
+                  <span className="text-gray-700">Market demand scoring</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-blue-500" />
@@ -286,27 +334,17 @@ export const REITsInvestmentFunds: React.FC = () => {
                   <CheckCircle className="h-5 w-5 text-blue-500" />
                   <span className="text-gray-700">Competition saturation analysis</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-blue-500" />
-                  <span className="text-gray-700">Building suitability assessment</span>
-                </div>
               </div>
-
-              <div className="bg-blue-50 rounded-lg p-4 mb-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-blue-800 font-medium">Investment:</span>
-                  <span className="text-2xl font-bold text-blue-900">$500</span>
-                </div>
-                <div className="flex justify-between items-center mt-1">
-                  <span className="text-blue-700 text-sm">Delivery:</span>
-                  <span className="text-blue-800 font-semibold">24 hours</span>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="/demand-report" className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2">
+                  Demand Analysis
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+                <a href="/feasibility-study" className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2">
+                  Feasibility Study
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
-
-              <a href="/demand-report" className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2">
-                Order Demand Analysis
-                <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 border border-emerald-200 relative">
@@ -317,50 +355,28 @@ export const REITsInvestmentFunds: React.FC = () => {
               </div>
               
               <div className="bg-emerald-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                <FileText className="h-8 w-8 text-emerald-600" />
+                <Building className="h-8 w-8 text-emerald-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Feasibility Study</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Portfolio Review</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Comprehensive site evaluation for confident buy/sell/convert decisions. Complete 
-                financial modeling, risk assessment, and implementation roadmap for institutional-grade investments.
+                Let us analyze your entire portfolio to identify the best opportunities for coworking conversions and maximize your returns.
               </p>
-              
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-500" />
-                  <span className="text-gray-700">5-year financial projections & sensitivity analysis</span>
+                  <span className="text-gray-700">Identify top-performing assets for conversion</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-500" />
-                  <span className="text-gray-700">Risk assessment & mitigation strategies</span>
+                  <span className="text-gray-700">Optimize underperforming properties</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-500" />
-                  <span className="text-gray-700">Implementation roadmap & timeline</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-emerald-500" />
-                  <span className="text-gray-700">Management structure recommendations</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-emerald-500" />
-                  <span className="text-gray-700">Exit strategy valuation impact</span>
+                  <span className="text-gray-700">Maximize portfolio-wide returns</span>
                 </div>
               </div>
-
-              <div className="bg-emerald-50 rounded-lg p-4 mb-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-emerald-800 font-medium">Investment:</span>
-                  <span className="text-2xl font-bold text-emerald-900">$3,000+</span>
-                </div>
-                <div className="flex justify-between items-center mt-1">
-                  <span className="text-emerald-700 text-sm">Delivery:</span>
-                  <span className="text-emerald-800 font-semibold">10-20 business days</span>
-                </div>
-              </div>
-
-              <a href="/feasibility-study" className="w-full bg-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-emerald-700 transition-colors inline-flex items-center justify-center gap-2">
-                Request Feasibility Study
+              <a href="/book-consultation" className="w-full bg-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-emerald-700 transition-colors inline-flex items-center justify-center gap-2">
+                Schedule a Call
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
