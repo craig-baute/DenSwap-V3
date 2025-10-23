@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Save, Plus, Edit3, Trash2, ArrowLeft, Building, MapPin, Calendar, Users, DollarSign, TrendingUp, Image, FileText, Star, Eye } from 'lucide-react';
+import { supabase } from '../lib/supabase'; // Import supabase client
 
 export interface CaseStudyProject {
   id: string;
   title: string;
-  subtitle: string;
-  location: string;
-  buildingSize: string;
-  timeline: string;
-  industry: string;
-  challenge: string;
-  solution: string;
-  testimonial: string;
-  clientName: string;
-  clientTitle: string;
-  image: string;
-  results: {
-    occupancy: string;
-    noiIncrease: string;
-    breakeven: string;
-    members: string;
+  subtitle?: string;
+  description: string; // Maps to challenge, solution, results, testimonial
+  metrics?: { // Maps to results object
+    occupancy?: string;
+    noiIncrease?: string;
+    breakeven?: string;
+    members?: string;
   };
-  isFeatured: boolean;
-  isHighlighted: boolean;
-  createdAt: string;
+  challenge?: string;
+  solution?: string;
+  results?: string;
+  client_info?: { // Maps to clientName, clientTitle, testimonial
+    name?: string;
+    title?: string;
+    testimonial?: string;
+  };
+  image_url?: string; // Changed from 'image' to 'image_url'
+  category?: string; // Added category
+  tags?: string[]; // Added tags
+  status: 'draft' | 'published'; // Added status
+  created_at: string; // Changed from 'createdAt' to 'created_at'
+  updated_at: string; // Added 'updated_at'
 }
 
 interface CaseStudyCMSProps {
@@ -34,66 +37,41 @@ export const CaseStudyCMS: React.FC<CaseStudyCMSProps> = ({ onBack }) => {
   const [caseStudyProjects, setCaseStudyProjects] = useState<CaseStudyProject[]>([]);
   const [currentProject, setCurrentProject] = useState<CaseStudyProject | null>(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const savedProjects = localStorage.getItem('caseStudyProjects');
-    if (savedProjects) {
-      setCaseStudyProjects(JSON.parse(savedProjects));
-    } else {
-      // Initialize with sample data
-      const sampleProjects: CaseStudyProject[] = [
-        {
-          id: '1',
-          title: 'Downtown Office Revival',
-          subtitle: 'Transforming a struggling office building into a thriving coworking hub',
-          location: 'Austin, TX',
-          buildingSize: '25,000 SF',
-          timeline: '8 months',
-          industry: 'Commercial Real Estate',
-          challenge: 'A 25,000 SF office building in downtown Austin was struggling with 60% vacancy rates and declining rental income. Traditional office tenants were not renewing leases, and the property was hemorrhaging money.',
-          solution: 'We conducted a comprehensive market analysis and determined the area had strong demand for flexible workspace. Our team designed an optimal space allocation plan with 40% private offices, 35% open coworking, and 25% meeting/common areas.',
-          testimonial: 'DenSwap transformed our struggling asset into our most profitable property. The data-driven approach gave us confidence to invest in the conversion.',
-          clientName: 'Sarah Johnson',
-          clientTitle: 'Property Manager, Austin Commercial Group',
-          image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-          results: {
-            occupancy: '92%',
-            noiIncrease: '+45%',
-            breakeven: '14 months',
-            members: '180'
-          },
-          isFeatured: true,
-          isHighlighted: false,
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: '2',
-          title: 'Suburban Flex Space Success',
-          subtitle: 'Converting traditional office space to meet modern workforce needs',
-          location: 'Plano, TX',
-          buildingSize: '15,000 SF',
-          timeline: '6 months',
-          industry: 'Property Development',
-          challenge: 'A suburban office building was losing tenants to remote work trends. The owner needed a new strategy to attract businesses and professionals in the changing work landscape.',
-          solution: 'Our analysis revealed strong demand for flexible workspace among local entrepreneurs and remote workers. We recommended a hybrid model with dedicated desks, private offices, and collaboration spaces.',
-          testimonial: 'The feasibility study was spot-on. We exceeded our occupancy projections within the first year.',
-          clientName: 'Mike Rodriguez',
-          clientTitle: 'Development Director, Plano Properties',
-          image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-          results: {
-            occupancy: '88%',
-            noiIncrease: '+38%',
-            breakeven: '16 months',
-            members: '125'
-          },
-          isFeatured: false,
-          isHighlighted: true,
-          createdAt: new Date().toISOString()
-        }
-      ];
-      setCaseStudyProjects(sampleProjects);
-      localStorage.setItem('caseStudyProjects', JSON.stringify(sampleProjects));
-    }
+    const fetchCaseStudies = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const { data, error } = await supabase
+          .from('case_studies')
+          .select('*');
+        if (error) throw error;
+        setCaseStudyProjects(data || []);
+      } catch (err: any) {
+        console.error('Error fetching case studies:', err.message);
+        setError('Failed to load case studies. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCaseStudies();
+
+    // Set up real-time subscription
+    const caseStudiesChannel = supabase
+      .channel('public:case_studies_cms')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'case_studies' }, payload => {
+        console.log('Case study change received!', payload);
+        fetchCaseStudies(); // Re-fetch data on any change
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(caseStudiesChannel);
+    };
   }, []);
 
   const saveProjects = (updatedProjects: CaseStudyProject[]) => {

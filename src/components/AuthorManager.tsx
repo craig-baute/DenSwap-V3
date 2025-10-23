@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Save, Plus, Edit3, Trash2, User, Mail, Linkedin, Camera, ArrowLeft } from 'lucide-react';
+import { supabase } from '../lib/supabase'; // Import supabase client
 
 export interface Author {
   id: string;
   name: string;
-  bio: string;
-  photo: string;
+  bio?: string;
+  photo_url?: string; // Changed from 'photo' to 'photo_url'
   email?: string;
-  linkedin?: string;
-  createdAt: string;
+  linkedin_url?: string; // Changed from 'linkedin' to 'linkedin_url'
+  created_at: string; // Changed from 'createdAt' to 'created_at'
+  updated_at: string; // Added 'updated_at'
 }
 
 interface AuthorManagerProps {
@@ -19,106 +21,58 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
   const [authors, setAuthors] = useState<Author[]>([]);
   const [currentAuthor, setCurrentAuthor] = useState<Author | null>(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const savedAuthors = localStorage.getItem('blogAuthors');
-    if (savedAuthors) {
-      setAuthors(JSON.parse(savedAuthors));
-    } else {
-      // Initialize with default authors
-      const defaultAuthors: Author[] = [
-        {
-          id: '1',
-          name: 'DenSwap Analytics Team',
-          bio: 'Our team of coworking industry experts brings over 14 years of hands-on experience in developing, operating, and analyzing flexible workspace markets across multiple states.',
-          photo: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150',
-          email: 'contact@denswap.com',
-          linkedin: 'https://linkedin.com/company/denswap',
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: '2',
-          name: 'Sarah Chen',
-          bio: 'Senior Market Analyst with 8+ years of experience in commercial real estate analytics and coworking market research. Specializes in demand forecasting and competitive analysis.',
-          photo: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=150',
-          email: 'sarah.chen@denswap.com',
-          linkedin: 'https://linkedin.com/in/sarahchen-cre',
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: '3',
-          name: 'Mike Rodriguez',
-          bio: 'Operations Director with extensive experience in coworking space development and management. Led the successful launch of 15+ coworking locations across Texas and California.',
-          photo: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=150',
-          email: 'mike.rodriguez@denswap.com',
-          linkedin: 'https://linkedin.com/in/mikerodriguez-ops',
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: '4',
-          name: 'Jennifer Walsh',
-          bio: 'Financial Modeling Expert and former investment banker turned coworking financial specialist. Creates accurate P&L projections based on real operational data.',
-          photo: 'https://images.pexels.com/photos/3184394/pexels-photo-3184394.jpeg?auto=compress&cs=tinysrgb&w=150',
-          email: 'jennifer.walsh@denswap.com',
-          linkedin: 'https://linkedin.com/in/jenniferwalsh-finance',
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: '5',
-          name: 'Alex Thompson',
-          bio: 'Video Content Specialist and coworking industry educator. Produces educational content and training materials for coworking operators and property investors.',
-          photo: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=150',
-          email: 'alex.thompson@denswap.com',
-          linkedin: 'https://linkedin.com/in/alexthompson-video',
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: '6',
-          name: 'Lisa Chen',
-          bio: 'Remote Work Trends Analyst specializing in the intersection of technology, workplace culture, and commercial real estate. Tracks emerging patterns in flexible work arrangements.',
-          photo: 'https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=150',
-          email: 'lisa.chen@denswap.com',
-          linkedin: 'https://linkedin.com/in/lisachen-trends',
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: '7',
-          name: 'David Park',
-          bio: 'Financial Systems Architect with deep expertise in coworking revenue models and membership dynamics. Develops sophisticated financial frameworks for flexible workspace investments.',
-          photo: 'https://images.pexels.com/photos/3184394/pexels-photo-3184394.jpeg?auto=compress&cs=tinysrgb&w=150',
-          email: 'david.park@denswap.com',
-          linkedin: 'https://linkedin.com/in/davidpark-finance',
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: '8',
-          name: 'Craig Baute',
-          bio: 'Senior Coworking Strategist with 12+ years of experience in flexible workspace development and operations. Specializes in identifying market opportunities and avoiding common pitfalls that lead to coworking failures.',
-          photo: 'https://images.pexels.com/photos/3184330/pexels-photo-3184330.jpeg?auto=compress&cs=tinysrgb&w=150',
-          email: 'craig.baute@denswap.com',
-          linkedin: 'https://linkedin.com/in/craigbaute-coworking',
-          createdAt: new Date().toISOString()
-        }
-      ];
-      setAuthors(defaultAuthors);
-      localStorage.setItem('blogAuthors', JSON.stringify(defaultAuthors));
-    }
+    const fetchAuthors = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const { data, error } = await supabase
+          .from('authors')
+          .select('*');
+        if (error) throw error;
+        setAuthors(data || []);
+      } catch (err: any) {
+        console.error('Error fetching authors:', err.message);
+        setError('Failed to load authors. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAuthors();
+
+    // Set up real-time subscription
+    const authorsChannel = supabase
+      .channel('public:authors_manager')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'authors' }, payload => {
+        console.log('Author change received!', payload);
+        fetchAuthors(); // Re-fetch data on any change
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(authorsChannel);
+    };
   }, []);
 
-  const saveAuthors = (updatedAuthors: Author[]) => {
+  const saveAuthors = async (updatedAuthors: Author[]) => {
+    // This function will be replaced by direct Supabase calls in saveAuthor, deleteAuthor
     setAuthors(updatedAuthors);
-    localStorage.setItem('blogAuthors', JSON.stringify(updatedAuthors));
   };
 
   const createNewAuthor = () => {
     const newAuthor: Author = {
-      id: Date.now().toString(),
+      id: '', // Supabase will generate UUID
       name: '',
       bio: '',
-      photo: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150',
+      photo_url: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150',
       email: '',
-      linkedin: '',
-      createdAt: new Date().toISOString()
+      linkedin_url: '',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
     };
     setCurrentAuthor(newAuthor);
     setIsEditing(true);
@@ -129,33 +83,81 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
     setIsEditing(true);
   };
 
-  const saveAuthor = () => {
-    if (!currentAuthor || !currentAuthor.name.trim() || !currentAuthor.bio.trim()) {
+  const saveAuthor = async () => {
+    if (!currentAuthor || !currentAuthor.name.trim() || !currentAuthor.bio?.trim()) {
       alert('Please fill in name and bio fields');
       return;
     }
 
-    const existingIndex = authors.findIndex(a => a.id === currentAuthor.id);
-    let updatedAuthors;
+    const authorToSave = {
+      ...currentAuthor,
+      updated_at: new Date().toISOString(),
+      photo_url: currentAuthor.photo_url || 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150',
+      linkedin_url: currentAuthor.linkedin_url || '',
+      email: currentAuthor.email || ''
+    };
 
-    if (existingIndex >= 0) {
-      updatedAuthors = [...authors];
-      updatedAuthors[existingIndex] = currentAuthor;
-    } else {
-      updatedAuthors = [...authors, currentAuthor];
+    try {
+      let data, error;
+      if (currentAuthor.id && authors.some(a => a.id === currentAuthor.id)) {
+        // Update existing author
+        ({ data, error } = await supabase
+          .from('authors')
+          .update(authorToSave)
+          .eq('id', currentAuthor.id)
+          .select());
+      } else {
+        // Insert new author
+        ({ data, error } = await supabase
+          .from('authors')
+          .insert(authorToSave)
+          .select());
+      }
+
+      if (error) throw error;
+      console.log('Author saved:', data);
+      // The useEffect real-time subscription will re-fetch and update `authors` state
+      setIsEditing(false);
+      setCurrentAuthor(null);
+    } catch (err: any) {
+      console.error('Error saving author:', err.message);
+      alert('Failed to save author: ' + err.message);
     }
-
-    saveAuthors(updatedAuthors);
-    setIsEditing(false);
-    setCurrentAuthor(null);
   };
 
-  const deleteAuthor = (id: string) => {
+  const deleteAuthor = async (id: string) => {
     if (confirm('Are you sure you want to delete this author?')) {
-      const updatedAuthors = authors.filter(a => a.id !== id);
-      saveAuthors(updatedAuthors);
+      try {
+        const { error } = await supabase
+          .from('authors')
+          .delete()
+          .eq('id', id);
+
+        if (error) throw error;
+        console.log('Author deleted:', id);
+        // The useEffect real-time subscription will re-fetch and update `authors` state
+      } catch (err: any) {
+        console.error('Error deleting author:', err.message);
+        alert('Failed to delete author: ' + err.message);
+      }
     }
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-gray-600">Loading authors...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-red-600">Error: {error}</p>
+      </div>
+    );
+  }
 
   if (isEditing && currentAuthor) {
     return (
@@ -222,8 +224,8 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
                   </label>
                   <input
                     type="url"
-                    value={currentAuthor.linkedin || ''}
-                    onChange={(e) => setCurrentAuthor({ ...currentAuthor, linkedin: e.target.value })}
+                    value={currentAuthor.linkedin_url || ''}
+                    onChange={(e) => setCurrentAuthor({ ...currentAuthor, linkedin_url: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                     placeholder="https://linkedin.com/in/username"
                   />
@@ -235,8 +237,8 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
                   </label>
                   <input
                     type="url"
-                    value={currentAuthor.photo}
-                    onChange={(e) => setCurrentAuthor({ ...currentAuthor, photo: e.target.value })}
+                    value={currentAuthor.photo_url || ''}
+                    onChange={(e) => setCurrentAuthor({ ...currentAuthor, photo_url: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                     placeholder="https://example.com/photo.jpg"
                   />
@@ -252,7 +254,7 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
                     Bio *
                   </label>
                   <textarea
-                    value={currentAuthor.bio}
+                    value={currentAuthor.bio || ''}
                     onChange={(e) => setCurrentAuthor({ ...currentAuthor, bio: e.target.value })}
                     rows={6}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
@@ -260,14 +262,14 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
                   />
                 </div>
 
-                {currentAuthor.photo && (
+                {currentAuthor.photo_url && (
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Photo Preview
                     </label>
                     <div className="flex items-center gap-4">
                       <img
-                        src={currentAuthor.photo}
+                        src={currentAuthor.photo_url}
                         alt="Author preview"
                         className="w-20 h-20 rounded-full object-cover border-2 border-gray-200"
                       />
@@ -316,7 +318,7 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
             <div key={author.id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
               <div className="flex items-start gap-4 mb-4">
                 <img
-                  src={author.photo}
+                  src={author.photo_url || ''}
                   alt={author.name}
                   className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
                 />
@@ -326,7 +328,7 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
                     {author.email && (
                       <Mail className="h-4 w-4 text-gray-400" />
                     )}
-                    {author.linkedin && (
+                    {author.linkedin_url && (
                       <Linkedin className="h-4 w-4 text-blue-600" />
                     )}
                   </div>
@@ -337,7 +339,7 @@ export const AuthorManager: React.FC<AuthorManagerProps> = ({ onBack }) => {
               
               <div className="flex items-center justify-between">
                 <div className="text-xs text-gray-500">
-                  Created {new Date(author.createdAt).toLocaleDateString()}
+                  Created {new Date(author.created_at).toLocaleDateString()}
                 </div>
                 <div className="flex items-center gap-2">
                   <button

@@ -8,37 +8,46 @@ import { TeamMemberCMS } from '../components/TeamMemberCMS';
 import { Save, Plus, CreditCard as Edit3, Trash2, Eye, EyeOff, Calendar, User, FileText, BarChart3, Users, Building, Settings, LogOut, ArrowLeft, Search, Share, Twitter, Code, Target, Video } from 'lucide-react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { supabase } from '../lib/supabase'; // Import supabase client
+
+// Define interfaces for Supabase data
+interface Author {
+  id: string;
+  name: string;
+  bio?: string;
+  photo_url?: string;
+  email?: string;
+  linkedin_url?: string;
+}
 
 interface BlogPost {
   id: string;
   title: string;
-  excerpt: string;
+  excerpt?: string;
   content: string;
-  date: string;
-  readTime: string;
-  category: 'Demand Analysis' | 'Trends and Insights' | 'Videos';
-  image: string;
-  authorId: string;
+  publish_date?: string;
+  read_time?: number;
+  category?: string;
+  image_url?: string;
+  author_id?: string;
   slug: string;
-  isVideo?: boolean;
+  is_video?: boolean;
   status: 'draft' | 'published';
-  tags: string[];
-  createdAt: string;
-  updatedAt: string;
-  seo?: {
-    metaTitle: string;
-    metaDescription: string;
-    focusKeyword: string;
-    ogTitle: string;
-    ogDescription: string;
-    ogImage: string;
-    twitterTitle: string;
-    twitterDescription: string;
-    twitterImage: string;
-    canonicalUrl: string;
-    robots: string;
-    schema: string;
-  };
+  tags?: string[];
+  created_at: string;
+  updated_at: string;
+  seo_title?: string;
+  seo_description?: string;
+  seo_focus_keyword?: string;
+  seo_og_title?: string;
+  seo_og_description?: string;
+  seo_og_image?: string;
+  seo_twitter_title?: string;
+  seo_twitter_description?: string;
+  seo_twitter_image?: string;
+  seo_canonical_url?: string;
+  seo_robots?: string;
+  seo_schema?: string;
 }
 
 export const BlogAdmin: React.FC = () => {
@@ -50,6 +59,9 @@ export const BlogAdmin: React.FC = () => {
   const [availableTags, setAvailableTags] = useState<string[]>([]);
   const [newTag, setNewTag] = useState('');
   const [showTagInput, setShowTagInput] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [authors, setAuthors] = useState<Author[]>([]); // To fetch authors for dropdown
 
   useEffect(() => {
     const adminStatus = localStorage.getItem('blogAdmin');
@@ -57,117 +69,150 @@ export const BlogAdmin: React.FC = () => {
       setIsAuthenticated(true);
     }
 
-    // Load posts from localStorage
-    const savedPosts = localStorage.getItem('blogPosts');
-    if (savedPosts) {
-      setPosts(JSON.parse(savedPosts));
-    }
+    const fetchBlogAdminData = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        // Fetch authors for selection in post editor
+        const { data: authorsData, error: authorsError } = await supabase
+          .from('authors')
+          .select('*');
+        if (authorsError) throw authorsError;
+        setAuthors(authorsData || []);
 
-    // Load available tags
-    const savedTags = localStorage.getItem('blogTags');
-    if (savedTags) {
-      setAvailableTags(JSON.parse(savedTags));
-    } else {
-      // Initialize with default tags
-      const defaultTags = [
-        'coworking', 'commercial real estate', 'market analysis', 'financial modeling',
-        'property investment', 'flexible workspace', 'office space', 'real estate trends',
-        'workspace design', 'business strategy', 'ROI analysis', 'feasibility study',
-        'property management', 'tenant retention', 'space planning', 'revenue optimization'
-      ];
-      setAvailableTags(defaultTags);
-      localStorage.setItem('blogTags', JSON.stringify(defaultTags));
+        // Fetch blog posts
+        const { data: postsData, error: postsError } = await supabase
+          .from('blog_posts')
+          .select('*'); // Fetch all posts (draft and published) for admin view
+        if (postsError) throw postsError;
+        setPosts(postsData || []);
+
+        // Extract unique tags from all posts
+        const allTags = Array.from(new Set(postsData?.flatMap(post => post.tags || []) || []));
+        setAvailableTags(allTags);
+
+      } catch (err: any) {
+        console.error('Error fetching blog admin data:', err.message);
+        setError('Failed to load admin content. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (isAuthenticated) {
+      fetchBlogAdminData();
+
+      // Set up real-time subscriptions for admin panel
+      const postsChannel = supabase
+        .channel('public:blog_posts_admin')
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'blog_posts' }, payload => {
+          console.log('Change received in admin!', payload);
+          fetchBlogAdminData(); // Re-fetch data on any change
+        })
+        .subscribe();
+
+      const authorsChannel = supabase
+        .channel('public:authors_admin')
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'authors' }, payload => {
+          console.log('Change received in admin!', payload);
+          fetchBlogAdminData(); // Re-fetch data on any change
+        })
+        .subscribe();
+
+      return () => {
+        supabase.removeChannel(postsChannel);
+        supabase.removeChannel(authorsChannel);
+      };
     }
-  }, []);
+  }, [isAuthenticated]);
 
   const handleLogin = (success: boolean) => {
     setIsAuthenticated(success);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('blogAdmin');
+    localStorage.removeItem('blogAdmin'); // Keep this for admin login status
     setIsAuthenticated(false);
     setCurrentView('dashboard');
   };
 
-  const savePosts = (updatedPosts: BlogPost[]) => {
+  // These functions will be replaced with Supabase calls
+  const savePosts = async (updatedPosts: BlogPost[]) => {
+    // This function will be replaced by direct Supabase calls in savePost, deletePost, togglePostStatus
     setPosts(updatedPosts);
-    localStorage.setItem('blogPosts', JSON.stringify(updatedPosts));
-    
-    // Trigger storage event for other components
-    window.dispatchEvent(new Event('storage'));
   };
 
-  const saveTags = (updatedTags: string[]) => {
+  const saveTags = async (updatedTags: string[]) => {
+    // For now, tags are extracted from posts. If tags need to be managed separately,
+    // a dedicated tags table in Supabase would be needed.
     setAvailableTags(updatedTags);
-    localStorage.setItem('blogTags', JSON.stringify(updatedTags));
   };
 
   const addNewTag = () => {
     if (newTag.trim() && !availableTags.includes(newTag.trim().toLowerCase())) {
       const updatedTags = [...availableTags, newTag.trim().toLowerCase()].sort();
-      saveTags(updatedTags);
+      setAvailableTags(updatedTags); // Update local state
       setNewTag('');
       setShowTagInput(false);
+      // No direct Supabase call for tags as they are derived from posts
     }
   };
 
   const removeTag = (tagToRemove: string) => {
     const updatedTags = availableTags.filter(tag => tag !== tagToRemove);
-    saveTags(updatedTags);
+    setAvailableTags(updatedTags); // Update local state
     
-    // Remove tag from all posts
+    // Remove tag from all posts in Supabase
     const updatedPosts = posts.map(post => ({
       ...post,
-      tags: post.tags.filter(tag => tag !== tagToRemove)
+      tags: (post.tags || []).filter(tag => tag !== tagToRemove)
     }));
-    savePosts(updatedPosts);
+    // This would ideally be a batch update to Supabase
+    updatedPosts.forEach(async (post) => {
+      await supabase.from('blog_posts').update({ tags: post.tags }).eq('id', post.id);
+    });
+    setPosts(updatedPosts); // Update local state
   };
 
   const togglePostTag = (tag: string) => {
     if (!currentPost) return;
     
-    const updatedTags = currentPost.tags.includes(tag)
-      ? currentPost.tags.filter(t => t !== tag)
-      : [...currentPost.tags, tag];
+    const currentTags = currentPost.tags || [];
+    const updatedTags = currentTags.includes(tag)
+      ? currentTags.filter(t => t !== tag)
+      : [...currentTags, tag];
     
     setCurrentPost({ ...currentPost, tags: updatedTags });
   };
   const createNewPost = () => {
     const newPost: BlogPost = {
-      id: Date.now().toString(),
+      id: '', // Supabase will generate UUID
       title: '',
       excerpt: '',
       content: '',
-      date: new Date().toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      }),
-      readTime: '5 min read',
+      publish_date: new Date().toISOString(),
+      read_time: 5,
       category: 'Trends and Insights',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
-      authorId: '1',
+      image_url: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
+      author_id: authors.length > 0 ? authors[0].id : undefined, // Default to first author if available
       slug: '',
-      isVideo: false,
+      is_video: false,
       status: 'draft',
       tags: [],
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      seo: {
-        metaTitle: '',
-        metaDescription: '',
-        focusKeyword: '',
-        ogTitle: '',
-        ogDescription: '',
-        ogImage: '',
-        twitterTitle: '',
-        twitterDescription: '',
-        twitterImage: '',
-        canonicalUrl: '',
-        robots: 'index,follow',
-        schema: ''
-      }
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      seo_title: '',
+      seo_description: '',
+      seo_focus_keyword: '',
+      seo_og_title: '',
+      seo_og_description: '',
+      seo_og_image: '',
+      seo_twitter_title: '',
+      seo_twitter_description: '',
+      seo_twitter_image: '',
+      seo_canonical_url: '',
+      seo_robots: 'index,follow',
+      seo_schema: ''
     };
     setCurrentPost(newPost);
     setIsEditing(true);
@@ -175,84 +220,161 @@ export const BlogAdmin: React.FC = () => {
 
   const editPost = (post: BlogPost) => {
     // Ensure all properties are properly initialized to prevent undefined errors
-    const safePost = {
+    const safePost: BlogPost = {
       ...post,
       title: post.title || '',
       excerpt: post.excerpt || '',
+      content: post.content || '',
+      slug: post.slug || '',
+      status: post.status || 'draft',
       tags: post.tags || [],
-      seo: {
-        metaTitle: post.seo?.metaTitle || '',
-        metaDescription: post.seo?.metaDescription || '',
-        focusKeyword: post.seo?.focusKeyword || '',
-        ogTitle: post.seo?.ogTitle || '',
-        ogDescription: post.seo?.ogDescription || '',
-        ogImage: post.seo?.ogImage || '',
-        twitterTitle: post.seo?.twitterTitle || '',
-        twitterDescription: post.seo?.twitterDescription || '',
-        twitterImage: post.seo?.twitterImage || '',
-        canonicalUrl: post.seo?.canonicalUrl || '',
-        robots: post.seo?.robots || 'index,follow',
-        schema: post.seo?.schema || '',
-        ...post.seo
-      }
+      created_at: post.created_at || new Date().toISOString(),
+      updated_at: post.updated_at || new Date().toISOString(),
+      publish_date: post.publish_date || new Date().toISOString(),
+      read_time: post.read_time || 5,
+      category: post.category || 'Trends and Insights',
+      image_url: post.image_url || 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
+      author_id: post.author_id || (authors.length > 0 ? authors[0].id : undefined),
+      is_video: post.is_video || false,
+      seo_title: post.seo_title || '',
+      seo_description: post.seo_description || '',
+      seo_focus_keyword: post.seo_focus_keyword || '',
+      seo_og_title: post.seo_og_title || '',
+      seo_og_description: post.seo_og_description || '',
+      seo_og_image: post.seo_og_image || '',
+      seo_twitter_title: post.seo_twitter_title || '',
+      seo_twitter_description: post.seo_twitter_description || '',
+      seo_twitter_image: post.seo_twitter_image || '',
+      seo_canonical_url: post.seo_canonical_url || '',
+      seo_robots: post.seo_robots || 'index,follow',
+      seo_schema: post.seo_schema || ''
     };
     setCurrentPost(safePost);
     setIsEditing(true);
   };
 
-  const savePost = () => {
+  const savePost = async () => {
     if (!currentPost || !currentPost.title.trim()) {
       alert('Please fill in the title field');
       return;
     }
 
     // Generate slug from title if empty
-    if (!currentPost.slug.trim()) {
-      const slug = currentPost.title
+    let postSlug = currentPost.slug.trim();
+    if (!postSlug) {
+      postSlug = currentPost.title
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)/g, '');
-      currentPost.slug = slug;
     }
 
-    const updatedPost = {
+    const postToSave = {
       ...currentPost,
-      updatedAt: new Date().toISOString()
+      slug: postSlug,
+      updated_at: new Date().toISOString(),
+      // Ensure all fields match Supabase schema
+      publish_date: currentPost.publish_date || new Date().toISOString(),
+      read_time: currentPost.read_time || 5,
+      category: currentPost.category || 'Trends and Insights',
+      image_url: currentPost.image_url || 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
+      author_id: currentPost.author_id || (authors.length > 0 ? authors[0].id : undefined),
+      is_video: currentPost.is_video || false,
+      tags: currentPost.tags || [],
+      seo_title: currentPost.seo_title || '',
+      seo_description: currentPost.seo_description || '',
+      seo_focus_keyword: currentPost.seo_focus_keyword || '',
+      seo_og_title: currentPost.seo_og_title || '',
+      seo_og_description: currentPost.seo_og_description || '',
+      seo_og_image: currentPost.seo_og_image || '',
+      seo_twitter_title: currentPost.seo_twitter_title || '',
+      seo_twitter_description: currentPost.seo_twitter_description || '',
+      seo_twitter_image: currentPost.seo_twitter_image || '',
+      seo_canonical_url: currentPost.seo_canonical_url || '',
+      seo_robots: currentPost.seo_robots || 'index,follow',
+      seo_schema: currentPost.seo_schema || ''
     };
 
-    const existingIndex = posts.findIndex(p => p.id === currentPost.id);
-    let updatedPosts;
+    try {
+      let data, error;
+      if (currentPost.id && posts.some(p => p.id === currentPost.id)) {
+        // Update existing post
+        ({ data, error } = await supabase
+          .from('blog_posts')
+          .update(postToSave)
+          .eq('id', currentPost.id)
+          .select());
+      } else {
+        // Insert new post
+        ({ data, error } = await supabase
+          .from('blog_posts')
+          .insert(postToSave)
+          .select());
+      }
 
-    if (existingIndex >= 0) {
-      updatedPosts = [...posts];
-      updatedPosts[existingIndex] = updatedPost;
-    } else {
-      updatedPosts = [...posts, updatedPost];
+      if (error) throw error;
+      console.log('Post saved:', data);
+      // The useEffect real-time subscription will re-fetch and update `posts` state
+      setIsEditing(false);
+      setCurrentPost(null);
+    } catch (err: any) {
+      console.error('Error saving post:', err.message);
+      alert('Failed to save post: ' + err.message);
     }
-
-    savePosts(updatedPosts);
-    setIsEditing(false);
-    setCurrentPost(null);
   };
 
-  const deletePost = (id: string) => {
+  const deletePost = async (id: string) => {
     if (confirm('Are you sure you want to delete this post?')) {
-      const updatedPosts = posts.filter(p => p.id !== id);
-      savePosts(updatedPosts);
+      try {
+        const { error } = await supabase
+          .from('blog_posts')
+          .delete()
+          .eq('id', id);
+
+        if (error) throw error;
+        console.log('Post deleted:', id);
+        // The useEffect real-time subscription will re-fetch and update `posts` state
+      } catch (err: any) {
+        console.error('Error deleting post:', err.message);
+        alert('Failed to delete post: ' + err.message);
+      }
     }
   };
 
-  const togglePostStatus = (id: string) => {
-    const updatedPosts = posts.map(post => 
-      post.id === id 
-        ? { ...post, status: post.status === 'published' ? 'draft' : 'published' as 'draft' | 'published' }
-        : post
-    );
-    savePosts(updatedPosts);
+  const togglePostStatus = async (id: string, currentStatus: 'draft' | 'published') => {
+    const newStatus = currentStatus === 'published' ? 'draft' : 'published';
+    try {
+      const { error } = await supabase
+        .from('blog_posts')
+        .update({ status: newStatus, updated_at: new Date().toISOString() })
+        .eq('id', id);
+
+      if (error) throw error;
+      console.log(`Post ${id} status updated to ${newStatus}`);
+      // The useEffect real-time subscription will re-fetch and update `posts` state
+    } catch (err: any) {
+      console.error('Error updating post status:', err.message);
+      alert('Failed to update post status: ' + err.message);
+    }
   };
 
   if (!isAuthenticated) {
     return <AdminLogin onLogin={handleLogin} />;
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-gray-600">Loading blog admin data...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-red-600">Error: {error}</p>
+      </div>
+    );
   }
 
   // Post Editor View
@@ -313,8 +435,8 @@ export const BlogAdmin: React.FC = () => {
                     Category
                   </label>
                   <select
-                    value={currentPost.category}
-                    onChange={(e) => setCurrentPost({ ...currentPost, category: e.target.value as any })}
+                    value={currentPost.category || ''}
+                    onChange={(e) => setCurrentPost({ ...currentPost, category: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                   >
                     <option value="Demand Analysis">Demand Analysis</option>
@@ -325,14 +447,14 @@ export const BlogAdmin: React.FC = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Read Time
+                    Read Time (minutes)
                   </label>
                   <input
-                    type="text"
-                    value={currentPost.readTime}
-                    onChange={(e) => setCurrentPost({ ...currentPost, readTime: e.target.value })}
+                    type="number"
+                    value={currentPost.read_time || ''}
+                    onChange={(e) => setCurrentPost({ ...currentPost, read_time: parseInt(e.target.value) || undefined })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                    placeholder="e.g., 5 min read"
+                    placeholder="e.g., 5"
                   />
                 </div>
               </div>
@@ -342,7 +464,7 @@ export const BlogAdmin: React.FC = () => {
                   Excerpt
                 </label>
                 <textarea
-                  value={currentPost.excerpt}
+                  value={currentPost.excerpt || ''}
                   onChange={(e) => setCurrentPost({ ...currentPost, excerpt: e.target.value })}
                   rows={3}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
@@ -357,8 +479,8 @@ export const BlogAdmin: React.FC = () => {
                 <div className="space-y-3">
                   <input
                     type="url"
-                    value={currentPost.image}
-                    onChange={(e) => setCurrentPost({ ...currentPost, image: e.target.value })}
+                    value={currentPost.image_url || ''}
+                    onChange={(e) => setCurrentPost({ ...currentPost, image_url: e.target.value })}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                     placeholder="https://example.com/image.jpg"
                   />
@@ -369,10 +491,10 @@ export const BlogAdmin: React.FC = () => {
                   >
                     Or select from Media Library →
                   </button>
-                  {currentPost.image && (
+                  {currentPost.image_url && (
                     <div className="mt-3">
                       <img
-                        src={currentPost.image}
+                        src={currentPost.image_url}
                         alt="Featured image preview"
                         className="w-full h-48 object-cover rounded-lg border border-gray-200"
                       />
@@ -408,8 +530,8 @@ export const BlogAdmin: React.FC = () => {
                 <label className="flex items-center gap-2">
                   <input
                     type="checkbox"
-                    checked={currentPost.isVideo}
-                    onChange={(e) => setCurrentPost({ ...currentPost, isVideo: e.target.checked })}
+                    checked={currentPost.is_video || false}
+                    onChange={(e) => setCurrentPost({ ...currentPost, is_video: e.target.checked })}
                     className="rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
                   />
                   <span className="text-sm font-medium text-gray-700">This is a video post</span>
@@ -486,11 +608,11 @@ export const BlogAdmin: React.FC = () => {
                   )}
                 </div>
                 
-                {currentPost.tags.length > 0 && (
+                {(currentPost.tags || []).length > 0 && (
                   <div className="mt-3">
-                    <p className="text-sm text-gray-600 mb-2">Selected tags ({currentPost.tags.length}):</p>
+                    <p className="text-sm text-gray-600 mb-2">Selected tags ({(currentPost.tags || []).length}):</p>
                     <div className="flex flex-wrap gap-2">
-                      {currentPost.tags.map((tag) => (
+                      {(currentPost.tags || []).map((tag) => (
                         <span
                           key={tag}
                           className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium border border-emerald-300"
@@ -518,10 +640,10 @@ export const BlogAdmin: React.FC = () => {
                     </label>
                     <input
                       type="text"
-                      value={currentPost.seo?.focusKeyword || ''}
+                      value={currentPost.seo_focus_keyword || ''}
                       onChange={(e) => setCurrentPost({ 
                         ...currentPost, 
-                        seo: { ...currentPost.seo, focusKeyword: e.target.value }
+                        seo_focus_keyword: e.target.value 
                       })}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                       placeholder="Main keyword for this post"
@@ -536,17 +658,17 @@ export const BlogAdmin: React.FC = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Meta Title
                       <span className={`ml-2 text-xs ${
-                        (currentPost.seo?.metaTitle || currentPost.title).length > 60 ? 'text-red-500' : 'text-gray-500'
+                        (currentPost.seo_title || currentPost.title).length > 60 ? 'text-red-500' : 'text-gray-500'
                       }`}>
-                        ({(currentPost.seo?.metaTitle || currentPost.title).length}/60)
+                        ({(currentPost.seo_title || currentPost.title).length}/60)
                       </span>
                     </label>
                     <input
                       type="text"
-                      value={currentPost.seo?.metaTitle || ''}
+                      value={currentPost.seo_title || ''}
                       onChange={(e) => setCurrentPost({ 
                         ...currentPost, 
-                        seo: { ...currentPost.seo, metaTitle: e.target.value }
+                        seo_title: e.target.value 
                       })}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                       placeholder={currentPost.title || "Enter meta title"}
@@ -561,16 +683,16 @@ export const BlogAdmin: React.FC = () => {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Meta Description
                       <span className={`ml-2 text-xs ${
-                        (currentPost.seo?.metaDescription || currentPost.excerpt).length > 160 ? 'text-red-500' : 'text-gray-500'
+                        (currentPost.seo_description || currentPost.excerpt || '').length > 160 ? 'text-red-500' : 'text-gray-500'
                       }`}>
-                        ({(currentPost.seo?.metaDescription || currentPost.excerpt).length}/160)
+                        ({(currentPost.seo_description || currentPost.excerpt || '').length}/160)
                       </span>
                     </label>
                     <textarea
-                      value={currentPost.seo?.metaDescription || ''}
+                      value={currentPost.seo_description || ''}
                       onChange={(e) => setCurrentPost({ 
                         ...currentPost, 
-                        seo: { ...currentPost.seo, metaDescription: e.target.value }
+                        seo_description: e.target.value 
                       })}
                       rows={3}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
@@ -586,13 +708,13 @@ export const BlogAdmin: React.FC = () => {
                     <h4 className="text-sm font-medium text-gray-700 mb-3">Search Result Preview</h4>
                     <div className="bg-white rounded border p-4">
                       <div className="text-blue-600 text-lg font-medium hover:underline cursor-pointer">
-                        {currentPost.seo?.metaTitle || currentPost.title || 'Your Post Title'}
+                        {currentPost.seo_title || currentPost.title || 'Your Post Title'}
                       </div>
                       <div className="text-green-600 text-sm">
                         denswap.com/blog/{currentPost.slug || 'your-post-slug'}
                       </div>
                       <div className="text-gray-600 text-sm mt-1">
-                        {currentPost.seo?.metaDescription || currentPost.excerpt || 'Your post description will appear here...'}
+                        {currentPost.seo_description || currentPost.excerpt || 'Your post description will appear here...'}
                       </div>
                     </div>
                   </div>
@@ -606,17 +728,17 @@ export const BlogAdmin: React.FC = () => {
                           <label className="block text-xs text-gray-600 mb-1">
                             OG Title
                             <span className={`ml-1 ${
-                              (currentPost.seo?.ogTitle || currentPost.title).length > 95 ? 'text-red-500' : 'text-gray-500'
+                              (currentPost.seo_og_title || currentPost.title).length > 95 ? 'text-red-500' : 'text-gray-500'
                             }`}>
-                              ({(currentPost.seo?.ogTitle || currentPost.title).length}/95)
+                              ({(currentPost.seo_og_title || currentPost.title).length}/95)
                             </span>
                           </label>
                           <input
                             type="text"
-                            value={currentPost.seo?.ogTitle || ''}
+                            value={currentPost.seo_og_title || ''}
                             onChange={(e) => setCurrentPost({ 
                               ...currentPost, 
-                              seo: { ...currentPost.seo, ogTitle: e.target.value }
+                              seo_og_title: e.target.value 
                             })}
                             className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                             placeholder={currentPost.title || "OG Title"}
@@ -626,16 +748,16 @@ export const BlogAdmin: React.FC = () => {
                           <label className="block text-xs text-gray-600 mb-1">
                             OG Description
                             <span className={`ml-1 ${
-                              (currentPost.seo?.ogDescription || currentPost.excerpt).length > 300 ? 'text-red-500' : 'text-gray-500'
+                              (currentPost.seo_og_description || currentPost.excerpt || '').length > 300 ? 'text-red-500' : 'text-gray-500'
                             }`}>
-                              ({(currentPost.seo?.ogDescription || currentPost.excerpt).length}/300)
+                              ({(currentPost.seo_og_description || currentPost.excerpt || '').length}/300)
                             </span>
                           </label>
                           <textarea
-                            value={currentPost.seo?.ogDescription || ''}
+                            value={currentPost.seo_og_description || ''}
                             onChange={(e) => setCurrentPost({ 
                               ...currentPost, 
-                              seo: { ...currentPost.seo, ogDescription: e.target.value }
+                              seo_og_description: e.target.value 
                             })}
                             rows={2}
                             className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
@@ -646,13 +768,13 @@ export const BlogAdmin: React.FC = () => {
                           <label className="block text-xs text-gray-600 mb-1">OG Image URL</label>
                           <input
                             type="url"
-                            value={currentPost.seo?.ogImage || ''}
+                            value={currentPost.seo_og_image || ''}
                             onChange={(e) => setCurrentPost({ 
                               ...currentPost, 
-                              seo: { ...currentPost.seo, ogImage: e.target.value }
+                              seo_og_image: e.target.value 
                             })}
                             className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                            placeholder={currentPost.image || "OG Image URL"}
+                            placeholder={currentPost.image_url || "OG Image URL"}
                           />
                           <p className="text-xs text-gray-500 mt-1">Recommended: 1200x630px</p>
                         </div>
@@ -666,17 +788,17 @@ export const BlogAdmin: React.FC = () => {
                           <label className="block text-xs text-gray-600 mb-1">
                             Twitter Title
                             <span className={`ml-1 ${
-                              (currentPost.seo?.twitterTitle || currentPost.title).length > 70 ? 'text-red-500' : 'text-gray-500'
+                              (currentPost.seo_twitter_title || currentPost.title).length > 70 ? 'text-red-500' : 'text-gray-500'
                             }`}>
-                              ({(currentPost.seo?.twitterTitle || currentPost.title).length}/70)
+                              ({(currentPost.seo_twitter_title || currentPost.title).length}/70)
                             </span>
                           </label>
                           <input
                             type="text"
-                            value={currentPost.seo?.twitterTitle || ''}
+                            value={currentPost.seo_twitter_title || ''}
                             onChange={(e) => setCurrentPost({ 
                               ...currentPost, 
-                              seo: { ...currentPost.seo, twitterTitle: e.target.value }
+                              seo_twitter_title: e.target.value 
                             })}
                             className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                             placeholder={currentPost.title || "Twitter Title"}
@@ -686,16 +808,16 @@ export const BlogAdmin: React.FC = () => {
                           <label className="block text-xs text-gray-600 mb-1">
                             Twitter Description
                             <span className={`ml-1 ${
-                              (currentPost.seo?.twitterDescription || currentPost.excerpt).length > 200 ? 'text-red-500' : 'text-gray-500'
+                              (currentPost.seo_twitter_description || currentPost.excerpt || '').length > 200 ? 'text-red-500' : 'text-gray-500'
                             }`}>
-                              ({(currentPost.seo?.twitterDescription || currentPost.excerpt).length}/200)
+                              ({(currentPost.seo_twitter_description || currentPost.excerpt || '').length}/200)
                             </span>
                           </label>
                           <textarea
-                            value={currentPost.seo?.twitterDescription || ''}
+                            value={currentPost.seo_twitter_description || ''}
                             onChange={(e) => setCurrentPost({ 
                               ...currentPost, 
-                              seo: { ...currentPost.seo, twitterDescription: e.target.value }
+                              seo_twitter_description: e.target.value 
                             })}
                             rows={2}
                             className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
@@ -706,13 +828,13 @@ export const BlogAdmin: React.FC = () => {
                           <label className="block text-xs text-gray-600 mb-1">Twitter Image URL</label>
                           <input
                             type="url"
-                            value={currentPost.seo?.twitterImage || ''}
+                            value={currentPost.seo_twitter_image || ''}
                             onChange={(e) => setCurrentPost({ 
                               ...currentPost, 
-                              seo: { ...currentPost.seo, twitterImage: e.target.value }
+                              seo_twitter_image: e.target.value 
                             })}
                             className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-                            placeholder={currentPost.image || "Twitter Image URL"}
+                            placeholder={currentPost.image_url || "Twitter Image URL"}
                           />
                           <p className="text-xs text-gray-500 mt-1">Recommended: 1200x600px</p>
                         </div>
@@ -728,10 +850,10 @@ export const BlogAdmin: React.FC = () => {
                       </label>
                       <input
                         type="url"
-                        value={currentPost.seo?.canonicalUrl || ''}
+                        value={currentPost.seo_canonical_url || ''}
                         onChange={(e) => setCurrentPost({ 
                           ...currentPost, 
-                          seo: { ...currentPost.seo, canonicalUrl: e.target.value }
+                          seo_canonical_url: e.target.value 
                         })}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                         placeholder={`https://denswap.com/blog/${currentPost.slug || 'post-slug'}`}
@@ -746,10 +868,10 @@ export const BlogAdmin: React.FC = () => {
                         Robots Meta
                       </label>
                       <select
-                        value={currentPost.seo?.robots || 'index,follow'}
+                        value={currentPost.seo_robots || 'index,follow'}
                         onChange={(e) => setCurrentPost({ 
                           ...currentPost, 
-                          seo: { ...currentPost.seo, robots: e.target.value }
+                          seo_robots: e.target.value 
                         })}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                       >
@@ -767,10 +889,10 @@ export const BlogAdmin: React.FC = () => {
                       Schema Markup (JSON-LD)
                     </label>
                     <textarea
-                      value={currentPost.seo?.schema || ''}
+                      value={currentPost.seo_schema || ''}
                       onChange={(e) => setCurrentPost({ 
                         ...currentPost, 
-                        seo: { ...currentPost.seo, schema: e.target.value }
+                        seo_schema: e.target.value 
                       })}
                       rows={4}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent font-mono text-sm"
@@ -792,9 +914,9 @@ export const BlogAdmin: React.FC = () => {
                             width: `${Math.min(100, (
                               (currentPost.title ? 20 : 0) +
                               (currentPost.excerpt ? 20 : 0) +
-                              (currentPost.seo?.focusKeyword ? 20 : 0) +
-                              (currentPost.seo?.metaDescription || currentPost.excerpt ? 20 : 0) +
-                              (currentPost.tags.length > 0 ? 20 : 0)
+                              (currentPost.seo_focus_keyword ? 20 : 0) +
+                              (currentPost.seo_description || currentPost.excerpt ? 20 : 0) +
+                              ((currentPost.tags || []).length > 0 ? 20 : 0)
                             ))}%` 
                           }}
                         ></div>
@@ -803,9 +925,9 @@ export const BlogAdmin: React.FC = () => {
                         {Math.min(100, (
                           (currentPost.title ? 20 : 0) +
                           (currentPost.excerpt ? 20 : 0) +
-                          (currentPost.seo?.focusKeyword ? 20 : 0) +
-                          (currentPost.seo?.metaDescription || currentPost.excerpt ? 20 : 0) +
-                          (currentPost.tags.length > 0 ? 20 : 0)
+                          (currentPost.seo_focus_keyword ? 20 : 0) +
+                          (currentPost.seo_description || currentPost.excerpt ? 20 : 0) +
+                          ((currentPost.tags || []).length > 0 ? 20 : 0)
                         ))}/100
                       </span>
                     </div>
@@ -817,14 +939,14 @@ export const BlogAdmin: React.FC = () => {
                         <div className={currentPost.excerpt ? 'text-green-600' : 'text-gray-500'}>
                           ✓ Excerpt: {currentPost.excerpt ? 'Good' : 'Missing'}
                         </div>
-                        <div className={currentPost.seo?.focusKeyword ? 'text-green-600' : 'text-gray-500'}>
-                          ✓ Focus Keyword: {currentPost.seo?.focusKeyword ? 'Set' : 'Missing'}
+                        <div className={currentPost.seo_focus_keyword ? 'text-green-600' : 'text-gray-500'}>
+                          ✓ Focus Keyword: {currentPost.seo_focus_keyword ? 'Set' : 'Missing'}
                         </div>
-                        <div className={currentPost.seo?.metaDescription || currentPost.excerpt ? 'text-green-600' : 'text-gray-500'}>
-                          ✓ Meta Description: {currentPost.seo?.metaDescription || currentPost.excerpt ? 'Good' : 'Missing'}
+                        <div className={currentPost.seo_description || currentPost.excerpt ? 'text-green-600' : 'text-gray-500'}>
+                          ✓ Meta Description: {currentPost.seo_description || currentPost.excerpt ? 'Good' : 'Missing'}
                         </div>
-                        <div className={currentPost.tags.length > 0 ? 'text-green-600' : 'text-gray-500'}>
-                          ✓ Tags: {currentPost.tags.length > 0 ? `${currentPost.tags.length} tags` : 'None'}
+                        <div className={(currentPost.tags || []).length > 0 ? 'text-green-600' : 'text-gray-500'}>
+                          ✓ Tags: {(currentPost.tags || []).length > 0 ? `${(currentPost.tags || []).length} tags` : 'None'}
                         </div>
                       </div>
                     </div>
@@ -857,7 +979,7 @@ export const BlogAdmin: React.FC = () => {
   if (currentView === 'media') {
     const handleMediaSelect = (url: string, fileName: string) => {
       if (currentPost) {
-        setCurrentPost({ ...currentPost, image: url });
+        setCurrentPost({ ...currentPost, image_url: url });
         setIsEditing(true);
       }
     };
@@ -955,10 +1077,10 @@ export const BlogAdmin: React.FC = () => {
                     <tr key={post.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <img src={post.image} alt="" className="w-12 h-12 rounded-lg object-cover" />
+                          <img src={post.image_url || ''} alt="" className="w-12 h-12 rounded-lg object-cover" />
                           <div>
                             <div className="font-medium text-gray-900">{post.title}</div>
-                            <div className="text-sm text-gray-500">{post.excerpt.substring(0, 60)}...</div>
+                            <div className="text-sm text-gray-500">{(post.excerpt || '').substring(0, 60)}...</div>
                           </div>
                         </div>
                       </td>
@@ -989,11 +1111,13 @@ export const BlogAdmin: React.FC = () => {
                           {post.status}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">{post.date}</td>
+                      <td className="px-6 py-4 text-sm text-gray-600">
+                        {post.publish_date ? new Date(post.publish_date).toLocaleDateString() : 'N/A'}
+                      </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
                           <button
-                            onClick={() => togglePostStatus(post.id)}
+                            onClick={() => togglePostStatus(post.id, post.status)}
                             className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg"
                             title={post.status === 'published' ? 'Unpublish' : 'Publish'}
                           >
@@ -1106,7 +1230,7 @@ export const BlogAdmin: React.FC = () => {
                 <Users className="h-6 w-6 text-blue-600" />
               </div>
               <div>
-                <div className="text-2xl font-bold text-gray-900">3</div>
+                <div className="text-2xl font-bold text-gray-900">{authors.length}</div>
                 <div className="text-sm text-gray-600">Authors</div>
               </div>
             </div>

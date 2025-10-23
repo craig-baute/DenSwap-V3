@@ -3,21 +3,36 @@ import { Helmet } from 'react-helmet-async';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ContactSection } from '../components/ContactSection';
-import { Author } from '../components/AuthorManager';
 import { Calendar, Clock, ArrowRight, Search, Filter, Youtube, Mail, Play, TrendingUp, BarChart3, Video, Linkedin } from 'lucide-react';
+import { supabase } from '../lib/supabase'; // Import supabase client
+
+// Define interfaces for Supabase data
+interface Author {
+  id: string;
+  name: string;
+  bio?: string;
+  photo_url?: string;
+  email?: string;
+  linkedin_url?: string;
+}
 
 interface BlogPost {
   id: string;
   title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  category: 'Demand Analysis' | 'Trends and Insights' | 'Videos';
-  image: string;
-  authorId: string;
+  excerpt?: string;
+  content: string;
+  publish_date?: string;
+  read_time?: number;
+  category?: string;
+  image_url?: string;
+  author_id?: string;
   slug: string;
-  isVideo?: boolean;
-  tags: string[];
+  is_video?: boolean;
+  status: 'draft' | 'published';
+  tags?: string[];
+  seo_title?: string;
+  seo_description?: string;
+  authors?: Author; // Join with authors table
 }
 
 export const Blog: React.FC = () => {
@@ -29,185 +44,65 @@ export const Blog: React.FC = () => {
   const [authors, setAuthors] = useState<Author[]>([]);
   const [selectedTag, setSelectedTag] = useState<string>('');
   const [availableTags, setAvailableTags] = useState<string[]>([]);
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([
-    {
-      id: '1',
-      title: "The Death of Traditional Office Leasing: Why Coworking is the Future",
-      excerpt: "Corporate America is fundamentally changing how it thinks about office space. Here's what property owners need to know about the shift to flexible workspace solutions.",
-      date: "January 15, 2025",
-      readTime: "5 min read",
-      category: "Trends and Insights",
-      image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "1",
-      slug: "death-of-traditional-office-leasing",
-      tags: ["commercial real estate", "office space", "coworking", "real estate trends"]
-    },
-    {
-      id: '2',
-      title: "Case Study: How One Property Owner Increased NOI by 40% with Coworking",
-      excerpt: "A detailed breakdown of a successful coworking conversion and the data-driven decisions that made it possible. Real numbers, real results.",
-      date: "January 10, 2025",
-      readTime: "8 min read",
-      category: "Demand Analysis",
-      image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "2",
-      slug: "property-owner-40-percent-noi-increase",
-      tags: ["case study", "NOI", "property investment", "financial modeling", "coworking"]
-    },
-    {
-      id: '3',
-      title: "5 Red Flags That Signal Your Building Won't Work for Coworking",
-      excerpt: "Not every property is suitable for flexible workspace. Learn the warning signs before you invest and save yourself from costly mistakes.",
-      date: "January 5, 2025",
-      readTime: "6 min read",
-      category: "Demand Analysis",
-      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "3",
-      slug: "5-red-flags-building-wont-work-coworking",
-      tags: ["market analysis", "property investment", "risk assessment", "coworking", "feasibility study"]
-    },
-    {
-      id: '4',
-      title: "Market Analysis Deep Dive: Austin's Coworking Boom",
-      excerpt: "An in-depth look at Austin's coworking market dynamics, including demand drivers, competition analysis, and future projections for property investors.",
-      date: "December 28, 2024",
-      readTime: "12 min read",
-      category: "Demand Analysis",
-      image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "1",
-      slug: "austin-coworking-market-analysis",
-      tags: ["austin", "market analysis", "coworking", "texas", "demand analysis", "competition"]
-    },
-    {
-      id: '5',
-      title: "The Psychology of Workspace Choice: Why Location Matters More Than Ever",
-      excerpt: "Understanding the human factors that drive coworking demand. It's not just about square footage - it's about community, convenience, and connection.",
-      date: "December 20, 2024",
-      readTime: "7 min read",
-      category: "Trends and Insights",
-      image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "4",
-      slug: "psychology-workspace-choice-location",
-      tags: ["workspace design", "psychology", "location", "coworking", "human behavior"]
-    },
-    {
-      id: '6',
-      title: "Video: How to Read a Coworking Feasibility Report",
-      excerpt: "A 15-minute walkthrough of our comprehensive feasibility reports, explaining key metrics and how to interpret the data for investment decisions.",
-      date: "December 15, 2024",
-      readTime: "15 min watch",
-      category: "Videos",
-      image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "5",
-      slug: "video-how-to-read-feasibility-report",
-      isVideo: true,
-      tags: ["video", "feasibility study", "financial modeling", "investment analysis", "tutorial"]
-    },
-    {
-      id: '7',
-      title: "Remote Work's Impact on Commercial Real Estate: 2025 Outlook",
-      excerpt: "How the permanent shift to remote work is reshaping commercial real estate demand and creating new opportunities for flexible workspace operators.",
-      date: "December 10, 2024",
-      readTime: "9 min read",
-      category: "Trends and Insights",
-      image: "https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "6",
-      slug: "remote-work-impact-cre-2025-outlook",
-      tags: ["remote work", "commercial real estate", "2025 outlook", "flexible workspace", "real estate trends"]
-    },
-    {
-      id: '8',
-      title: "Video: Site Selection Criteria for Successful Coworking Spaces",
-      excerpt: "Join our experts as they walk through a real site evaluation, covering transportation, demographics, competition, and other critical factors.",
-      date: "December 5, 2024",
-      readTime: "22 min watch",
-      category: "Videos",
-      image: "https://images.pexels.com/photos/3184340/pexels-photo-3184340.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "1",
-      slug: "video-site-selection-criteria",
-      isVideo: true,
-      tags: ["video", "site selection", "location analysis", "coworking", "market analysis", "demographics"]
-    },
-    {
-      id: '9',
-      title: "Financial Modeling for Coworking: Beyond Simple Square Footage Calculations",
-      excerpt: "Why traditional CRE financial models fail for coworking and how to build accurate projections that account for membership dynamics and operational complexity.",
-      date: "November 28, 2024",
-      readTime: "11 min read",
-      category: "Demand Analysis",
-      image: "https://images.pexels.com/photos/3184394/pexels-photo-3184394.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "7",
-      slug: "financial-modeling-coworking-beyond-square-footage",
-      tags: ["financial modeling", "coworking", "revenue projections", "membership dynamics", "CRE analysis"]
-    },
-    {
-      id: '10',
-      title: "The Hidden Costs of Coworking: What Your Pro Forma Isn't Telling You",
-      excerpt: "Beyond rent and utilities, successful coworking spaces have operational expenses that traditional CRE models completely miss. Here's what you need to budget for.",
-      date: "January 20, 2025",
-      readTime: "9 min read",
-      category: "Demand Analysis",
-      image: "https://images.pexels.com/photos/3184330/pexels-photo-3184330.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "8",
-      slug: "hidden-costs-coworking-pro-forma",
-      tags: ["hidden costs", "pro forma", "coworking", "operational expenses", "financial planning", "budget"]
-    },
-    {
-      id: '11',
-      title: "Why Most Coworking Spaces Fail in Year Two (And How to Avoid Their Mistakes)",
-      excerpt: "The honeymoon period ends, competition increases, and operational realities set in. Learn from the failures of others to build a sustainable coworking business.",
-      date: "January 18, 2025",
-      readTime: "10 min read",
-      category: "Trends and Insights",
-      image: "https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=600",
-      authorId: "8",
-      slug: "why-coworking-spaces-fail-year-two",
-      tags: ["coworking failure", "business strategy", "operational challenges", "sustainability", "year two", "mistakes"]
-    }
-  ]);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Load posts from localStorage on component mount
   useEffect(() => {
-    // Load authors
-    const loadAuthors = () => {
-      const savedAuthors = localStorage.getItem('blogAuthors');
-      if (savedAuthors) {
-        setAuthors(JSON.parse(savedAuthors));
+    const fetchBlogData = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        // Fetch authors
+        const { data: authorsData, error: authorsError } = await supabase
+          .from('authors')
+          .select('*');
+        if (authorsError) throw authorsError;
+        setAuthors(authorsData || []);
+
+        // Fetch blog posts
+        const { data: postsData, error: postsError } = await supabase
+          .from('blog_posts')
+          .select('*, authors(*)') // Select all post fields and join with author details
+          .eq('status', 'published'); // Only fetch published posts for public view
+        if (postsError) throw postsError;
+        setBlogPosts(postsData || []);
+
+        // Extract unique tags from fetched posts
+        const allTags = Array.from(new Set(postsData?.flatMap(post => post.tags || []) || []));
+        setAvailableTags(allTags);
+
+      } catch (err: any) {
+        console.error('Error fetching blog data:', err.message);
+        setError('Failed to load blog content. Please try again later.');
+      } finally {
+        setLoading(false);
       }
     };
 
-    // Load posts from localStorage (managed by CMS)
-    const loadPosts = () => {
-      const savedPosts = localStorage.getItem('blogPosts');
-      if (savedPosts) {
-        const allPosts = JSON.parse(savedPosts);
-        // Only show published posts on the public blog
-        const publishedPosts = allPosts.filter((post: any) => post.status === 'published');
-        setBlogPosts(publishedPosts);
-      }
-    };
+    fetchBlogData();
 
-    // Load available tags
-    const loadTags = () => {
-      const savedTags = localStorage.getItem('blogTags');
-      if (savedTags) {
-        setAvailableTags(JSON.parse(savedTags));
-      }
-    };
+    // Set up real-time subscriptions
+    const postsChannel = supabase
+      .channel('public:blog_posts')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'blog_posts' }, payload => {
+        console.log('Change received!', payload);
+        fetchBlogData(); // Re-fetch data on any change
+      })
+      .subscribe();
 
-    loadAuthors();
-    loadPosts();
-    loadTags();
-    
-    // Listen for storage changes (when posts are updated in CMS)
-    const handleStorageChange = () => {
-      loadAuthors();
-      loadPosts();
-      loadTags();
+    const authorsChannel = supabase
+      .channel('public:authors')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'authors' }, payload => {
+        console.log('Change received!', payload);
+        fetchBlogData(); // Re-fetch data on any change
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(postsChannel);
+      supabase.removeChannel(authorsChannel);
     };
-    
-    window.addEventListener('storage', handleStorageChange);
-    return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
   const filters = ['All', 'Demand Analysis', 'Trends and Insights', 'Videos'];
